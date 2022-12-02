@@ -9,14 +9,8 @@ package model.Role;
  * @author udaykk
  */
 public abstract class Role {
-    privaet String name;
+    private String name;
 
-    public privaet getString() {
-        return String;
-    }
-
-    public void setString(privaet String) {
-        this.String = String;
-    }
+    
     
 }

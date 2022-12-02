@@ -4,13 +4,79 @@
  */
 package model.Enterprise;
 
-import model.Organisation.Organisation;
+import java.util.ArrayList;
+import model.Organization.Organization;
+import model.Organization.OrganizationDirectory;
+
 /**
  *
  * @author pawan
  */
-public abstract class Enterprise extends Organisation{
+public abstract class Enterprise extends Organization{
     
    
+    private EnterpriseType enterpriseType;
+    private OrganizationDirectory organizationDirectory;
+    private ArrayList<Product> productList;
+
+    public OrganizationDirectory getOrganizationDirectory() {
+        return organizationDirectory;
+    }
+    
+    public enum EnterpriseType{
+        Hospital("Hospital"),
+        ColdStorage("ColdStorage"),
+        Manufacturer("Manufacturer"),
+        Patient("Patient"),
+        Orphanage("Orphanage");
+        
+        private String value;
+        
+        private EnterpriseType(String value){
+            this.value=value;
+        }
+        public String getValue() {
+            return value;
+        }
+        @Override
+        public String toString(){
+        return value;
+    }
+    }
+
+    public EnterpriseType getEnterpriseType() {
+        return enterpriseType;
+    }
+
+    public void setEnterpriseType(EnterpriseType enterpriseType) {
+        this.enterpriseType = enterpriseType;
+    }
+
+    public ArrayList<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(ArrayList<Product> productList) {
+        this.productList = productList;
+    }
+    
+    
+    
+    public Enterprise(String name,EnterpriseType type){
+        super(name);
+        this.enterpriseType=type;
+        organizationDirectory=new OrganizationDirectory();
+        productList = new ArrayList<Product>();
+    }
+    
+    public void restoreProducts(Order order){
+        for(Product prod:order.getProductList()){
+            for(Product product:this.getProductList()){
+                if(product.getName().equals(prod.getName())){
+                    product.setQuantity(product.getQuantity()+prod.getQuantity());
+                }
+            }
+        }
+    }
     
 }
