@@ -17,6 +17,14 @@ public class OrganizationDirectory {
         organizationList = new ArrayList();
     }
 
+    public ArrayList<Organization> getOrganizationList() {
+        return organizationList;
+    }
+
+    public void setOrganizationList(ArrayList<Organization> organizationList) {
+        this.organizationList = organizationList;
+    }
+    
    
     
 }
