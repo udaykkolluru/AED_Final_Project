@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+import model.Network.Network;
 import model.Organisation.Organisation;
 
 /**
@@ -12,4 +14,12 @@ import model.Organisation.Organisation;
  */
 public class EcoSystem extends Organisation{
     
+    private static EcoSystem business;
+    private ArrayList<Network> networkList;
+    public static EcoSystem getInstance(){
+        if(business==null){
+            business=new EcoSystem();
+        }
+        return business;
+    }    
 }
