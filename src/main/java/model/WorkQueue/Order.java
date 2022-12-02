@@ -16,4 +16,14 @@ public class Order extends WorkRequest{
     public Order() {
         productList = new ArrayList<Product>();
     }
+
+    public ArrayList<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(ArrayList<Product> productList) {
+        this.productList = productList;
+    }
+    
+    
 }

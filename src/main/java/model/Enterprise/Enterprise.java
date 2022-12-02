@@ -7,6 +7,8 @@ package model.Enterprise;
 import java.util.ArrayList;
 import model.Organization.Organization;
 import model.Organization.OrganizationDirectory;
+import model.WorkQueue.Order;
+import model.WorkQueue.Product;
 
 /**
  *
