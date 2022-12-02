@@ -4,12 +4,12 @@
  */
 package model.Enterprise;
 
-import model.Organisation.Organisation;
+import model.Organization.Organization;
 /**
  *
  * @author pawan
  */
-public abstract class Enterprise extends Organisation{
+public abstract class Enterprise extends Organization{
     
    
     

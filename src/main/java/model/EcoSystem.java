@@ -6,13 +6,13 @@ package model;
 
 import java.util.ArrayList;
 import model.Network.Network;
-import model.Organisation.Organisation;
+import model.Organization.Organization;
 
 /**
  *
  * @author charanpatnaik
  */
-public class EcoSystem extends Organisation{
+public class EcoSystem extends Organization{
     
     private static EcoSystem business;
     private ArrayList<Network> networkList;

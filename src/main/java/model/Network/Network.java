@@ -4,10 +4,18 @@
  */
 package model.Network;
 
+import model.Enterprise.EnterpriseDirectory;
+
 /**
  *
  * @author charanpatnaik
  */
 public class Network {
     
+    private int id;
+    private String name;
+    private EnterpriseDirectory enterpriseDirectory;
+    public Network(){
+        enterpriseDirectory=new EnterpriseDirectory();
+    }
 }
