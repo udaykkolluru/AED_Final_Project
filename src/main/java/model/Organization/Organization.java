@@ -4,7 +4,9 @@
  */
 package model.Organization;
 
+import java.util.ArrayList;
 import model.Employee.EmployeeDirectory;
+import model.Role.Role;
 import model.UserAccount.UserAccountDirectory;
 import model.WorkQueue.WorkQueue;
 
@@ -12,7 +14,7 @@ import model.WorkQueue.WorkQueue;
  *
  * @author charanpatnaik
  */
-public class Organization {
+public abstract class Organization {
     
     private String name;
     private WorkQueue workQueue;
@@ -50,6 +52,9 @@ public class Organization {
         ++counter;
     }
     
+    public abstract ArrayList<Role> getSupportedRole();
+
+        
     public String getName() {
         return name;
     }
@@ -97,5 +102,6 @@ public class Organization {
     public static void setCounter(int counter) {
         Organization.counter = counter;
     }
+    
     
 }

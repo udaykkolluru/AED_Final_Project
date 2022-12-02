@@ -30,10 +30,10 @@ public class EnterpriseDirectory {
         Enterprise enterprise=null;
         
         if(type==Enterprise.EnterpriseType.Hospital){
-            enterprise=new SuperMarketEnterprise(name);
+            enterprise=new HospitalEnterprise(name);
             enterpriseList.add(enterprise);
         }else if(type==Enterprise.EnterpriseType.ColdStorage){
-            enterprise=new DistributorEnterprise(name);
+            enterprise=new ColdStorageEnterprise(name);
             enterpriseList.add(enterprise);
         }else if(type==Enterprise.EnterpriseType.Manufacturer){
             enterprise=new SupplierEnterprise(name);
