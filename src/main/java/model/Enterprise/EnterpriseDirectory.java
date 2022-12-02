@@ -36,7 +36,7 @@ public class EnterpriseDirectory {
             enterprise=new ColdStorageEnterprise(name);
             enterpriseList.add(enterprise);
         }else if(type==Enterprise.EnterpriseType.Manufacturer){
-            enterprise=new SupplierEnterprise(name);
+            enterprise=new ManufacturerEnterprise(name);
             enterpriseList.add(enterprise);
         }else if(type==Enterprise.EnterpriseType.Orphanage){
             enterprise=new OrphanageEnterprise(name);
