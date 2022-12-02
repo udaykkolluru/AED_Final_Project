@@ -12,19 +12,19 @@ public class Employee {
     private String name;
     private int id;
     private static int count = 1;
-    private String cardNumer;
+    private String cardNumber;
 
-    public String getCardNumer() {
-        return cardNumer;
+    public String getCardNumber() {
+        return cardNumber;
     }
 
-    public void setCardNumer(String cardNumer) {
-        this.cardNumer = cardNumer;
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
     }
     
-    public Employee(String Name, String cardNumber){
+    public Employee(String name, String cardNumber){
         this.name = name;
-        this.cardNumer = cardNumber;
+        this.cardNumber = cardNumber;
     }
 
     public Employee() {
