@@ -2,14 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model.Enterprise;
+package model.WorkQueue;
 
-import model.Organisation.Organisation;
+import java.util.ArrayList;
 /**
  *
- * @author pawan
+ * @author udaykk
  */
-public abstract class Enterprise extends Organisation{
-   
-    
+public class WorkQueue {
+    private ArrayList<WorkRequest> workRequestList;
 }

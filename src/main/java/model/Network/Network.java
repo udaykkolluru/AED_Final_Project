@@ -4,10 +4,44 @@
  */
 package model.Network;
 
+import model.Enterprise.EnterpriseDirectory;
+
 /**
  *
  * @author charanpatnaik
  */
 public class Network {
+    
+    private int id;
+    private String name;
+    private EnterpriseDirectory enterpriseDirectory;
+    public Network(){
+        enterpriseDirectory=new EnterpriseDirectory();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public EnterpriseDirectory getEnterpriseDirectory() {
+        return enterpriseDirectory;
+    }
+
+    public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
+        this.enterpriseDirectory = enterpriseDirectory;
+    }
+    
     
 }
