@@ -20,7 +20,36 @@ public class Organization {
     private UserAccountDirectory userAccountDirectory;
     private int organizationID;
     private static int counter=0;
+    
+     public enum Type{
+        
+        ColdStorageAdmin("ColdStorage Admin"),
+        ManufacturerAdmin("Manufacturer Admin"),
+        Doctor("Doctor Organisation"),
+        DoctorSupervisorOrganisation("Doctor Supervisor Organisation"),
+        AirTransportation("Air Transportation"),
+        RoadTransportation("Road Transportation"), 
+        Patient("Patient"),
+        PatientAdmin("Patient Admin");
+        
+        private String value;
+        private Type(String value) {
+            this.value = value;
+        }
+        public String getValue() {
+            return value;
+        }
+    }
 
+    public Organization(String name) {
+        this.name = name;
+        workQueue = new WorkQueue();
+        employeeDirectory = new EmployeeDirectory();
+        userAccountDirectory = new UserAccountDirectory();
+        organizationID = counter;
+        ++counter;
+    }
+    
     public String getName() {
         return name;
     }
