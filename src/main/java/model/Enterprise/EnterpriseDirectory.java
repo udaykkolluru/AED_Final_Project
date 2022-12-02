@@ -42,7 +42,7 @@ public class EnterpriseDirectory {
             enterprise=new OrphanageEnterprise(name);
             enterpriseList.add(enterprise);
         }else if(type==Enterprise.EnterpriseType.Patient){
-            enterprise=new CustomerEnterprise(name);
+            enterprise=new PatientEnterprise(name);
             enterpriseList.add(enterprise);
             
         }
