@@ -4,15 +4,18 @@
  */
 package model;
 
-import model.Organisation.Organisation;
+
 import java.util.ArrayList;
 import model.Network.Network;
+import model.Organization.Organization;
+import model.Role.Role;
+import model.Role.SystemAdminRole;
 
 /**
  *
  * @author charanpatnaik
  */
-public class EcoSystem extends Organisation{
+public class EcoSystem extends Organization{
     
     private static EcoSystem business;
     private ArrayList<Network> networkList;
@@ -37,6 +40,21 @@ public class EcoSystem extends Organisation{
 
     public void setNetworkList(ArrayList<Network> networkList) {
         this.networkList = networkList;
+    }
+    public Network createAndAddNetwork(){
+        Network network=new Network();
+        networkList.add(network);
+        return network;
+    }
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        ArrayList<Role> roleList=new ArrayList<Role>();
+        roleList.add(new SystemAdminRole());
+        return roleList;
+    }
+    private EcoSystem(){
+        super(null);
+        networkList=new ArrayList<Network>();
     }
     
 }

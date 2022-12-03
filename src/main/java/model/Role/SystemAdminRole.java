@@ -8,6 +8,6 @@ package model.Role;
  *
  * @author udaykk
  */
-public class SystemAdmin {
+public class SystemAdminRole extends Role  {
     
 }
