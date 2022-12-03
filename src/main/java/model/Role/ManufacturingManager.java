@@ -8,6 +8,6 @@ package model.Role;
  *
  * @author udaykk
  */
-public class ManufacturingManager {
+public class ManufacturingManager extends Role {
     
 }

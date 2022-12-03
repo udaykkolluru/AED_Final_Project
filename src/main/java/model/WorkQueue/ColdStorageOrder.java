@@ -16,4 +16,13 @@ public class ColdStorageOrder extends WorkRequest{
     public ColdStorageOrder() {
         productList = new ArrayList<Product>();
     }
+
+    public ArrayList<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(ArrayList<Product> productList) {
+        this.productList = productList;
+    }
+    
 }

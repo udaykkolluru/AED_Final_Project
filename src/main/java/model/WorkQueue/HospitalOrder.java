@@ -16,4 +16,13 @@ public class HospitalOrder extends WorkRequest{
     public HospitalOrder() {
         productList = new ArrayList<Product>();
     }
+
+    public ArrayList<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(ArrayList<Product> productList) {
+        this.productList = productList;
+    }
+    
 }

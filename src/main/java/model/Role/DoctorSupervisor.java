@@ -8,6 +8,6 @@ package model.Role;
  *
  * @author udaykk
  */
-public class DoctorSupervisor {
+public class DoctorSupervisor extends Role{
     
 }

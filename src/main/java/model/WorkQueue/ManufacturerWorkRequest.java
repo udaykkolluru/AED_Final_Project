@@ -23,4 +23,5 @@ public class ManufacturerWorkRequest extends WorkRequest{
     public String toString(){
         return this.getMessage();
     }
+    
 }
