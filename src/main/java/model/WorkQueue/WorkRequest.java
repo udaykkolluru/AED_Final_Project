@@ -11,19 +11,19 @@ import model.UserAccount.UserAccount;
  * @author udaykk
  */
 public class WorkRequest {
-    private String name;
+    private String message;
     private UserAccount sender;
     private UserAccount receiver;
     private String status;
 
-    public String getName() {
-        return name;
+    public String getMessage() {
+        return message;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMessage(String message) {
+        this.message = message;
     }
-
+   
     public UserAccount getSender() {
         return sender;
     }

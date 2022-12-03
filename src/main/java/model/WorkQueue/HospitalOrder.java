@@ -4,10 +4,16 @@
  */
 package model.WorkQueue;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author udaykk
  */
 public class HospitalOrder extends WorkRequest{
-    
+    ArrayList<Product> productList;
+
+    public HospitalOrder() {
+        productList = new ArrayList<Product>();
+    }
 }

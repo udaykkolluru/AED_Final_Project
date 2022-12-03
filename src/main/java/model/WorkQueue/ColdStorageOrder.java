@@ -4,10 +4,16 @@
  */
 package model.WorkQueue;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author udaykk
  */
 public class ColdStorageOrder extends WorkRequest{
-    
+    ArrayList<Product> productList;
+
+    public ColdStorageOrder() {
+        productList = new ArrayList<Product>();
+    }
 }

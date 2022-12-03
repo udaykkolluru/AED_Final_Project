@@ -31,5 +31,62 @@ public class Product {
     public String toString(){
         return name;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getDistributorPrice() {
+        return distributorPrice;
+    }
+
+    public void setDistributorPrice(int distributorPrice) {
+        this.distributorPrice = distributorPrice;
+    }
+
+    public int getSuperMarketPrice() {
+        return superMarketPrice;
+    }
+
+    public void setSuperMarketPrice(int superMarketPrice) {
+        this.superMarketPrice = superMarketPrice;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public static int getIdCount() {
+        return idCount;
+    }
+
+    public static void setIdCount(int idCount) {
+        Product.idCount = idCount;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
     
 }
