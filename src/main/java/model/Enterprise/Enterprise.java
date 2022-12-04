@@ -7,12 +7,16 @@ package model.Enterprise;
 import java.util.ArrayList;
 import model.Organization.Organization;
 import model.Organization.OrganizationDirectory;
+import model.WorkQueue.Order;
+import model.WorkQueue.Product;
 
 /**
  *
  * @author pawan
  */
 public abstract class Enterprise extends Organization{
+    
+   
     private EnterpriseType enterpriseType;
     private OrganizationDirectory organizationDirectory;
     private ArrayList<Product> productList;

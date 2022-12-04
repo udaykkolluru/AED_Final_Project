@@ -43,5 +43,8 @@ public class Network {
         this.enterpriseDirectory = enterpriseDirectory;
     }
     
-    
+    @Override
+    public String toString(){
+        return name;
+    }
 }
