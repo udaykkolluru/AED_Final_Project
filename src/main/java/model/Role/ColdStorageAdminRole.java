@@ -8,6 +8,6 @@ package model.Role;
  *
  * @author udaykk
  */
-public class ColdStorageAdmin extends Role{
+public class ColdStorageAdminRole extends Role{
     
 }

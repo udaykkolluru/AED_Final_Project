@@ -4,19 +4,24 @@
  */
 package model.Organization;
 
+import java.util.ArrayList;
+import model.Role.Doctor;
+import model.Role.ManufacturingManager;
+import model.Role.Role;
+
 /**
  *
  * @author charanpatnaik
  */
-public class CustomerAdmin extends Organization{
-    public CustomerAdmin() {
-        super(Organization.Type.CustomerAdmin.getValue());
+public class ManufacturerAdminOrganization extends Organization{
+    public ManufacturerAdminOrganization() {
+        super(Organization.Type.ManufacturerAdmin.getValue());
     }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new DistributorAdminRole());
+        roles.add(new ManufacturingManager());
         return roles;
     }
 }

@@ -3,26 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model.Organization;
-
 import java.util.ArrayList;
-import model.Role.Pilot;
+import model.Role.DoctorSupervisor;
 import model.Role.Role;
-
 /**
  *
  * @author charanpatnaik
  */
-public class AirTransportationOrganization extends Organization{
-    
-    public AirTransportationOrganization() {
-        super(Organization.Type.AirTransportation.getValue());
+
+public class DoctorSupervisorOrganization extends Organization{
+    public DoctorSupervisorOrganization() {
+        super(Organization.Type.DoctorSupervisorOrganization.getValue());
     }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new Pilot());
+        roles.add(new DoctorSupervisor());
         return roles;
     }
-    
 }

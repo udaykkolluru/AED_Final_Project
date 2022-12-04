@@ -4,20 +4,23 @@
  */
 package model.Organization;
 
+import java.util.ArrayList;
+import model.Role.Patient;
+import model.Role.Role;
 /**
  *
  * @author charanpatnaik
  */
-public class CustomerOrganization extends Organization{
+public class PatientOrganization extends Organization{
 
-    public CustomerOrganization() {
-        super(Organization.Type.Customer.getValue());
+    public PatientOrganization() {
+        super(Organization.Type.Patient.getValue());
     }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new CustomerRole());
+        roles.add(new Patient());
         return roles;
     }
 }

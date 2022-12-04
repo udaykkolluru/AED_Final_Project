@@ -5,21 +5,22 @@
 package model.Organization;
 
 import java.util.ArrayList;
+import model.Role.ColdStorageAdminRole;
 import model.Role.Role;
 
 /**
  *
  * @author charanpatnaik
  */
-public class CareTakerOrganization {
-    public CareTakerOrganization() {
-        super(Organization.Type.CareTaker.getValue());
+public class PatientAdmin extends Organization{
+    public PatientAdmin() {
+        super(Organization.Type.PatientAdmin.getValue());
     }
-    
+
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new CareTakerRole());
+        roles.add(new ColdStorageAdminRole());
         return roles;
-    }  
+    }
 }

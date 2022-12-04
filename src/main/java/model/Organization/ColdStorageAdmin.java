@@ -4,19 +4,23 @@
  */
 package model.Organization;
 
+import java.util.ArrayList;
+import model.Role.Role;
+import model.Role.ColdStorageAdminRole;
+
 /**
  *
  * @author charanpatnaik
  */
-public class DistributorAdmin extends Organization{
-    public DistributorAdmin() {
-        super(Organization.Type.DistributorAdmin.getValue());
+public class ColdStorageAdmin extends Organization{
+    public ColdStorageAdmin() {
+        super(Organization.Type.ColdStorageAdmin.getValue());
     }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new DistributorAdminRole());
+        roles.add(new ColdStorageAdminRole());
         return roles;
     }
 }

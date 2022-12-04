@@ -28,7 +28,7 @@ public abstract class Organization {
         ColdStorageAdmin("ColdStorage Admin"),
         ManufacturerAdmin("Manufacturer Admin"),
         Doctor("Doctor Organization"),
-        DoctorSupervisorOrganisation("Doctor Supervisor Organization"),
+        DoctorSupervisorOrganization("Doctor Supervisor Organization"),
         AirTransportation("Air Transportation"),
         RoadTransportation("Road Transportation"), 
         Patient("Patient"),
