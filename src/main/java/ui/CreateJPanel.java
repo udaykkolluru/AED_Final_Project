@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.neuuday.assignment1.ui;
+package ui;
 
 import com.neuuday.assignment1.model.ContactInfo;
 import com.neuuday.assignment1.model.Employee;
@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import com.neuuday.assignment1.util.UtilClass;
+import util.UtilClass;
 import java.util.Date;
 
 /**
