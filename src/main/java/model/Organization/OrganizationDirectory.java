@@ -24,6 +24,10 @@ public class OrganizationDirectory {
     public void setOrganizationList(ArrayList<Organization> organizationList) {
         this.organizationList = organizationList;
     }
+
+    public void createOrganization(Organization.Type type) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
    
     
