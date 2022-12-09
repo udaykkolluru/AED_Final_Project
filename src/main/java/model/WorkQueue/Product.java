@@ -88,5 +88,12 @@ public class Product {
         this.description = description;
     }
     
+     public void addQuantity(){
+        quantity = quantity+1;
+    }
+    
+    public void reduceQuantity(){
+        quantity -= 1;
+    }
     
 }

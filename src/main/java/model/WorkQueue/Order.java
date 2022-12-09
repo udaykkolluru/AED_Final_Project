@@ -24,6 +24,10 @@ public class Order extends WorkRequest{
     public void setProductList(ArrayList<Product> productList) {
         this.productList = productList;
     }
+
+    public Object totalDistributor() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
 }
