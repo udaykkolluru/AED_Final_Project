@@ -17,17 +17,20 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import util.TwilioSMSUtil;
 
 /**
  *
  * @author udaykk
  */
 public class Payment extends javax.swing.JPanel {
+
     Enterprise enterprise;
     WorkRequest workRequest;
     JPanel userProcessContainer;
     EcoSystem ecoSystem;
     Order order;
+
     /**
      * Creates new form Payment
      */
@@ -59,7 +62,8 @@ public class Payment extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         lblTotal = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jtxtMobile = new javax.swing.JTextField();
 
         setLayout(null);
 
@@ -67,9 +71,9 @@ public class Payment extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(179, 173, 162, 14);
 
-        jLabel2.setText("CardNumber");
+        jLabel2.setText("Mobile No");
         add(jLabel2);
-        jLabel2.setBounds(179, 217, 162, 14);
+        jLabel2.setBounds(180, 250, 162, 14);
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +83,7 @@ public class Payment extends javax.swing.JPanel {
         add(txtName);
         txtName.setBounds(404, 168, 162, 18);
         add(txtCard);
-        txtCard.setBounds(404, 212, 162, 18);
+        txtCard.setBounds(410, 210, 162, 18);
 
         btnCompletePayment.setText("Complete payment");
         btnCompletePayment.addActionListener(new java.awt.event.ActionListener() {
@@ -107,10 +111,11 @@ public class Payment extends javax.swing.JPanel {
         add(jLabel3);
         jLabel3.setBounds(179, 134, 162, 14);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/payment.jpeg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        add(jLabel4);
-        jLabel4.setBounds(0, 0, 1070, 600);
+        jLabel5.setText("CardNumber");
+        add(jLabel5);
+        jLabel5.setBounds(179, 217, 162, 14);
+        add(jtxtMobile);
+        jtxtMobile.setBounds(410, 250, 162, 18);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -119,15 +124,15 @@ public class Payment extends javax.swing.JPanel {
 
     private void btnCompletePaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletePaymentActionPerformed
         // TODO add your handling code here:
-        if(order.getProductList().size()==0){
+        if (order.getProductList().size() == 0) {
             JOptionPane.showMessageDialog(this, "Please add items to the cart");
             return;
         }
-        if(txtCard.getText().isEmpty() || txtName.getText().isEmpty()){
+        if (txtCard.getText().isEmpty() || txtName.getText().isEmpty() || jtxtMobile.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "All fields are mandatory");
             return;
         }
-        if(checkCardValid(txtCard.getText())){
+        if (checkCardValid(txtCard.getText())) {
             Employee customer = new Employee(txtName.getText(), txtCard.getText());
             Order newOrder = new Order();
             newOrder.setSender(order.getSender());
@@ -135,18 +140,22 @@ public class Payment extends javax.swing.JPanel {
             newOrder.setSenderEnterprise(order.getSenderEnterprise());
             newOrder.setReceiverEnterprise(order.getReceiverEnterprise());
             newOrder.setStatus("waiting for supermarket to accept");
-            for(Product prod:order.getProductList()){
+            for (Product prod : order.getProductList()) {
                 newOrder.getProductList().add(prod);
             }
             ecoSystem.getWorkQueue().getWorkRequestList().add(newOrder);
             order.getProductList().clear();
-            JOptionPane.showMessageDialog(this, "Thankyou for shopping with us");
+            String mobile = "+1" + jtxtMobile.getText();
+            TwilioSMSUtil
+                    .sendTextMessage(mobile,
+                            "Hi " + txtName.getText() + ", " + "Thank you for choosing us. Your payment has been debited from Card ending xxxx" + txtCard.getText().substring(12)+". Stay safe and Healthy.");
             workRequest.setStatus("waiting for supermarket admin to accept");
-            System.out.println("order placed");
-        }else{
+            JOptionPane.showMessageDialog(this, "Thankyou for shopping with us");
+
+        } else {
             JOptionPane.showMessageDialog(this, "Please enter valid card number");
         }
-        
+
     }//GEN-LAST:event_btnCompletePaymentActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -168,12 +177,13 @@ public class Payment extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField jtxtMobile;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JTextField txtCard;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
-    public boolean checkCardValid(String card){
+    public boolean checkCardValid(String card) {
         Pattern pattern = Pattern.compile("[0-9]{16}", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(card);
         return matcher.find();
