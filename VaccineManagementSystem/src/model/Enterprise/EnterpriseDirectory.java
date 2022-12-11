@@ -22,29 +22,32 @@ public class EnterpriseDirectory {
     }
     
     public EnterpriseDirectory(){
-        enterpriseList=new ArrayList<Enterprise>();
+        enterpriseList=new ArrayList<>();
     }
     
     //Create enterprise
     public Enterprise createAndAddEnterprise(String name,Enterprise.EnterpriseType type){
         Enterprise enterprise=null;
         
-        if(type==Enterprise.EnterpriseType.Hospital){
-            enterprise=new HospitalEnterprise(name);
-            enterpriseList.add(enterprise);
-        }else if(type==Enterprise.EnterpriseType.FDA){
-            enterprise=new FDAEnterprise(name);
-            enterpriseList.add(enterprise);
-        }else if(type==Enterprise.EnterpriseType.Manufacturer){
-            enterprise=new ManufacturerEnterprise(name);
-            enterpriseList.add(enterprise);
-        }else if(type==Enterprise.EnterpriseType.Orphanage){
-            enterprise=new OrphanageEnterprise(name);
-            enterpriseList.add(enterprise);
-        }else if(type==Enterprise.EnterpriseType.Patient){
-            enterprise=new PatientEnterprise(name);
-            enterpriseList.add(enterprise);
-            
+        if(null!=type)switch (type) {
+            case Hospital:
+                enterprise=new HospitalEnterprise(name);
+                enterpriseList.add(enterprise);
+                break;
+            case FDA:
+                enterprise=new FDAEnterprise(name);
+                enterpriseList.add(enterprise);
+                break;
+            case Manufacturer:
+                enterprise=new ManufacturerEnterprise(name);
+                enterpriseList.add(enterprise);
+                break;
+            case Patient:
+                enterprise=new PatientEnterprise(name);
+                enterpriseList.add(enterprise);
+                break;
+            default:
+                break;
         }
         return enterprise;
     }

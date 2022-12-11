@@ -10,6 +10,7 @@ import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 import com.db4o.config.EmbeddedConfiguration;
+import com.db4o.query.Predicate;
 import com.db4o.ta.TransparentPersistenceSupport;
 import model.ConfigureASystem;
 
@@ -65,6 +66,7 @@ public class DB4OHelper {
     
     public EcoSystem retrieveSystem(){
         ObjectContainer conn = createConnection();
+//        deleteOldSystem(conn);
         ObjectSet<EcoSystem> systems = conn.query(EcoSystem.class); // Change to the object you want to save
         EcoSystem system;
         if (systems.size() == 0){
@@ -76,4 +78,16 @@ public class DB4OHelper {
         conn.close();
         return system;
     }
+    
+//       public void deleteOldSystem(ObjectContainer conn) {
+//       ObjectSet<EcoSystem> systems = conn.query(new Predicate<EcoSystem>() {
+//           @Override
+//           public boolean match(EcoSystem et) {
+//               return true;
+//           }
+//       });
+//       for (EcoSystem ecoSystem : systems) {
+//           conn.delete(ecoSystem);
+//       }
+
 }

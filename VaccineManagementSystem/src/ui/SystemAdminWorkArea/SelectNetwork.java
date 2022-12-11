@@ -74,8 +74,8 @@ public class SelectNetwork extends javax.swing.JPanel {
         // TODO add your handling code here:
         for(Network network:ecoSystem.getNetworkList()){
             if(cboxNetwork.getSelectedItem().toString().equals(network.getName())){
-////                VaccineAnalyticsJPanel manageEnterpriseAdminJPanel=new VaccineAnalyticsJPanel(userProcessContainer, ecoSystem, network.getName());
-//                userProcessContainer.add("manageEnterpriseAdminJPanel",manageEnterpriseAdminJPanel);
+                VaccineAnalyticsReportsJPanel manageEnterpriseAdminJPanel=new VaccineAnalyticsReportsJPanel(userProcessContainer, ecoSystem, network.getName());
+                userProcessContainer.add("manageEnterpriseAdminJPanel",manageEnterpriseAdminJPanel);
                 CardLayout layout=(CardLayout)userProcessContainer.getLayout();
                 layout.next(userProcessContainer);
             }
