@@ -145,7 +145,6 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
-        // TODO add your handling code here:
         int selectedRow = tblRequest.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select an item");
@@ -168,7 +167,6 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
-        // TODO add your handling code here:
         int selectedRow = tblRequest.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select an item");

@@ -70,7 +70,6 @@ public class ProcessHeavyRequests extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         if(order.getStatus().toLowerCase().contains("success") || order.getStatus().toLowerCase().contains("fail")){
            JOptionPane.showMessageDialog(this, "Cannot complete this order");
            return; 
