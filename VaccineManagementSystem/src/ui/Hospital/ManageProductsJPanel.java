@@ -77,7 +77,7 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Product", "Description", "Distributor Price", "Market Price", "Quantity"
+                "Product", "Description", "FDA Price", "Market Price", "Quantity"
             }
         ));
         jScrollPane2.setViewportView(tblProduct);
@@ -149,7 +149,7 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
             Object[] row = new Object[5];
             row[0] = product;
             row[1] = product.getDescription();
-            row[2] = product.getDistributorPrice();
+            row[2] = product.getFDAPrice();
             row[3] = product.getSuperMarketPrice();
             row[4] = product.getQuantity();
             model.addRow(row);

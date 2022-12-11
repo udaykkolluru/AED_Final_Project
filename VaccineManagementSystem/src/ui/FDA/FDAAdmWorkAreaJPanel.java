@@ -20,7 +20,7 @@ public class FDAAdmWorkAreaJPanel extends javax.swing.JPanel {
     UserAccount userAccount;
     EcoSystem ecoSystem;
     /**
-     * Creates new form DistributorAdmWorkAreaJPanel
+     * Creates new form FDAAdmWorkAreaJPanel
      */
     public FDAAdmWorkAreaJPanel(JPanel userJPanel, Enterprise enterprise, EcoSystem ecoSystem, UserAccount userAccount) {
         this.userProcessContainer = userJPanel;
@@ -115,8 +115,8 @@ public class FDAAdmWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageEmployeeJButtonActionPerformed
 
     private void btnBuyProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyProductsActionPerformed
-        ManageProduct buyProductsFromDistributorJPanel = new ManageProduct(userProcessContainer, enterprise);
-        userProcessContainer.add("manageEmployeeJPanel", buyProductsFromDistributorJPanel);
+        ManageProduct buyProductsFromFDAJPanel = new ManageProduct(userProcessContainer, enterprise);
+        userProcessContainer.add("manageEmployeeJPanel", buyProductsFromFDAJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

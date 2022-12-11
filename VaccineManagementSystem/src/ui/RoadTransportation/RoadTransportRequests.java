@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author pawan
  */
-public class ManageLightRequests extends javax.swing.JPanel {
+public class RoadTransportRequests extends javax.swing.JPanel {
 
     JPanel userProcessConatiner;
     Enterprise enterprise;
@@ -28,7 +28,7 @@ public class ManageLightRequests extends javax.swing.JPanel {
     /**
      * Creates new form ManageRequests
      */
-    public ManageLightRequests(JPanel userProcessConatiner, Enterprise enterprise, UserAccount userAccount, EcoSystem ecoSystem) {
+    public RoadTransportRequests(JPanel userProcessConatiner, Enterprise enterprise, UserAccount userAccount, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessConatiner = userProcessConatiner;
         this.enterprise = enterprise;
@@ -71,7 +71,7 @@ public class ManageLightRequests extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblRequest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(307, 148, 454, 182);
+        jScrollPane1.setBounds(307, 148, 453, 182);
 
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,7 +87,7 @@ public class ManageLightRequests extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblDetails);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(307, 534, 454, 160);
+        jScrollPane2.setBounds(307, 534, 453, 160);
 
         btnProcess.setText("Process");
         btnProcess.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +96,7 @@ public class ManageLightRequests extends javax.swing.JPanel {
             }
         });
         add(btnProcess);
-        btnProcess.setBounds(634, 413, 127, 29);
+        btnProcess.setBounds(634, 413, 127, 24);
 
         btnOrderDetails.setText("Order Details");
         btnOrderDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +105,7 @@ public class ManageLightRequests extends javax.swing.JPanel {
             }
         });
         add(btnOrderDetails);
-        btnOrderDetails.setBounds(473, 413, 127, 29);
+        btnOrderDetails.setBounds(473, 413, 105, 24);
 
         jButton1.setText("Refresh");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +114,7 @@ public class ManageLightRequests extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(307, 413, 127, 29);
+        jButton1.setBounds(307, 413, 127, 24);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/WhatsApp Image 2021-12-12 at 8.09.21 PM.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -137,7 +137,7 @@ public class ManageLightRequests extends javax.swing.JPanel {
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
-            row[2] = product.getDistributorPrice();
+            row[2] = product.getFDAPrice();
             row[3] = product.getQuantity();
             model.addRow(row);
         }

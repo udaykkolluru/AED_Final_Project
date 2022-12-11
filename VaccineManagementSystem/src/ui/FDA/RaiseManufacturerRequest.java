@@ -90,7 +90,7 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Product", "Description", "Distributor Price", "Quantity"
+                "Product", "Description", "FDA Price", "Quantity"
             }
         ));
         jScrollPane2.setViewportView(tblDetails);
@@ -184,7 +184,7 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
-            row[2] = product.getDistributorPrice();
+            row[2] = product.getFDAPrice();
             row[3] = product.getQuantity();
             model.addRow(row);
         }
@@ -279,7 +279,7 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblRequest.getModel();
         model.setRowCount(0);
         for(WorkRequest workRequest:ecoSystem.getWorkQueue().getWorkRequestList()){
-            if(workRequest.getReceiverEnterprise()!=null && workRequest.getReceiver()!=null && workRequest.getReceiverEnterprise().getName().equals(enterprise.getName()) && workRequest.getReceiver().equals(userAccount) && (workRequest.getStatus().contains("Accepted by Distributor") || workRequest.getStatus().contains("Raised request to supplier"))){
+            if(workRequest.getReceiverEnterprise()!=null && workRequest.getReceiver()!=null && workRequest.getReceiverEnterprise().getName().equals(enterprise.getName()) && workRequest.getReceiver().equals(userAccount) && (workRequest.getStatus().contains("Accepted by FDA") || workRequest.getStatus().contains("Raised request to supplier"))){
                 Object[] row = new Object[5];
                 row[0] = workRequest;
                 row[1] = workRequest.getReceiver();

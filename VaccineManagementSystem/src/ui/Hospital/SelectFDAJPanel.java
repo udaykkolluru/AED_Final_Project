@@ -22,7 +22,7 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private Enterprise enterprise;
     /**
-     * Creates new form SelectDistributor
+     * Creates new form SelectFDA
      */
     public SelectFDAJPanel(JPanel userProcessContainer,EcoSystem ecoSystem, UserAccount userAccount, Enterprise enterprise) {
         initComponents();
@@ -47,7 +47,7 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         cboxNetwork = new javax.swing.JComboBox<>();
         btnRequest1 = new javax.swing.JButton();
-        cboxDistributor = new javax.swing.JComboBox<>();
+        cboxFDA = new javax.swing.JComboBox<>();
         btnRequest = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -56,7 +56,7 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
         setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel1.setText("Select a Distributor");
+        jLabel1.setText("Select a FDA");
         add(jLabel1);
         jLabel1.setBounds(430, 100, 166, 22);
 
@@ -86,11 +86,11 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
         add(btnRequest1);
         btnRequest1.setBounds(610, 300, 160, 24);
 
-        cboxDistributor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(cboxDistributor);
-        cboxDistributor.setBounds(500, 350, 61, 23);
+        cboxFDA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        add(cboxFDA);
+        cboxFDA.setBounds(500, 350, 61, 23);
 
-        btnRequest.setText("Select Distributor");
+        btnRequest.setText("Select FDA");
         btnRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRequestActionPerformed(evt);
@@ -146,7 +146,7 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
             System.out.println(Enterprise.EnterpriseType.FDA.getValue());
             if(supplierEnterprise.getEnterpriseType().getValue().equals(Enterprise.EnterpriseType.FDA.getValue())){
                 System.out.println("inside if condition");
-                cboxDistributor.addItem(supplierEnterprise.getName());
+                cboxFDA.addItem(supplierEnterprise.getName());
             }
         }
     }//GEN-LAST:event_btnRequest1ActionPerformed
@@ -164,10 +164,10 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
 
         for(Enterprise supplierEnterprise:req.getEnterpriseDirectory().getEnterpriseList()){
             System.out.println(supplierEnterprise.getName());
-            System.out.println(cboxDistributor.getSelectedItem());
-            if(supplierEnterprise.getName().equals(cboxDistributor.getSelectedItem().toString())){
-                BuyProductsFromFDA buyProductsFromDistributorJPanel = new BuyProductsFromFDA(userProcessContainer, userAccount, supplierEnterprise, enterprise,ecoSystem);
-                userProcessContainer.add("manageEmployeeJPanel", buyProductsFromDistributorJPanel);
+            System.out.println(cboxFDA.getSelectedItem());
+            if(supplierEnterprise.getName().equals(cboxFDA.getSelectedItem().toString())){
+                BuyProductsFromFDA buyProductsFromFDAJPanel = new BuyProductsFromFDA(userProcessContainer, userAccount, supplierEnterprise, enterprise,ecoSystem);
+                userProcessContainer.add("manageEmployeeJPanel", buyProductsFromFDAJPanel);
                 CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                 layout.next(userProcessContainer);
             }
@@ -190,7 +190,7 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRequest;
     private javax.swing.JButton btnRequest1;
-    private javax.swing.JComboBox<String> cboxDistributor;
+    private javax.swing.JComboBox<String> cboxFDA;
     private javax.swing.JComboBox<String> cboxNetwork;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -199,7 +199,7 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateNetworkCombo(){
-        cboxDistributor.removeAllItems();
+        cboxFDA.removeAllItems();
         cboxNetwork.removeAllItems();
         for(Network network:ecoSystem.getNetworkList()){
             cboxNetwork.addItem(network.getName());

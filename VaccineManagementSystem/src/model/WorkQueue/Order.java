@@ -33,10 +33,10 @@ public class Order extends WorkRequest{
         return sum;
     }
 
-    public Object totalDistributor() {
+    public Object totalFDA() {
         int sum = 0;
         for(Product product: productList){
-            sum += product.getDistributorPrice()*product.getQuantity();
+            sum += product.getFDAPrice()*product.getQuantity();
         }
         return sum;
     }

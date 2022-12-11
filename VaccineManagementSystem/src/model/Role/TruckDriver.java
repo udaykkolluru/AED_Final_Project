@@ -8,7 +8,7 @@ import model.EcoSystem;
 import model.Enterprise.Enterprise;
 import model.Organization.Organization;
 import model.UserAccount.UserAccount;
-import ui.RoadTransportation.ManageLightRequests;
+import ui.RoadTransportation.RoadTransportRequests;
 /**
  *
  * @author udaykk
@@ -16,6 +16,6 @@ import ui.RoadTransportation.ManageLightRequests;
 public class TruckDriver extends Role {
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new ManageLightRequests(userProcessContainer, enterprise, account,business);
+        return new RoadTransportRequests(userProcessContainer, enterprise, account,business);
     }
 }

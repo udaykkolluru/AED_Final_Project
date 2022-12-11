@@ -205,8 +205,8 @@ public class BuyProductsFromFDA extends javax.swing.JPanel {
         }
         if(check){
            Product product = new Product(((Product)tblProductList.getValueAt(selectedRow, 0)).getName(),((Product)tblProductList.getValueAt(selectedRow, 0)).getDescription());
-           product.setDistributorPrice(((Product)tblProductList.getValueAt(selectedRow, 0)).getDistributorPrice());
-           product.setSuperMarketPrice(product.getDistributorPrice());
+           product.setFDAPrice(((Product)tblProductList.getValueAt(selectedRow, 0)).getFDAPrice());
+           product.setSuperMarketPrice(product.getFDAPrice());
            order.getProductList().add(product);
         }
         ((Product)tblProductList.getValueAt(selectedRow, 0)).reduceQuantity();
@@ -298,7 +298,7 @@ public class BuyProductsFromFDA extends javax.swing.JPanel {
             row[0] = product;
             row[1] = product.getName();
             row[2] = product.getDescription();
-            row[3] = product.getDistributorPrice();
+            row[3] = product.getFDAPrice();
             row[4] = product.getQuantity();
             model.addRow(row);
         }
@@ -313,7 +313,7 @@ public class BuyProductsFromFDA extends javax.swing.JPanel {
                 row[0] = product;
                 row[1] = product.getName();
                 row[2] = product.getDescription();
-                row[3] = product.getDistributorPrice();
+                row[3] = product.getFDAPrice();
                 row[4] = product.getQuantity();
                 model.addRow(row);
             }
@@ -329,7 +329,7 @@ public class BuyProductsFromFDA extends javax.swing.JPanel {
             row[0] = product;
             row[1] = product.getName();
             row[2] = product.getDescription();
-            row[3] = product.getDistributorPrice();
+            row[3] = product.getFDAPrice();
             row[4] = product.getQuantity();
             model.addRow(row);
         }

@@ -277,7 +277,7 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblRequest.getModel();
         model.setRowCount(0);
         for(WorkRequest workRequest:ecoSystem.getWorkQueue().getWorkRequestList()){
-            if(workRequest.getReceiver()!=null && workRequest.getReceiver().equals(userAccount) && (workRequest.getStatus().contains("Accepted by Distributor"))){
+            if(workRequest.getReceiver()!=null && workRequest.getReceiver().equals(userAccount) && (workRequest.getStatus().contains("Accepted by FDA"))){
                 Object[] row = new Object[6];
                 row[0] = workRequest;
                 row[1] = workRequest.getReceiver();

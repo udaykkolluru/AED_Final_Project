@@ -169,7 +169,7 @@ public class ManageProduct extends javax.swing.JPanel {
         add(jButton1);
         jButton1.setBounds(50, 40, 76, 24);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/distributor.jpeg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/fDA.jpeg"))); // NOI18N
         jLabel5.setText("jLabel5");
         add(jLabel5);
         jLabel5.setBounds(10, 10, 1010, 590);
@@ -192,7 +192,7 @@ public class ManageProduct extends javax.swing.JPanel {
             return;
         }
         Product product = new Product(txtName.getText(),txtDescription.getText());
-        product.setDistributorPrice(Integer.parseInt(txtPrice.getText()));
+        product.setFDAPrice(Integer.parseInt(txtPrice.getText()));
         product.setQuantity(Integer.parseInt(txtQuantity.getText()));
         enterprise.getProductList().add(product);
         populateProducts();
@@ -217,7 +217,7 @@ public class ManageProduct extends javax.swing.JPanel {
             if(product.getName().equals(((Product)tblProductList.getValueAt(selectedRow, 0)).getName())){
                 product.setName(txtName.getText());
                 product.setDescription(txtDescription.getText());
-                product.setDistributorPrice(Integer.parseInt(txtPrice.getText()));
+                product.setFDAPrice(Integer.parseInt(txtPrice.getText()));
                 product.setQuantity(Integer.parseInt(txtQuantity.getText()));
                 break;
             }
@@ -242,7 +242,7 @@ public class ManageProduct extends javax.swing.JPanel {
             if(product.getName().equals(((Product)tblProductList.getValueAt(selectedRow, 0)).getName())){
                 txtName.setText(product.getName());
                 txtDescription.setText(product.getDescription());
-                txtPrice.setText(String.valueOf(product.getDistributorPrice()));
+                txtPrice.setText(String.valueOf(product.getFDAPrice()));
                 txtQuantity.setText(String.valueOf(product.getQuantity()));
                 break;
             }
@@ -316,7 +316,7 @@ public class ManageProduct extends javax.swing.JPanel {
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
-            row[2] = product.getDistributorPrice();
+            row[2] = product.getFDAPrice();
             row[3] = product.getQuantity();
             model.addRow(row);
         }
@@ -330,7 +330,7 @@ public class ManageProduct extends javax.swing.JPanel {
                 Object[] row = new Object[4];
                 row[0] = product;
                 row[1] = product.getDescription();
-                row[2] = product.getDistributorPrice();
+                row[2] = product.getFDAPrice();
                 row[3] = product.getQuantity();
                 model.addRow(row);
             }

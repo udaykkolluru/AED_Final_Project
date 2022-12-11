@@ -82,7 +82,7 @@ public class ManageHeavyRequests extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Product", "Description", "Distributor Price", "Quantity"
+                "Product", "Description", "FDA Price", "Quantity"
             }
         ));
         jScrollPane2.setViewportView(tblDetails);
@@ -137,7 +137,7 @@ public class ManageHeavyRequests extends javax.swing.JPanel {
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
-            row[2] = product.getDistributorPrice();
+            row[2] = product.getFDAPrice();
             row[3] = product.getQuantity();
             model.addRow(row);
         }
@@ -162,7 +162,7 @@ public class ManageHeavyRequests extends javax.swing.JPanel {
             if (check) {
                 Product prod = new Product(product.getName(), product.getDescription());
                 prod.setSuperMarketPrice(product.getSuperMarketPrice());
-                prod.setDistributorPrice(prod.getSuperMarketPrice());
+                prod.setFDAPrice(prod.getSuperMarketPrice());
                 prod.setQuantity(product.getQuantity());
                 order.getSenderEnterprise().getProductList().add(prod);
             }

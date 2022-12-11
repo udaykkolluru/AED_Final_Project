@@ -103,7 +103,7 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Product", "Description", "Distributor Price", "Quantity"
+                "Product", "Description", "FDA Price", "Quantity"
             }
         ));
         jScrollPane2.setViewportView(tblDetails);
@@ -138,7 +138,7 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
         add(btnBack);
         btnBack.setBounds(17, 16, 77, 24);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/distributor.jpeg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/fDA.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
         add(jLabel1);
         jLabel1.setBounds(0, 0, 1030, 590);
@@ -158,7 +158,7 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
         }
         order.setReceiver(userAccount);
         if (!order.getStatus().contains("Rejected")) {
-            order.setStatus("Accepted by Distributor");
+            order.setStatus("Accepted by FDA");
             JOptionPane.showMessageDialog(this, "This order has been accepted");
         } else {
             JOptionPane.showMessageDialog(this, "This order was rejected earlier");
@@ -180,7 +180,7 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
         }
         order.setReceiver(userAccount);
         if (!order.getStatus().contains("Accepted")) {
-            order.setStatus("Rejected by Distributor");
+            order.setStatus("Rejected by FDA");
             enterprise.restoreProducts(order);
             JOptionPane.showMessageDialog(this, "This order has been rejected");
         } else {
@@ -203,7 +203,7 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
-            row[2] = product.getDistributorPrice();
+            row[2] = product.getFDAPrice();
             row[3] = product.getQuantity();
             model.addRow(row);
         }

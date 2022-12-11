@@ -252,7 +252,7 @@ public class ManageRequests extends javax.swing.JPanel {
             row[0] = product;
             row[1] = product.getDescription();
             if(order.getReceiverEnterprise().getEnterpriseType().getValue().equals(Enterprise.EnterpriseType.FDA.getValue())){
-                row[2] = product.getDistributorPrice();
+                row[2] = product.getFDAPrice();
             }else{
                 row[2] = product.getSuperMarketPrice();
             }

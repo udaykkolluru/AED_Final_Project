@@ -102,7 +102,7 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
         add(btnManageProducts);
         btnManageProducts.setBounds(357, 440, 230, 24);
 
-        btnBuyProducts.setText("Buy Products from Distributor");
+        btnBuyProducts.setText("Buy Products from FDA");
         btnBuyProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuyProductsActionPerformed(evt);
@@ -173,8 +173,8 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProductsActionPerformed
         // TODO add your handling code here:
-        ManageProductsJPanel buyProductsFromDistributorJPanel = new ManageProductsJPanel(userProcessContainer, enterprise);
-        userProcessContainer.add("manageEmployeeJPanel", buyProductsFromDistributorJPanel);
+        ManageProductsJPanel buyProductsFromFDAJPanel = new ManageProductsJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("manageEmployeeJPanel", buyProductsFromFDAJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
         
@@ -182,8 +182,8 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnBuyProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyProductsActionPerformed
         // TODO add your handling code here:
-        SelectFDAJPanel buyProductsFromDistributorJPanel = new SelectFDAJPanel(userProcessContainer,ecoSystem, userAccount, enterprise);
-        userProcessContainer.add("manageEmployeeJPanel", buyProductsFromDistributorJPanel);
+        SelectFDAJPanel buyProductsFromFDAJPanel = new SelectFDAJPanel(userProcessContainer,ecoSystem, userAccount, enterprise);
+        userProcessContainer.add("manageEmployeeJPanel", buyProductsFromFDAJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBuyProductsActionPerformed
