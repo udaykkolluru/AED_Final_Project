@@ -18,15 +18,11 @@
 *.zip
 *.tar.gz
 *.rar
+Databank.db4o
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-/.DS_Store
-/target/
-/nbproject/
-/dist/
-build/
-.idea/
-/AED_FINAL_PROJECT-main 2/dist/
-/VaccineManagementSystem/dist/
+/nbproject/private/
+/build/
+
