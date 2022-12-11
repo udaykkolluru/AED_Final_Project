@@ -96,5 +96,12 @@ public class Product {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+     public void addQuantity(){
+        quantity = quantity+1;
+    }
+    
+    public void reduceQuantity(){
+        quantity -= 1;
+    }
     
 }
