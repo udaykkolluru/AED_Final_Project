@@ -38,13 +38,13 @@ public class SelectNetwork extends javax.swing.JPanel {
         cboxNetwork = new javax.swing.JComboBox<>();
         btnSelectNetwork = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
         cboxNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(cboxNetwork);
-        cboxNetwork.setBounds(95, 86, 96, 27);
+        cboxNetwork.setBounds(270, 90, 72, 23);
 
         btnSelectNetwork.setText("Select Network");
         btnSelectNetwork.addActionListener(new java.awt.event.ActionListener() {
@@ -53,8 +53,11 @@ public class SelectNetwork extends javax.swing.JPanel {
             }
         });
         add(btnSelectNetwork);
-        btnSelectNetwork.setBounds(228, 85, 138, 29);
+        btnSelectNetwork.setBounds(380, 90, 118, 23);
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("<<Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,12 +65,7 @@ public class SelectNetwork extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(10, 30, 93, 29);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/what-system-administrator-do.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2);
-        jLabel2.setBounds(10, 0, 970, 550);
+        jButton1.setBounds(10, 30, 76, 23);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSelectNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectNetworkActionPerformed
@@ -94,7 +92,6 @@ public class SelectNetwork extends javax.swing.JPanel {
     private javax.swing.JButton btnSelectNetwork;
     private javax.swing.JComboBox<String> cboxNetwork;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 
     private void populateCombo() {
