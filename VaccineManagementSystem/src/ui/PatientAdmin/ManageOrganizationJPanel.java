@@ -68,8 +68,8 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         organizationJComboBox = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         backJButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -105,8 +105,11 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         }
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(190, 140, 480, 92);
+        jScrollPane1.setBounds(430, 150, 850, 190);
 
+        addJButton.setBackground(new java.awt.Color(0, 153, 0));
+        addJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        addJButton.setForeground(new java.awt.Color(255, 255, 255));
         addJButton.setText("Add Organization");
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +117,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
         });
         add(addJButton);
-        addJButton.setBounds(380, 420, 129, 24);
+        addJButton.setBounds(750, 640, 210, 70);
 
         organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -123,12 +126,16 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
         });
         add(organizationJComboBox);
-        organizationJComboBox.setBounds(480, 290, 154, 23);
+        organizationJComboBox.setBounds(650, 410, 210, 60);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setText("Organization Type ");
         add(jLabel1);
-        jLabel1.setBounds(280, 300, 102, 14);
+        jLabel1.setBounds(480, 420, 150, 40);
 
+        backJButton.setBackground(new java.awt.Color(0, 102, 204));
+        backJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        backJButton.setForeground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,12 +143,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
         });
         add(backJButton);
-        backJButton.setBounds(6, 13, 79, 24);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/Customer.jpeg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2);
-        jLabel2.setBounds(0, 0, 850, 540);
+        backJButton.setBounds(6, 13, 110, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
@@ -166,7 +168,6 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JButton addJButton;
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox organizationJComboBox;
     private javax.swing.JTable organizationJTable;

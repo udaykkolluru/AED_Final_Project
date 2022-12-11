@@ -39,15 +39,19 @@ public class PatientAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageOrganizationJButton = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 0, 102));
         jLabel1.setText("Patient Admin Work Area");
         add(jLabel1);
-        jLabel1.setBounds(200, 40, 310, 29);
+        jLabel1.setBounds(600, 79, 310, 70);
 
+        userJButton.setBackground(new java.awt.Color(0, 102, 204));
+        userJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        userJButton.setForeground(new java.awt.Color(255, 255, 255));
         userJButton.setText("Manage User");
         userJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,8 +59,11 @@ public class PatientAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(userJButton);
-        userJButton.setBounds(130, 330, 180, 24);
+        userJButton.setBounds(610, 360, 340, 100);
 
+        manageEmployeeJButton.setBackground(new java.awt.Color(0, 102, 204));
+        manageEmployeeJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        manageEmployeeJButton.setForeground(new java.awt.Color(255, 255, 255));
         manageEmployeeJButton.setText("Manage Employee");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,8 +71,11 @@ public class PatientAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageEmployeeJButton);
-        manageEmployeeJButton.setBounds(330, 330, 180, 24);
+        manageEmployeeJButton.setBounds(610, 490, 340, 100);
 
+        manageOrganizationJButton.setBackground(new java.awt.Color(0, 102, 204));
+        manageOrganizationJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        manageOrganizationJButton.setForeground(new java.awt.Color(255, 255, 255));
         manageOrganizationJButton.setText("Manage Organization");
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,21 +83,17 @@ public class PatientAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageOrganizationJButton);
-        manageOrganizationJButton.setBounds(540, 330, 148, 24);
+        manageOrganizationJButton.setBounds(610, 630, 340, 100);
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel.setText("EnterPrise :");
+        enterpriseLabel.setText("Enterprise :");
         add(enterpriseLabel);
-        enterpriseLabel.setBounds(270, 120, 120, 30);
+        enterpriseLabel.setBounds(600, 250, 120, 30);
 
+        valueLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
         valueLabel.setText("<value>");
         add(valueLabel);
-        valueLabel.setBounds(420, 120, 130, 30);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/Customer.jpeg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2);
-        jLabel2.setBounds(5, 6, 820, 490);
+        valueLabel.setBounds(750, 240, 240, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
@@ -121,7 +127,6 @@ public class PatientAdminWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton userJButton;
