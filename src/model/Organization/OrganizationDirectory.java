@@ -5,6 +5,7 @@
 package model.Organization;
 
 import java.util.ArrayList;
+import model.Organization.Organization.Type;
 
 /**
  *
@@ -25,10 +26,24 @@ public class OrganizationDirectory {
         this.organizationList = organizationList;
     }
 
-    public void createOrganization(Organization.Type type) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   public Organization createOrganization(Organization.Type type) {
+        Organization organization = null;
+        
+        if (type.getValue().equals(Type.Doctor.getValue())){
+            organization = new DoctorOrganization();
+            organizationList.add(organization);
+        }else if (type.getValue().equals(Type.AirTransportation.getValue())){
+            organization = new AirTransportationOrganization();
+            organizationList.add(organization);
+        }else if (type.getValue().equals(Type.Patient.getValue())){
+            organization = new PatientOrganization();
+            organizationList.add(organization);
+        }else if (type.getValue().equals(Type.RoadTransportation.getValue())){
+            organization = new RoadTransportation();
+            organizationList.add(organization);
+        }
+        return organization;
     }
-    
-   
+
     
 }

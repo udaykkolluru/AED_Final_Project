@@ -103,5 +103,10 @@ public abstract class Organization {
         Organization.counter = counter;
     }
     
+    @Override
+    public String toString() {
+        return name;
+    }
+
     
 }

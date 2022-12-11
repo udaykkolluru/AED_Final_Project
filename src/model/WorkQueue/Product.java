@@ -88,13 +88,14 @@ public class Product {
         this.description = description;
     }
 
-    public void addQuantity() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   public void addQuantity() {
+        quantity = quantity+1;
     }
 
     public void reduceQuantity() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        quantity -= 1;
     }
+
 
     
 }

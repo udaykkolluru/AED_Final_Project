@@ -94,15 +94,16 @@ public class ProcessHeavyRequests extends javax.swing.JPanel {
                     order.getSenderEnterprise().getProductList().add(prod);
                 }
             }
+            JOptionPane.showMessageDialog(this, "Order processed");
+            back();
+        } else{
+            JOptionPane.showMessageDialog(this, "Please enter correct status");
         }
-        JOptionPane.showMessageDialog(this, "Order processed");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        back();
     }//GEN-LAST:event_backJButtonActionPerformed
 
 
@@ -112,4 +113,9 @@ public class ProcessHeavyRequests extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
+    private void back(){
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }
 }

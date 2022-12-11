@@ -22,14 +22,16 @@ import javax.swing.table.DefaultTableModel;
  * @author charanpatnaik
  */
 public class ManageHospitalRequests extends javax.swing.JPanel {
+
     JPanel userProcessConatiner;
     Enterprise enterprise;
     UserAccount userAccount;
     EcoSystem ecoSystem;
+
     /**
      * Creates new form ManageSuperMarketRequests
      */
-    public ManageHospitalRequests(JPanel userProcessConatiner, Enterprise enterprise, UserAccount userAccount,EcoSystem ecoSystem) {
+    public ManageHospitalRequests(JPanel userProcessConatiner, Enterprise enterprise, UserAccount userAccount, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessConatiner = userProcessConatiner;
         this.enterprise = enterprise;
@@ -146,21 +148,21 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblRequest.getSelectedRow();
-        if (selectedRow < 0){
+        if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select an item");
             return;
         }
-        
-        Order order = (Order)tblRequest.getValueAt(selectedRow, 0);
-        if(order.getReceiver()!=null){
+
+        Order order = (Order) tblRequest.getValueAt(selectedRow, 0);
+        if (order.getReceiver() != null) {
             JOptionPane.showMessageDialog(this, "This order has been already picked");
             return;
         }
         order.setReceiver(userAccount);
-        if(!order.getStatus().contains("Rejected")){
+        if (!order.getStatus().contains("Rejected")) {
             order.setStatus("Accepted by Distributor");
             JOptionPane.showMessageDialog(this, "This order has been accepted");
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "This order was rejected earlier");
         }
         populateRequests();
@@ -169,22 +171,22 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblRequest.getSelectedRow();
-        if (selectedRow < 0){
+        if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select an item");
             return;
         }
-        
-        Order order = (Order)tblRequest.getValueAt(selectedRow, 0);
-        if(order.getReceiver()!=null){
+
+        Order order = (Order) tblRequest.getValueAt(selectedRow, 0);
+        if (order.getReceiver() != null) {
             JOptionPane.showMessageDialog(this, "This order has been already picked");
             return;
         }
         order.setReceiver(userAccount);
-        if(!order.getStatus().contains("Accepted")){
+        if (!order.getStatus().contains("Accepted")) {
             order.setStatus("Rejected by Distributor");
             enterprise.restoreProducts(order);
             JOptionPane.showMessageDialog(this, "This order has been rejected");
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "This order was accepted earlier");
         }
         populateRequests();
@@ -193,14 +195,14 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
     private void btnOrderDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderDetailsActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblRequest.getSelectedRow();
-        if (selectedRow < 0){
+        if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select an item");
             return;
         }
-        Order order = (Order)tblRequest.getValueAt(selectedRow, 0);
+        Order order = (Order) tblRequest.getValueAt(selectedRow, 0);
         DefaultTableModel model = (DefaultTableModel) tblDetails.getModel();
         model.setRowCount(0);
-        for(Product product:order.getProductList()){
+        for (Product product : order.getProductList()) {
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
@@ -243,8 +245,9 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
     private void populateRequests() {
         DefaultTableModel model = (DefaultTableModel) tblRequest.getModel();
         model.setRowCount(0);
-        for(WorkRequest workRequest:ecoSystem.getWorkQueue().getWorkRequestList()){
-            if(workRequest.getReceiverEnterprise()!=null && workRequest.getReceiverEnterprise().getName().equals(enterprise.getName())){
+        for (WorkRequest workRequest : ecoSystem.getWorkQueue().getWorkRequestList()) {
+//            System.out.println(workRequest.getMessage() + " msg " + workRequest.getReceiverEnterprise().getName() + " name " + enterprise.getName());
+            if (workRequest.getReceiverEnterprise() != null && workRequest.getReceiverEnterprise().getName().equals(enterprise.getName())) {
                 Object[] row = new Object[6];
                 row[0] = workRequest;
                 row[1] = workRequest.getReceiver();

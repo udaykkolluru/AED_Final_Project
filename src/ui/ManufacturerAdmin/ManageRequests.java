@@ -16,6 +16,8 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import static model.Organization.Organization.Type.AirTransportation;
+import static model.Organization.Organization.Type.RoadTransportation;
 
 /**
  *
@@ -74,7 +76,7 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(btnAccept);
-        btnAccept.setBounds(278, 200, 72, 23);
+        btnAccept.setBounds(278, 200, 71, 24);
 
         btnReject.setText("Reject");
         btnReject.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +85,7 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(btnReject);
-        btnReject.setBounds(561, 200, 72, 23);
+        btnReject.setBounds(561, 200, 66, 24);
 
         tblRequest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,7 +101,7 @@ public class ManageRequests extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblRequest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(238, 6, 452, 182);
+        jScrollPane1.setBounds(238, 6, 453, 182);
 
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -115,7 +117,7 @@ public class ManageRequests extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblDetails);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(238, 395, 452, 160);
+        jScrollPane2.setBounds(238, 395, 453, 160);
 
         btnOrderDetails.setText("Order Details");
         btnOrderDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -124,15 +126,20 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(btnOrderDetails);
-        btnOrderDetails.setBounds(398, 200, 107, 23);
+        btnOrderDetails.setBounds(398, 200, 105, 24);
 
         cboxDriverType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboxDriverType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxDriverTypeActionPerformed(evt);
+            }
+        });
         add(cboxDriverType);
-        cboxDriverType.setBounds(398, 248, 72, 23);
+        cboxDriverType.setBounds(398, 248, 61, 23);
 
         jLabel1.setText("Driver Type:");
         add(jLabel1);
-        jLabel1.setBounds(289, 252, 71, 17);
+        jLabel1.setBounds(289, 252, 65, 14);
 
         jButton1.setText("Assign");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -141,15 +148,15 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(561, 295, 81, 23);
+        jButton1.setBounds(561, 295, 81, 24);
 
         jLabel2.setText("Driver");
         add(jLabel2);
-        jLabel2.setBounds(329, 300, 34, 17);
+        jLabel2.setBounds(329, 300, 33, 14);
 
         cboxDriver.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(cboxDriver);
-        cboxDriver.setBounds(400, 296, 72, 23);
+        cboxDriver.setBounds(400, 296, 61, 23);
 
         jButton2.setText("Select");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +165,7 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(jButton2);
-        jButton2.setBounds(561, 247, 72, 23);
+        jButton2.setBounds(561, 247, 65, 24);
 
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -167,7 +174,7 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(btnRefresh);
-        btnRefresh.setBounds(798, 53, 75, 23);
+        btnRefresh.setBounds(798, 53, 75, 24);
 
         jButton3.setText("<<Back");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -176,7 +183,7 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(jButton3);
-        jButton3.setBounds(30, 30, 97, 23);
+        jButton3.setBounds(30, 30, 97, 24);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supplier.jpeg"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -316,6 +323,10 @@ public class ManageRequests extends javax.swing.JPanel {
         layout.previous(userProcessConatiner);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void cboxDriverTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxDriverTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxDriverTypeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccept;
@@ -358,7 +369,7 @@ public class ManageRequests extends javax.swing.JPanel {
     private void populateDriverTypes(){
         cboxDriverType.removeAllItems();
         for(Organization organization: enterprise.getOrganizationDirectory().getOrganizationList()){
-            if(organization.getName().equals("Heavy Driver") || organization.getName().equals("Light Driver")){
+            if(organization.getName().equals(AirTransportation.getValue()) || organization.getName().equals(RoadTransportation.getValue())){
                 cboxDriverType.addItem(organization.getName());
             }
         }

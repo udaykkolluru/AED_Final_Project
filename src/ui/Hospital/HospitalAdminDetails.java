@@ -128,6 +128,7 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         }
         if(checkCardValid(txtCard.getText())){
             Employee customer = new Employee(txtName.getText(), txtCard.getText());
+            System.out.println(" uday " +order.getReceiverEnterprise());
             Order newOrder = new Order();
             newOrder.setNetworkName(order.getNetworkName());
             newOrder.setSender(order.getSender());
@@ -150,20 +151,14 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
             System.out.println(order.getProductList());
             System.out.println("priting new order product list");
             System.out.println(newOrder.getProductList());
+            redirectBackAfterPayemnt();
         }else{
             JOptionPane.showMessageDialog(this, "Please enter valid card number");
         }
     }//GEN-LAST:event_btnCompletePaymentActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        BuyProductsFromColdStorage dwjp = (BuyProductsFromColdStorage) component;
-        dwjp.populateProductList();
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        redirectBackAfterPayemnt();
     }//GEN-LAST:event_btnBackActionPerformed
 
 
@@ -182,5 +177,15 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         Pattern pattern = Pattern.compile("[0-9]{16}", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(card);
         return matcher.find();
+    }
+    
+    public void redirectBackAfterPayemnt(){
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        BuyProductsFromColdStorage dwjp = (BuyProductsFromColdStorage) component;
+        dwjp.populateProductList();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }
 }
