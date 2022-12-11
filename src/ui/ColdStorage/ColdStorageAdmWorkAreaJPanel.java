@@ -98,7 +98,6 @@ public class ColdStorageAdmWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
-        // TODO add your handling code here:
         RaiseManufacturerRequest muajp = new RaiseManufacturerRequest(userProcessContainer, enterprise, userAccount,ecoSystem);
         userProcessContainer.add("ManageUserAccountJPanel", muajp);
 
@@ -117,7 +116,6 @@ public class ColdStorageAdmWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageEmployeeJButtonActionPerformed
 
     private void btnBuyProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyProductsActionPerformed
-        // TODO add your handling code here:
         ManageProduct buyProductsFromDistributorJPanel = new ManageProduct(userProcessContainer, enterprise);
         userProcessContainer.add("manageEmployeeJPanel", buyProductsFromDistributorJPanel);
 

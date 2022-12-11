@@ -97,7 +97,6 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void btnCompletePaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletePaymentActionPerformed
-        // TODO add your handling code here:
         if(txtCard.getText().isEmpty() || txtName.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "All fields are mandatory");
             return;

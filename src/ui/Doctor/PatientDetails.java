@@ -129,7 +129,6 @@ public class PatientDetails extends javax.swing.JPanel {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void btnCompletePaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletePaymentActionPerformed
-        // TODO add your handling code here:
         if (order.getProductList().size() == 0) {
             JOptionPane.showMessageDialog(this, "Please add items to the cart");
             return;
@@ -161,7 +160,6 @@ public class PatientDetails extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCompletePaymentActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
