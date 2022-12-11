@@ -4,8 +4,9 @@
  */
 package ui.Hospital;
 
+
+import model.Employee.Employee;
 import model.Organization.Organization;
-import model.Organization.Organization.Type;
 import model.Organization.OrganizationDirectory;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -15,43 +16,48 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author pawan
  */
-public class ManageSuperMarketOrganizationJPanel extends javax.swing.JPanel {
+public class ManageDoctor extends javax.swing.JPanel {
 
-    private OrganizationDirectory directory;
+    private OrganizationDirectory organizationDir;
     private JPanel userProcessContainer;
     
     /**
      * Creates new form ManageOrganizationJPanel
      */
-    public ManageSuperMarketOrganizationJPanel(JPanel userProcessContainer,OrganizationDirectory directory) {
+    public ManageDoctor(JPanel userProcessContainer,OrganizationDirectory organizationDir) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.directory = directory;
-        populateTable();
-        populateCombo();
+        this.organizationDir = organizationDir;
+        
+        populateOrganizationComboBox();
+        populateOrganizationEmpComboBox();
     }
     
-    private void populateCombo(){
+    public void populateOrganizationComboBox(){
         organizationJComboBox.removeAllItems();
-        for (Type type : Organization.Type.values()){
-            if (type.getValue().equals(Type.Doctor.getValue())){
-                System.out.println(Type.Doctor.getValue());
-                organizationJComboBox.addItem(type); 
-            }
-                
+        
+        for (Organization organization : organizationDir.getOrganizationList()){
+            organizationJComboBox.addItem(organization);
+        }
+    }
+    
+    public void populateOrganizationEmpComboBox(){
+        organizationEmpJComboBox.removeAllItems();
+        
+        for (Organization organization : organizationDir.getOrganizationList()){
+            organizationEmpJComboBox.addItem(organization);
         }
     }
 
-    private void populateTable(){
+    private void populateTable(Organization organization){
         DefaultTableModel model = (DefaultTableModel) organizationJTable.getModel();
         
         model.setRowCount(0);
         
-        for (Organization organization : directory.getOrganizationList()){
+        for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()){
             Object[] row = new Object[2];
-            row[0] = organization.getOrganizationID();
-            row[1] = organization.getName();
-            
+            row[0] = employee.getId();
+            row[1] = employee.getName();
             model.addRow(row);
         }
     }
@@ -71,6 +77,10 @@ public class ManageSuperMarketOrganizationJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         backJButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        nameJTextField = new javax.swing.JTextField();
+        organizationEmpJComboBox = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -107,24 +117,29 @@ public class ManageSuperMarketOrganizationJPanel extends javax.swing.JPanel {
         }
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(280, 80, 480, 92);
+        jScrollPane1.setBounds(252, 220, 480, 92);
 
-        addJButton.setText("Add Organization");
+        addJButton.setText("Create Employee");
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
             }
         });
         add(addJButton);
-        addJButton.setBounds(630, 290, 154, 29);
+        addJButton.setBounds(677, 497, 123, 24);
 
         organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                organizationJComboBoxActionPerformed(evt);
+            }
+        });
         add(organizationJComboBox);
-        organizationJComboBox.setBounds(370, 280, 204, 27);
+        organizationJComboBox.setBounds(482, 142, 143, 23);
 
-        jLabel1.setText("Organization Type ");
+        jLabel1.setText("Organization");
         add(jLabel1);
-        jLabel1.setBounds(240, 290, 119, 16);
+        jLabel1.setBounds(369, 146, 70, 14);
 
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -133,21 +148,36 @@ public class ManageSuperMarketOrganizationJPanel extends javax.swing.JPanel {
             }
         });
         add(backJButton);
-        backJButton.setBounds(17, 29, 97, 29);
+        backJButton.setBounds(24, 24, 79, 24);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("Name");
         add(jLabel2);
-        jLabel2.setBounds(0, -20, 1040, 620);
+        jLabel2.setBounds(296, 409, 30, 14);
+        add(nameJTextField);
+        nameJTextField.setBounds(409, 404, 126, 18);
+
+        organizationEmpJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        add(organizationEmpJComboBox);
+        organizationEmpJComboBox.setBounds(409, 359, 126, 23);
+
+        jLabel3.setText("Organization");
+        add(jLabel3);
+        jLabel3.setBounds(296, 363, 70, 14);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        add(jLabel4);
+        jLabel4.setBounds(20, 0, 1170, 570);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-        Type type = (Type) organizationJComboBox.getSelectedItem();        
-        directory.createOrganization(type);
-        for(Organization org:directory.getOrganizationList()){
-            System.out.println(org.getName());
-        }
-        populateTable();
+        
+        Organization organization = (Organization) organizationEmpJComboBox.getSelectedItem();
+        String name = nameJTextField.getText();
+        
+        organization.getEmployeeDirectory().createEmployee(name);
+        populateTable(organization);
+        
     }//GEN-LAST:event_addJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -157,12 +187,23 @@ public class ManageSuperMarketOrganizationJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
 
+    private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed
+        Organization organization = (Organization) organizationJComboBox.getSelectedItem();
+        if (organization != null){
+            populateTable(organization);
+        }
+    }//GEN-LAST:event_organizationJComboBoxActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addJButton;
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField nameJTextField;
+    private javax.swing.JComboBox organizationEmpJComboBox;
     private javax.swing.JComboBox organizationJComboBox;
     private javax.swing.JTable organizationJTable;
     // End of variables declaration//GEN-END:variables

@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author pawan
  */
-public class ManageSalesSupervisorUserAccountJPanel extends javax.swing.JPanel {
+public class ManageDoctorSupervisorUserAccountJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageSupplierUserAccountJPanel
@@ -29,7 +29,7 @@ public class ManageSalesSupervisorUserAccountJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private EcoSystem system;
 
-    public ManageSalesSupervisorUserAccountJPanel(JPanel container, Enterprise enterprise, EcoSystem ecoSystem) {
+    public ManageDoctorSupervisorUserAccountJPanel(JPanel container, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
         this.enterprise = enterprise;
         this.container = container;
@@ -112,13 +112,13 @@ public class ManageSalesSupervisorUserAccountJPanel extends javax.swing.JPanel {
             }
         });
         add(createUserJButton);
-        createUserJButton.setBounds(494, 506, 84, 29);
+        createUserJButton.setBounds(494, 506, 69, 24);
         add(nameJTextField);
-        nameJTextField.setBounds(508, 411, 146, 26);
+        nameJTextField.setBounds(508, 411, 146, 18);
 
         jLabel1.setText("User Name");
         add(jLabel1);
-        jLabel1.setBounds(415, 416, 68, 16);
+        jLabel1.setBounds(415, 416, 58, 14);
 
         userJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -154,17 +154,17 @@ public class ManageSalesSupervisorUserAccountJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Password");
         add(jLabel2);
-        jLabel2.setBounds(424, 449, 59, 16);
+        jLabel2.setBounds(424, 449, 51, 14);
         add(passwordJTextField);
-        passwordJTextField.setBounds(508, 449, 146, 26);
+        passwordJTextField.setBounds(508, 449, 146, 18);
 
         jLabel3.setText("Employee");
         add(jLabel3);
-        jLabel3.setBounds(415, 325, 60, 16);
+        jLabel3.setBounds(415, 325, 51, 14);
 
         employeeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(employeeJComboBox);
-        employeeJComboBox.setBounds(508, 321, 146, 27);
+        employeeJComboBox.setBounds(508, 321, 146, 23);
 
         backjButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         backjButton1.setText("<< Back");
@@ -174,11 +174,11 @@ public class ManageSalesSupervisorUserAccountJPanel extends javax.swing.JPanel {
             }
         });
         add(backjButton1);
-        backjButton1.setBounds(6, 17, 112, 30);
+        backjButton1.setBounds(6, 17, 112, 32);
 
         jLabel5.setText("Organization");
         add(jLabel5);
-        jLabel5.setBounds(415, 280, 81, 16);
+        jLabel5.setBounds(415, 280, 70, 14);
 
         organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -187,11 +187,11 @@ public class ManageSalesSupervisorUserAccountJPanel extends javax.swing.JPanel {
             }
         });
         add(organizationJComboBox);
-        organizationJComboBox.setBounds(508, 276, 146, 27);
+        organizationJComboBox.setBounds(508, 276, 146, 23);
 
         jLabel4.setText("Role");
         add(jLabel4);
-        jLabel4.setBounds(469, 370, 27, 16);
+        jLabel4.setBounds(469, 370, 23, 14);
 
         roleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         roleJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -200,7 +200,7 @@ public class ManageSalesSupervisorUserAccountJPanel extends javax.swing.JPanel {
             }
         });
         add(roleJComboBox);
-        roleJComboBox.setBounds(508, 366, 146, 27);
+        roleJComboBox.setBounds(508, 366, 146, 23);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
         jLabel6.setText("jLabel6");

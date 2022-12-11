@@ -5,6 +5,11 @@
 package model.Role;
 
 import javax.swing.JPanel;
+import model.EcoSystem;
+import model.Enterprise.Enterprise;
+import model.Organization.Organization;
+import model.UserAccount.UserAccount;
+import ui.PatientAdmin.PatientAdminWorkAreaJPanel;
 
 /**
  *
@@ -14,6 +19,6 @@ public class PatientAdmin extends Role {
  
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new CustomerAdminWorkAreaJPanel(userProcessContainer, enterprise, business);
+        return new PatientAdminWorkAreaJPanel(userProcessContainer, enterprise, business);
     }
 }

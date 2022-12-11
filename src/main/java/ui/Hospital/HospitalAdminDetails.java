@@ -4,9 +4,8 @@
  */
 package ui.Hospital;
 
-import ui.Hospital.BuyProductsFromDistributorJPanel;
+import ui.Hospital.BuyProductsFromColdStorage;
 import model.EcoSystem;
-import ui.SalesPersonRole.*;
 import model.Employee.Employee;
 import model.Enterprise.Enterprise;
 import model.WorkQueue.Order;
@@ -23,7 +22,7 @@ import java.util.regex.Pattern;
  *
  * @author pawan
  */
-public class SuperMarketAdminDetails extends javax.swing.JPanel {
+public class HospitalAdminDetails extends javax.swing.JPanel {
     Enterprise enterprise;
     Order order;
     JPanel userProcessContainer;
@@ -31,7 +30,7 @@ public class SuperMarketAdminDetails extends javax.swing.JPanel {
     /**
      * Creates new form CustomerDetails
      */
-    public SuperMarketAdminDetails(JPanel userProcessContainer, Order order, Enterprise enterprise, EcoSystem ecoSystem) {
+    public HospitalAdminDetails(JPanel userProcessContainer, Order order, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
         this.enterprise = enterprise;
         this.order = order;
@@ -65,11 +64,11 @@ public class SuperMarketAdminDetails extends javax.swing.JPanel {
 
         jLabel1.setText("Name");
         add(jLabel1);
-        jLabel1.setBounds(144, 160, 36, 16);
+        jLabel1.setBounds(144, 160, 30, 14);
 
         jLabel2.setText("CardNumber");
         add(jLabel2);
-        jLabel2.setBounds(101, 204, 79, 16);
+        jLabel2.setBounds(101, 204, 69, 14);
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,9 +76,9 @@ public class SuperMarketAdminDetails extends javax.swing.JPanel {
             }
         });
         add(txtName);
-        txtName.setBounds(243, 155, 146, 26);
+        txtName.setBounds(243, 155, 146, 18);
         add(txtCard);
-        txtCard.setBounds(243, 199, 146, 26);
+        txtCard.setBounds(243, 199, 146, 18);
 
         btnCompletePayment.setText("Complete payment");
         btnCompletePayment.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +87,7 @@ public class SuperMarketAdminDetails extends javax.swing.JPanel {
             }
         });
         add(btnCompletePayment);
-        btnCompletePayment.setBounds(235, 273, 162, 29);
+        btnCompletePayment.setBounds(235, 273, 134, 24);
 
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -97,15 +96,15 @@ public class SuperMarketAdminDetails extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(17, 9, 93, 29);
+        btnBack.setBounds(17, 9, 76, 24);
 
         jLabel3.setText("Order Total:");
         add(jLabel3);
-        jLabel3.setBounds(105, 103, 75, 16);
+        jLabel3.setBounds(105, 103, 65, 14);
 
         lblTotal.setText("<Order Total>");
         add(lblTotal);
-        lblTotal.setBounds(266, 103, 91, 16);
+        lblTotal.setBounds(266, 103, 80, 14);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/payment.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -161,7 +160,7 @@ public class SuperMarketAdminDetails extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        BuyProductsFromDistributorJPanel dwjp = (BuyProductsFromDistributorJPanel) component;
+        BuyProductsFromColdStorage dwjp = (BuyProductsFromColdStorage) component;
         dwjp.populateProductList();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);

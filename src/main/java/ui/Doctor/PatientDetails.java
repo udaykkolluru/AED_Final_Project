@@ -2,13 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.ColdStorage;
+package ui.Doctor;
 
-import ui.SalesSupervisorRole.*;
-import ui.SalesPersonRole.*;
+import model.EcoSystem;
 import model.Employee.Employee;
-import model.Enterprise.Enterprise;
 import model.WorkQueue.Order;
+import model.WorkQueue.Product;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -16,20 +15,22 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author charanpatnaik
+ * @author harish
  */
-public class SuperMarketAdminDetails extends javax.swing.JPanel {
-    Enterprise enterprise;
+public class PatientDetails extends javax.swing.JPanel {
+    
     Order order;
     JPanel userProcessContainer;
+    EcoSystem ecoSystem;
     /**
-     * Creates new form CustomerDetails
+     * Creates new form PatientDetails
      */
-    public SuperMarketAdminDetails(JPanel userProcessContainer, Order order, Enterprise enterprise) {
+    public PatientDetails(JPanel userProcessContainer, Order order, EcoSystem ecoSystem) {
         initComponents();
-        this.enterprise = enterprise;
+        
         this.order = order;
         this.userProcessContainer = userProcessContainer;
+        this.ecoSystem = ecoSystem;
     }
 
     /**
@@ -53,11 +54,11 @@ public class SuperMarketAdminDetails extends javax.swing.JPanel {
 
         jLabel1.setText("Name");
         add(jLabel1);
-        jLabel1.setBounds(156, 131, 34, 17);
+        jLabel1.setBounds(111, 49, 30, 14);
 
         jLabel2.setText("CardNumber");
         add(jLabel2);
-        jLabel2.setBounds(113, 175, 74, 17);
+        jLabel2.setBounds(68, 93, 69, 14);
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,9 +66,9 @@ public class SuperMarketAdminDetails extends javax.swing.JPanel {
             }
         });
         add(txtName);
-        txtName.setBounds(255, 126, 146, 23);
+        txtName.setBounds(210, 44, 146, 18);
         add(txtCard);
-        txtCard.setBounds(255, 170, 146, 23);
+        txtCard.setBounds(210, 88, 146, 18);
 
         btnCompletePayment.setText("Complete payment");
         btnCompletePayment.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +77,7 @@ public class SuperMarketAdminDetails extends javax.swing.JPanel {
             }
         });
         add(btnCompletePayment);
-        btnCompletePayment.setBounds(432, 241, 141, 23);
+        btnCompletePayment.setBounds(206, 159, 134, 24);
 
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -85,12 +86,12 @@ public class SuperMarketAdminDetails extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(17, 9, 76, 23);
+        btnBack.setBounds(17, 9, 76, 24);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/payment.jpeg"))); // NOI18N
         jLabel3.setText("jLabel3");
         add(jLabel3);
-        jLabel3.setBounds(0, 0, 1140, 620);
+        jLabel3.setBounds(0, -10, 1140, 660);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -99,12 +100,25 @@ public class SuperMarketAdminDetails extends javax.swing.JPanel {
 
     private void btnCompletePaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletePaymentActionPerformed
         // TODO add your handling code here:
+        if(order.getProductList().size()==0){
+            JOptionPane.showMessageDialog(this, "Please add items to the cart");
+            return;
+        }
         if(txtCard.getText().isEmpty() || txtName.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "All fields are mandatory");
             return;
         }
         Employee customer = new Employee(txtName.getText(), txtCard.getText());
-        enterprise.getWorkQueue().getWorkRequestList().add(order);
+        Order newOrder = new Order();
+        newOrder.setSender(order.getSender());
+        newOrder.setSenderEnterprise(order.getSenderEnterprise());
+        for(Product prod:order.getProductList()){
+            newOrder.getProductList().add(prod);
+        }
+        newOrder.setStatus("completed");
+        ecoSystem.getWorkQueue().getWorkRequestList().add(newOrder);
+        order.getProductList().clear();
+        JOptionPane.showMessageDialog(this, "Transaction complete");
     }//GEN-LAST:event_btnCompletePaymentActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -112,7 +126,7 @@ public class SuperMarketAdminDetails extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        SalesPersonTransactionHome dwjp = (SalesPersonTransactionHome) component;
+        DoctorTransactionHome dwjp = (DoctorTransactionHome) component;
         dwjp.populateProductList();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);

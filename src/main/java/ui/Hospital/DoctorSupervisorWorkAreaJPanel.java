@@ -12,14 +12,14 @@ import javax.swing.JPanel;
  *
  * @author pawan
  */
-public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
+public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
     Enterprise enterprise;
     EcoSystem ecoSystem;
     UserAccount userAccount;
     /** Creates new form AdminWorkAreaJPanel */
-    public SalesSupervisorWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, EcoSystem ecoSystem, UserAccount userAccount) {
+    public DoctorSupervisorWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, EcoSystem ecoSystem, UserAccount userAccount) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
@@ -63,7 +63,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(userJButton);
-        userJButton.setBounds(360, 340, 230, 29);
+        userJButton.setBounds(360, 340, 230, 24);
 
         manageEmployeeJButton.setText("Manage Employee");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +72,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageEmployeeJButton);
-        manageEmployeeJButton.setBounds(360, 290, 240, 29);
+        manageEmployeeJButton.setBounds(360, 290, 240, 24);
 
         manageOrganizationJButton.setText("Manage Organization");
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +81,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageOrganizationJButton);
-        manageOrganizationJButton.setBounds(360, 240, 240, 29);
+        manageOrganizationJButton.setBounds(360, 240, 240, 24);
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("EnterPrise :");
@@ -90,7 +90,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
 
         valueLabel.setText("<value>");
         add(valueLabel);
-        valueLabel.setBounds(440, 120, 130, 16);
+        valueLabel.setBounds(440, 120, 130, 14);
 
         btnManageProducts.setText("Manage product prices");
         btnManageProducts.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +99,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnManageProducts);
-        btnManageProducts.setBounds(357, 440, 230, 29);
+        btnManageProducts.setBounds(357, 440, 230, 24);
 
         btnBuyProducts.setText("Buy Products from Distributor");
         btnBuyProducts.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +108,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBuyProducts);
-        btnBuyProducts.setBounds(360, 390, 232, 29);
+        btnBuyProducts.setBounds(360, 390, 195, 24);
 
         userJButton1.setText("Raise Delivery request");
         userJButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +117,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(userJButton1);
-        userJButton1.setBounds(360, 540, 230, 29);
+        userJButton1.setBounds(360, 540, 230, 24);
 
         manageEmployeeJButton1.setText("Manage Requests");
         manageEmployeeJButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +126,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageEmployeeJButton1);
-        manageEmployeeJButton1.setBounds(360, 490, 230, 29);
+        manageEmployeeJButton1.setBounds(360, 490, 230, 24);
 
         jButton1.setText("My Requests");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +135,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(360, 580, 230, 29);
+        jButton1.setBounds(360, 580, 230, 24);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -145,7 +145,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
         // TODO add your handling code here:
-        ManageSalesSupervisorUserAccountJPanel muajp = new ManageSalesSupervisorUserAccountJPanel(userProcessContainer, enterprise, ecoSystem);
+        ManageDoctorSupervisorUserAccountJPanel muajp = new ManageDoctorSupervisorUserAccountJPanel(userProcessContainer, enterprise, ecoSystem);
         userProcessContainer.add("ManageUserAccountJPanel", muajp);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -154,7 +154,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
 
-        ManageSalesEmployeeJPanel manageEmployeeJPanel = new ManageSalesEmployeeJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
+        ManageDoctor manageEmployeeJPanel = new ManageDoctor(userProcessContainer, enterprise.getOrganizationDirectory());
         userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -164,7 +164,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
 
-        ManageSuperMarketOrganizationJPanel manageOrganizationJPanel = new ManageSuperMarketOrganizationJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
+        ManageHospitalOrganizationJPanel manageOrganizationJPanel = new ManageHospitalOrganizationJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
         userProcessContainer.add("manageOrganizationJPanel", manageOrganizationJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -181,7 +181,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnBuyProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyProductsActionPerformed
         // TODO add your handling code here:
-        SelectDistributorJPanel buyProductsFromDistributorJPanel = new SelectDistributorJPanel(userProcessContainer,ecoSystem, userAccount, enterprise);
+        SelectColdStorageJPanel buyProductsFromDistributorJPanel = new SelectColdStorageJPanel(userProcessContainer,ecoSystem, userAccount, enterprise);
         userProcessContainer.add("manageEmployeeJPanel", buyProductsFromDistributorJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -189,7 +189,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void userJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButton1ActionPerformed
         // TODO add your handling code here:
-        RaiseSupplierRequest muajp = new RaiseSupplierRequest(userProcessContainer, enterprise, userAccount,ecoSystem);
+        RaiseManufacturerRequest muajp = new RaiseManufacturerRequest(userProcessContainer, enterprise, userAccount,ecoSystem);
         userProcessContainer.add("ManageUserAccountJPanel", muajp);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -198,7 +198,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageEmployeeJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButton1ActionPerformed
 
-        ManageCustomerRequests manageEmployeeJPanel = new ManageCustomerRequests(userProcessContainer, enterprise, userAccount, ecoSystem);
+        ManagePatientRequests manageEmployeeJPanel = new ManagePatientRequests(userProcessContainer, enterprise, userAccount, ecoSystem);
         userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -206,7 +206,7 @@ public class SalesSupervisorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        PreviousOrdersSMA muajp = new PreviousOrdersSMA(userProcessContainer, enterprise, userAccount,ecoSystem);
+        PreviousOrdersHospital muajp = new PreviousOrdersHospital(userProcessContainer, enterprise, userAccount,ecoSystem);
         userProcessContainer.add("ManageUserAccountJPanel", muajp);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
