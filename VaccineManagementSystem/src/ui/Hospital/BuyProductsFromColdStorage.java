@@ -80,8 +80,8 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setPreferredSize(new java.awt.Dimension(1680, 1050));
         setSize(new java.awt.Dimension(1680, 1050));
         setLayout(null);
@@ -100,18 +100,29 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblOrderProductList);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(133, 445, 678, 192);
+        jScrollPane1.setBounds(260, 520, 710, 192);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 0, 102));
         jLabel1.setText("Products List");
         add(jLabel1);
-        jLabel1.setBounds(371, 58, 112, 22);
-        add(txtSearch);
-        txtSearch.setBounds(284, 110, 126, 18);
+        jLabel1.setBounds(490, 30, 160, 60);
 
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+        add(txtSearch);
+        txtSearch.setBounds(260, 150, 210, 40);
+
+        btnSearch.setBackground(new java.awt.Color(102, 0, 102));
+        btnSearch.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("Search Product");
         add(btnSearch);
-        btnSearch.setBounds(446, 110, 115, 24);
+        btnSearch.setBounds(500, 150, 140, 40);
 
         tblProductList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -127,13 +138,16 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblProductList);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(133, 195, 678, 192);
+        jScrollPane2.setBounds(260, 210, 710, 192);
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("Order List");
         add(jLabel2);
-        jLabel2.setBounds(387, 405, 86, 22);
+        jLabel2.setBounds(310, 460, 86, 22);
 
+        btnRemove.setBackground(new java.awt.Color(102, 0, 102));
+        btnRemove.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRemove.setForeground(new java.awt.Color(255, 255, 255));
         btnRemove.setText("Remove");
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,8 +155,11 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
             }
         });
         add(btnRemove);
-        btnRemove.setBounds(829, 517, 76, 24);
+        btnRemove.setBounds(750, 420, 100, 30);
 
+        btnAdd.setBackground(new java.awt.Color(102, 0, 102));
+        btnAdd.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,8 +167,11 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
             }
         });
         add(btnAdd);
-        btnAdd.setBounds(829, 271, 93, 24);
+        btnAdd.setBounds(860, 420, 110, 30);
 
+        btnBack.setBackground(new java.awt.Color(0, 102, 204));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,8 +179,11 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(18, 23, 76, 24);
+        btnBack.setBounds(40, 30, 110, 40);
 
+        jButton1.setBackground(new java.awt.Color(0, 153, 0));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Payment Page");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,8 +191,11 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(470, 680, 107, 24);
+        jButton1.setBounds(540, 770, 210, 60);
 
+        btnRefresh.setBackground(new java.awt.Color(0, 102, 204));
+        btnRefresh.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,12 +203,7 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
             }
         });
         add(btnRefresh);
-        btnRefresh.setBounds(720, 23, 75, 24);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        add(jLabel4);
-        jLabel4.setBounds(10, 0, 1210, 650);
+        btnRefresh.setBounds(840, 150, 120, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -271,6 +292,10 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
         populateOrder();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
@@ -281,7 +306,6 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblOrderProductList;

@@ -55,17 +55,19 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setText("Name");
         add(jLabel1);
-        jLabel1.setBounds(144, 160, 30, 14);
+        jLabel1.setBounds(590, 330, 60, 30);
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setText("CardNumber");
         add(jLabel2);
-        jLabel2.setBounds(101, 204, 69, 14);
+        jLabel2.setBounds(580, 390, 100, 30);
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,10 +75,13 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
             }
         });
         add(txtName);
-        txtName.setBounds(243, 155, 146, 18);
+        txtName.setBounds(676, 323, 210, 40);
         add(txtCard);
-        txtCard.setBounds(243, 199, 146, 18);
+        txtCard.setBounds(680, 390, 210, 40);
 
+        btnCompletePayment.setBackground(new java.awt.Color(0, 153, 0));
+        btnCompletePayment.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        btnCompletePayment.setForeground(new java.awt.Color(255, 255, 255));
         btnCompletePayment.setText("Complete payment");
         btnCompletePayment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,29 +89,29 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
             }
         });
         add(btnCompletePayment);
-        btnCompletePayment.setBounds(235, 273, 134, 24);
+        btnCompletePayment.setBounds(730, 540, 230, 70);
 
-        btnBack.setText("<<Back");
+        btnBack.setBackground(new java.awt.Color(0, 102, 204));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
         add(btnBack);
-        btnBack.setBounds(17, 9, 76, 24);
+        btnBack.setBounds(17, 9, 110, 40);
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel3.setText("Order Total:");
         add(jLabel3);
-        jLabel3.setBounds(105, 103, 65, 14);
+        jLabel3.setBounds(580, 260, 110, 50);
 
+        lblTotal.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         lblTotal.setText("<Order Total>");
         add(lblTotal);
-        lblTotal.setBounds(266, 103, 80, 14);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/payment.jpeg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        add(jLabel4);
-        jLabel4.setBounds(0, 10, 1140, 630);
+        lblTotal.setBounds(691, 267, 160, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -165,7 +170,6 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JTextField txtCard;
     private javax.swing.JTextField txtName;

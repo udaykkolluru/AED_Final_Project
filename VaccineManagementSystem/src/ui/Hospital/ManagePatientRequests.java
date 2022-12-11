@@ -53,8 +53,8 @@ public class ManagePatientRequests extends javax.swing.JPanel {
         tblDetails = new javax.swing.JTable();
         btnOrderDetails = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
         tblRequest.setModel(new javax.swing.table.DefaultTableModel(
@@ -71,8 +71,10 @@ public class ManagePatientRequests extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblRequest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(282, 32, 453, 182);
+        jScrollPane1.setBounds(320, 200, 810, 230);
 
+        btnAccept.setBackground(new java.awt.Color(0, 153, 0));
+        btnAccept.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnAccept.setText("Accept");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,8 +82,11 @@ public class ManagePatientRequests extends javax.swing.JPanel {
             }
         });
         add(btnAccept);
-        btnAccept.setBounds(321, 226, 71, 24);
+        btnAccept.setBounds(320, 450, 90, 30);
 
+        btnReject.setBackground(new java.awt.Color(204, 0, 0));
+        btnReject.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnReject.setForeground(new java.awt.Color(255, 255, 255));
         btnReject.setText("Reject");
         btnReject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +94,7 @@ public class ManagePatientRequests extends javax.swing.JPanel {
             }
         });
         add(btnReject);
-        btnReject.setBounds(604, 226, 66, 24);
+        btnReject.setBounds(420, 450, 80, 30);
 
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,8 +110,11 @@ public class ManagePatientRequests extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblDetails);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(280, 340, 453, 160);
+        jScrollPane2.setBounds(320, 540, 800, 230);
 
+        btnOrderDetails.setBackground(new java.awt.Color(102, 0, 102));
+        btnOrderDetails.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnOrderDetails.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderDetails.setText("Order Details");
         btnOrderDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,8 +122,11 @@ public class ManagePatientRequests extends javax.swing.JPanel {
             }
         });
         add(btnOrderDetails);
-        btnOrderDetails.setBounds(442, 226, 105, 24);
+        btnOrderDetails.setBounds(1000, 450, 130, 30);
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("<<Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,12 +134,7 @@ public class ManagePatientRequests extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(50, 30, 76, 24);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2);
-        jLabel2.setBounds(10, -10, 1070, 620);
+        jButton1.setBounds(50, 30, 100, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
@@ -209,7 +215,6 @@ public class ManagePatientRequests extends javax.swing.JPanel {
     private javax.swing.JButton btnOrderDetails;
     private javax.swing.JButton btnReject;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblDetails;
