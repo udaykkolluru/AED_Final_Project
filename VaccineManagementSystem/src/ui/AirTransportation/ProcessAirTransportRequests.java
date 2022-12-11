@@ -15,13 +15,13 @@ import javax.swing.JPanel;
  *
  * @author charanpatnaik
  */
-public class ProcessHeavyRequests extends javax.swing.JPanel {
+public class ProcessAirTransportRequests extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Order order;
     /**
      * Creates new form ProcessLightRequests
      */
-    public ProcessHeavyRequests(JPanel userProcessContainer, Order order) {
+    public ProcessAirTransportRequests(JPanel userProcessContainer, Order order) {
         initComponents();
         this.order = order;
         this.userProcessContainer = userProcessContainer;
@@ -43,7 +43,7 @@ public class ProcessHeavyRequests extends javax.swing.JPanel {
 
         setLayout(null);
         add(txtStatus);
-        txtStatus.setBounds(40, 130, 1028, 23);
+        txtStatus.setBounds(40, 130, 1028, 18);
 
         jButton1.setText("Complete");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -52,7 +52,7 @@ public class ProcessHeavyRequests extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(490, 220, 86, 23);
+        jButton1.setBounds(490, 220, 85, 24);
 
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -61,7 +61,7 @@ public class ProcessHeavyRequests extends javax.swing.JPanel {
             }
         });
         add(backJButton);
-        backJButton.setBounds(0, 6, 80, 23);
+        backJButton.setBounds(0, 6, 79, 24);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/WhatsApp Image 2021-12-12 at 8.09.21 PM.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");

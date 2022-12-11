@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author charanpatnaik
  */
-public class ManageHeavyRequests extends javax.swing.JPanel {
+public class ManageAirTransportRequests extends javax.swing.JPanel {
 
     JPanel userProcessConatiner;
     Enterprise enterprise;
@@ -29,7 +29,7 @@ public class ManageHeavyRequests extends javax.swing.JPanel {
     /**
      * Creates new form ManageRequests
      */
-    public ManageHeavyRequests(JPanel userProcessConatiner, Enterprise enterprise, UserAccount userAccount, EcoSystem ecoSystem) {
+    public ManageAirTransportRequests(JPanel userProcessConatiner, Enterprise enterprise, UserAccount userAccount, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessConatiner = userProcessConatiner;
         this.enterprise = enterprise;
@@ -72,7 +72,7 @@ public class ManageHeavyRequests extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblRequest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(201, 56, 452, 182);
+        jScrollPane1.setBounds(201, 56, 453, 182);
 
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -82,13 +82,13 @@ public class ManageHeavyRequests extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Product", "Description", "FDA Price", "Quantity"
+                "Product", "Description", "Distributor Price", "Quantity"
             }
         ));
         jScrollPane2.setViewportView(tblDetails);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(201, 391, 452, 160);
+        jScrollPane2.setBounds(201, 391, 453, 160);
 
         btnProcess.setText("Process");
         btnProcess.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +97,7 @@ public class ManageHeavyRequests extends javax.swing.JPanel {
             }
         });
         add(btnProcess);
-        btnProcess.setBounds(563, 301, 77, 23);
+        btnProcess.setBounds(563, 301, 76, 24);
 
         btnOrderDetails.setText("Order Details");
         btnOrderDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +106,7 @@ public class ManageHeavyRequests extends javax.swing.JPanel {
             }
         });
         add(btnOrderDetails);
-        btnOrderDetails.setBounds(382, 301, 107, 23);
+        btnOrderDetails.setBounds(382, 301, 105, 24);
 
         jButton1.setText("Refresh");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +115,7 @@ public class ManageHeavyRequests extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(201, 301, 75, 23);
+        jButton1.setBounds(201, 301, 75, 24);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/WhatsApp Image 2021-12-12 at 8.09.21 PM.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
