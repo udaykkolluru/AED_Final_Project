@@ -19,4 +19,8 @@ To create an impartial and efficient vaccine distribution system we have created
 Goal:
 This application at its core enable public in remote areas to order vaccine at the comfort of their home when cannot travel to hospital and also helps log and manage all the vaccination requests at all tier of supply chain i.e hospitals, Government entity and Pharmaceutical companies
 
-![image](https://user-images.githubusercontent.com/114302060/206919129-eb739365-acec-4f24-919d-a52b1943a32b.png)
+
+Object Diagram
+
+
+![image](/VDS_ObjectDiagram.jpg?raw=true)
