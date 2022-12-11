@@ -1,34 +1,35 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
  */
-package ui;
 
-import com.neuuday.assignment1.model.ContactInfo;
-import com.neuuday.assignment1.model.Employee;
-import com.neuuday.assignment1.model.EmployeeDirectory;
-import util.UtilClass;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+
+import model.EcoSystem;
+import model.DB4OHelper.DB4OHelper;
+import model.Enterprise.Enterprise;
+import model.Network.Network;
+import model.Organization.Organization;
+import model.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
- * @author udaykk
+ * @author pawan
  */
 public class MainJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form MainJFrame
      */
-    private EmployeeDirectory directory;
+    private EcoSystem system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
 
     public MainJFrame() {
         initComponents();
-        directory = new EmployeeDirectory();
-        populateDefaultValues();
-        jTextField1.setEditable(false);
+        system = dB4OUtil.retrieveSystem();
+        this.setSize(1680, 1050);
     }
 
     /**
@@ -40,32 +41,37 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        splitPane = new javax.swing.JSplitPane();
+        jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        createjButton = new javax.swing.JButton();
-        viewjButton = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        loginJButton = new javax.swing.JButton();
+        userNameJTextField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        loginJLabel = new javax.swing.JLabel();
+        logoutJButton = new javax.swing.JButton();
+        container = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        splitPane.setDividerLocation(150);
-
-        jPanel1.setPreferredSize(new java.awt.Dimension(150, 850));
-
-        createjButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        createjButton.setText("Create");
-        createjButton.addActionListener(new java.awt.event.ActionListener() {
+        loginJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/lock.jpg"))); // NOI18N
+        loginJButton.setText("Login");
+        loginJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createjButtonActionPerformed(evt);
+                loginJButtonActionPerformed(evt);
             }
         });
 
-        viewjButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        viewjButton.setText("View");
-        viewjButton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("User Name");
+
+        jLabel2.setText("Password");
+
+        logoutJButton.setText("Logout");
+        logoutJButton.setEnabled(false);
+        logoutJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewjButtonActionPerformed(evt);
+                logoutJButtonActionPerformed(evt);
             }
         });
 
@@ -75,86 +81,131 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(createjButton, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                    .addComponent(viewjButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(userNameJTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(logoutJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                            .addGap(26, 26, 26)
+                            .addComponent(loginJLabel)))
+                    .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(createjButton)
-                .addGap(35, 35, 35)
-                .addComponent(viewjButton)
-                .addContainerGap(514, Short.MAX_VALUE))
-        );
-
-        splitPane.setLeftComponent(jPanel1);
-
-        jPanel2.setPreferredSize(new java.awt.Dimension(1250, 850));
-
-        jTextField1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
-        jTextField1.setText("Human Resource Management Tool");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(366, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(477, Short.MAX_VALUE))
-        );
-
-        splitPane.setRightComponent(jPanel2);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1250, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(splitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(loginJButton)
+                .addGap(34, 34, 34)
+                .addComponent(logoutJButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(loginJLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jSplitPane1.setLeftComponent(jPanel1);
+
+        container.setBackground(new java.awt.Color(204, 204, 204));
+        container.setLayout(new java.awt.CardLayout());
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/welcome.jpg"))); // NOI18N
+        container.add(jLabel4, "card2");
+
+        jSplitPane1.setRightComponent(container);
+
+        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-//    Create button is used to create employee record and add it to database.
-    private void createjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createjButtonActionPerformed
-        // TODO add your handling code here:
-        CreateJPanel createJPanel = new CreateJPanel(directory);
-        splitPane.setRightComponent(createJPanel);
-    }//GEN-LAST:event_createjButtonActionPerformed
+    private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
+        // Get user name
+        String userName = userNameJTextField.getText();
+        // Get Password
+        char[] passwordCharArray = passwordField.getPassword();
+        String password = String.valueOf(passwordCharArray);
+        
+        //Step1: Check in the system admin user account directory if you have the user
+        UserAccount userAccount=system.getUserAccountDirectory().authenticateUser(userName, password);
+        
+        Enterprise inEnterprise=null;
+        Organization inOrganization=null;
+        
+        if(userAccount==null){
+            //Step 2: Go inside each network and check each enterprise
+            for(Network network:system.getNetworkList()){
+                //Step 2.a: check against each enterprise
+                for(Enterprise enterprise:network.getEnterpriseDirectory().getEnterpriseList()){
+                    userAccount=enterprise.getUserAccountDirectory().authenticateUser(userName, password);
+                    if(userAccount==null){
+                       //Step 3:check against each organization for each enterprise
+                       for(Organization organization:enterprise.getOrganizationDirectory().getOrganizationList()){
+                           userAccount=organization.getUserAccountDirectory().authenticateUser(userName, password);
+                           if(userAccount!=null){
+                               inEnterprise=enterprise;
+                               inOrganization=organization;
+                               break;
+                           }
+                       }
+                        
+                    }
+                    else{
+                       inEnterprise=enterprise;
+                       break;
+                    }
+                    if(inOrganization!=null){
+                        break;
+                    }  
+                }
+                if(inEnterprise!=null){
+                    break;
+                }
+            }
+        }
+        
+        if(userAccount==null){
+            JOptionPane.showMessageDialog(null, "Invalid credentials");
+            return;
+        }
+        else{
+            CardLayout layout=(CardLayout)container.getLayout();
+            container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, system));
+            layout.next(container);
+        }
+        
+        loginJButton.setEnabled(false);
+        logoutJButton.setEnabled(true);
+        userNameJTextField.setEnabled(false);
+        passwordField.setEnabled(false);
+    }//GEN-LAST:event_loginJButtonActionPerformed
 
-    //View button is used to read, update, search, and delete records 
-    private void viewjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewjButtonActionPerformed
-        // TODO add your handling code here:
-        ViewJPanel viewJPanel = new ViewJPanel(directory);
-        splitPane.setRightComponent(viewJPanel);
-    }//GEN-LAST:event_viewjButtonActionPerformed
+    private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
+        logoutJButton.setEnabled(false);
+        userNameJTextField.setEnabled(true);
+        passwordField.setEnabled(true);
+        loginJButton.setEnabled(true);
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        userNameJTextField.setText("");
+        passwordField.setText("");
+
+        container.removeAll();
+        JPanel blankJP = new JPanel();
+        container.add("blank", blankJP);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(system);
+    }//GEN-LAST:event_logoutJButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,6 +233,7 @@ public class MainJFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -190,94 +242,17 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
     }
-
-//    Sample data populated for testing
-    private void populateDefaultValues() {
-        Employee emp1 = new Employee("1001", "person A", 52, "Male", UtilClass.convertStringToDate("1/24/2000"), "L1", "Sales Team", "Asst Manager", new ContactInfo("6957675508", "person1@gmail.com"));
-        emp1.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/1.jpeg"));
-        directory.addEmployeeByObjecttoList(emp1);
-
-        Employee emp2 = new Employee("1002", "person B", 32, "Female", UtilClass.convertStringToDate("11/2/2000"), "L1", "Marketing Team", "Asst Manager", new ContactInfo("8846638176", "person2@gmail.com"));
-        emp2.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/2.jpeg"));
-        directory.addEmployeeByObjecttoList(emp2);
-
-        Employee emp3 = new Employee("1003", "person C", 54, "Male", UtilClass.convertStringToDate("10/25/2022"), "L1", "Engineering Team", "Asst Manager", new ContactInfo("8339429919", "person3@gmail.com"));
-        emp3.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/3.jpeg"));
-        directory.addEmployeeByObjecttoList(emp3);
-
-        Employee emp4 = new Employee("1004", "person D", 67, "Female", UtilClass.convertStringToDate("3/12/2022"), "L2", "Sales Team", "Associate Manager", new ContactInfo("6412712050", "person4@gmail.com"));
-        emp4.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/4.jpeg"));
-        directory.addEmployeeByObjecttoList(emp4);
-
-        Employee emp5 = new Employee("1005", "person E", 24, "Female", UtilClass.convertStringToDate("4/03/2000"), "L2", "Marketing Team", "Associate Manager", new ContactInfo("6854678197", "person5@gmail.com"));
-        emp5.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/5.jpeg"));
-        directory.addEmployeeByObjecttoList(emp5);
-
-        Employee emp6 = new Employee("1006", "person F", 87, "Female", UtilClass.convertStringToDate("6/21/2022"), "L2", "Engineering Team", "Associate Manager", new ContactInfo("5122532719", "person6@gmail.com"));
-        emp6.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/6.jpeg"));
-        directory.addEmployeeByObjecttoList(emp6);
-
-        Employee emp7 = new Employee("1007", "person G", 25, "Male", UtilClass.convertStringToDate("11/28/2022"), "L3", "Sales Team", "Deputy Manager", new ContactInfo("7595144178", "person7@gmail.com"));
-        emp7.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/7.jpeg"));
-        directory.addEmployeeByObjecttoList(emp7);
-
-        Employee emp8 = new Employee("1008", "person H", 45, "Male", UtilClass.convertStringToDate("10/26/2000"), "L3", "Marketing Team", "Deputy Manager", new ContactInfo("7374138861", "person8@gmail.com"));
-        emp8.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/8.jpeg"));
-        directory.addEmployeeByObjecttoList(emp8);
-
-        Employee emp9 = new Employee("1009", "person I", 68, "Male", UtilClass.convertStringToDate("12/23/2022"), "L3", "Engineering Team", "Deputy Manager", new ContactInfo("3364092445", "person9@gmail.com"));
-        emp9.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/9.jpeg"));
-        directory.addEmployeeByObjecttoList(emp9);
-
-        Employee emp10 = new Employee("1010", "person J", 27, "Male", UtilClass.convertStringToDate("1/12/2022"), "L4", "Sales Team", "Manager", new ContactInfo("7457499443", "person10@gmail.com"));
-        emp10.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/10.jpeg"));
-        directory.addEmployeeByObjecttoList(emp10);
-
-        Employee emp11 = new Employee("1011", "person K", 18, "Female", UtilClass.convertStringToDate("6/5/2000"), "L4", "Marketing Team", "Manager", new ContactInfo("1243921641", "person11@gmail.com"));
-        emp11.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/11.jpeg"));
-        directory.addEmployeeByObjecttoList(emp11);
-
-        Employee emp12 = new Employee("1012", "person L", 77, "Female", UtilClass.convertStringToDate("9/7/2000"), "L4", "Engineering Team", "Manager", new ContactInfo("8294924879", "person12@gmail.com"));
-        emp12.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/12.jpeg"));
-        directory.addEmployeeByObjecttoList(emp12);
-
-        Employee emp13 = new Employee("1013", "person M", 36, "Female", UtilClass.convertStringToDate("8/19/2000"), "L5", "Sales Team", "Senior Manager", new ContactInfo("2753861503", "person13@gmail.com"));
-        emp13.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/13.jpeg"));
-        directory.addEmployeeByObjecttoList(emp13);
-
-        Employee emp14 = new Employee("1014", "person N", 14, "Male", UtilClass.convertStringToDate("11/06/2022"), "L5", "Marketing Team", "Senior Manager", new ContactInfo("9679807227", "person14@gmail.com"));
-        emp14.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/14.jpeg"));
-        directory.addEmployeeByObjecttoList(emp14);
-
-        Employee emp15 = new Employee("1015", "person O", 75, "Male", UtilClass.convertStringToDate("1/05/2022"), "L5", "Engineering Team", "Senior Manager", new ContactInfo("1109630746", "person15@gmail.com"));
-        emp15.setPhoto(getPictureWithFilePath("AED-AssignmentPictures/15.jpeg"));
-        directory.addEmployeeByObjecttoList(emp15);
-
-    }
-
-    private byte[] getPictureWithFilePath(String imagePath) {
-        try {
-            File image = new File(imagePath);
-            FileInputStream fis;
-
-            fis = new FileInputStream(image);
-            ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream();
-            byte[] buf = new byte[1024];
-            for (int num; (num = fis.read(buf)) != -1;) {
-                arrayOutputStream.write(buf, 0, num);
-            }
-            return arrayOutputStream.toByteArray();
-        } catch (IOException ex) {
-            return null;
-        }
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton createjButton;
+    private javax.swing.JPanel container;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JSplitPane splitPane;
-    private javax.swing.JButton viewjButton;
+    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JButton loginJButton;
+    private javax.swing.JLabel loginJLabel;
+    private javax.swing.JButton logoutJButton;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JTextField userNameJTextField;
     // End of variables declaration//GEN-END:variables
 }

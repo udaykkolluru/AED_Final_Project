@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author pawan
  */
-public class SalesPersonTransactionHome extends javax.swing.JPanel {
+public class DoctorTransactionHome extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private Organization organization;
     private Enterprise enterprise;
@@ -32,7 +32,7 @@ public class SalesPersonTransactionHome extends javax.swing.JPanel {
     /**
      * Creates new form DoctorTransactionHome
      */
-    public SalesPersonTransactionHome(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
+    public DoctorTransactionHome(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organization = organization;
@@ -93,7 +93,7 @@ public class SalesPersonTransactionHome extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(373, 49, 112, 22);
         add(txtSearch);
-        txtSearch.setBounds(296, 106, 126, 26);
+        txtSearch.setBounds(296, 106, 126, 18);
 
         btnSearch.setText("Search Product");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +102,7 @@ public class SalesPersonTransactionHome extends javax.swing.JPanel {
             }
         });
         add(btnSearch);
-        btnSearch.setBounds(477, 106, 137, 29);
+        btnSearch.setBounds(477, 106, 115, 24);
 
         tblProductList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -132,7 +132,7 @@ public class SalesPersonTransactionHome extends javax.swing.JPanel {
             }
         });
         add(btnRemove);
-        btnRemove.setBounds(749, 485, 93, 29);
+        btnRemove.setBounds(749, 485, 76, 24);
 
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +141,7 @@ public class SalesPersonTransactionHome extends javax.swing.JPanel {
             }
         });
         add(btnAdd);
-        btnAdd.setBounds(760, 220, 93, 29);
+        btnAdd.setBounds(760, 220, 93, 24);
 
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +150,7 @@ public class SalesPersonTransactionHome extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(18, 23, 93, 29);
+        btnBack.setBounds(18, 23, 76, 24);
 
         jButton1.setText("Payment Page");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -159,7 +159,7 @@ public class SalesPersonTransactionHome extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(388, 607, 130, 29);
+        jButton1.setBounds(388, 607, 107, 24);
 
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -168,7 +168,7 @@ public class SalesPersonTransactionHome extends javax.swing.JPanel {
             }
         });
         add(btnRefresh);
-        btnRefresh.setBounds(730, 20, 91, 29);
+        btnRefresh.setBounds(730, 20, 75, 24);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
         add(jLabel3);
@@ -225,7 +225,7 @@ public class SalesPersonTransactionHome extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if(order.getProductList().size()!=0){
-            CustomerDetails salesPersonTransactionHome= new CustomerDetails(userProcessContainer,order, ecoSystem);
+            PatientDetails salesPersonTransactionHome= new PatientDetails(userProcessContainer,order, ecoSystem);
             userProcessContainer.add("processWorkRequestJPanel", salesPersonTransactionHome);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
@@ -245,7 +245,7 @@ public class SalesPersonTransactionHome extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        SalesPersonWorkAreaJPanel dwjp = (SalesPersonWorkAreaJPanel) component;
+        DoctorWorkAreaJPanel dwjp = (DoctorWorkAreaJPanel) component;
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

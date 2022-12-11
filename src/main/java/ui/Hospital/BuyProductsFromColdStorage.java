@@ -5,7 +5,7 @@
 package ui.Hospital;
 
 import model.EcoSystem;
-import ui.SalesPersonRole.*;
+import ui.Doctor.*;
 import model.Enterprise.Enterprise;
 import model.Network.Network;
 import model.Organization.Organization;
@@ -18,14 +18,12 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import ui.SalesSupervisorRole.SelectDistributorJPanel;
-import ui.SalesSupervisorRole.SuperMarketAdminDetails;
 
 /**
  *
  * @author pawan
  */
-public class ProductsFromColdStorage extends javax.swing.JPanel {
+public class BuyProductsFromColdStorage extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     
     private Enterprise coldStorageEnterprise;
@@ -35,9 +33,9 @@ public class ProductsFromColdStorage extends javax.swing.JPanel {
     Order order;
     WorkRequest workRequest;
     /**
-     * Creates new form TransactionHome
+     * Creates new form SalesPersonTransactionHome
      */
-    public ProductsFromColdStorage(JPanel userProcessContainer, UserAccount account, Enterprise coldStorageenterprise, Enterprise hospitalEnterprise, EcoSystem ecoSystem) {
+    public BuyProductsFromColdStorage(JPanel userProcessContainer, UserAccount account, Enterprise coldStorageenterprise, Enterprise hospitalEnterprise, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.coldStorageEnterprise = coldStorageenterprise;
@@ -240,7 +238,7 @@ public class ProductsFromColdStorage extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if(order.getProductList().size()!=0){
-            SuperMarketAdminDetails salesPersonTransactionHome= new SuperMarketAdminDetails(userProcessContainer,order, coldStorageEnterprise, ecoSystem);
+            HospitalAdminDetails salesPersonTransactionHome= new HospitalAdminDetails(userProcessContainer,order, coldStorageEnterprise, ecoSystem);
             userProcessContainer.add("processWorkRequestJPanel", salesPersonTransactionHome);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
@@ -264,7 +262,7 @@ public class ProductsFromColdStorage extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        SelectDistributorJPanel dwjp = (SelectDistributorJPanel) component;
+        SelectColdStorageJPanel dwjp = (SelectColdStorageJPanel) component;
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

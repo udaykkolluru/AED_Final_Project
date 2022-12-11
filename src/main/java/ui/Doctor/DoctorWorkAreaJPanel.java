@@ -16,7 +16,7 @@ import javax.swing.JPanel;
  *
  * @author pawan
  */
-public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
+public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private EcoSystem model;
     private UserAccount account;
@@ -25,7 +25,7 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public SalesPersonWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, EcoSystem model, Enterprise enterprise) {
+    public DoctorWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, EcoSystem model, Enterprise enterprise) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -55,7 +55,7 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Sales Person Work Area");
         add(jLabel1);
-        jLabel1.setBounds(269, 22, 146, 16);
+        jLabel1.setBounds(269, 22, 125, 14);
 
         jButton1.setText("Start Transaction");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +64,7 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(261, 195, 165, 29);
+        jButton1.setBounds(261, 195, 165, 24);
 
         jButton2.setText("All Orders");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -73,11 +73,11 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton2);
-        jButton2.setBounds(261, 282, 165, 29);
+        jButton2.setBounds(261, 282, 165, 24);
 
         valueLabel.setText("jLabel3");
         add(valueLabel);
-        valueLabel.setBounds(440, 20, 150, 16);
+        valueLabel.setBounds(440, 20, 150, 14);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -87,7 +87,7 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        SalesPersonTransactionHome salesPersonTransactionHome= new SalesPersonTransactionHome(userProcessContainer, account, doctorOrganization, enterprise, model);
+        DoctorTransactionHome salesPersonTransactionHome= new DoctorTransactionHome(userProcessContainer, account, doctorOrganization, enterprise, model);
         
         userProcessContainer.add("processWorkRequestJPanel", salesPersonTransactionHome);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -96,7 +96,7 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        PreviousOrdersSP salesPersonTransactionHome= new PreviousOrdersSP(userProcessContainer, enterprise,account, model);
+        PreviousOrdersDoctor salesPersonTransactionHome= new PreviousOrdersDoctor(userProcessContainer, enterprise,account, model);
         
         userProcessContainer.add("processWorkRequestJPanel", salesPersonTransactionHome);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
