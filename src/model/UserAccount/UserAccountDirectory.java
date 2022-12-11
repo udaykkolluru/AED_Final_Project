@@ -15,6 +15,11 @@ import model.Role.Role;
 public class UserAccountDirectory {
     private ArrayList<UserAccount> userAccountList;
 
+    public UserAccountDirectory() {
+        this.userAccountList = new ArrayList<>();
+    }
+    
+
     public ArrayList<UserAccount> getUserAccountList() {
         return userAccountList;
     }
