@@ -5,10 +5,8 @@
 package ui.Hospital;
 
 import model.EcoSystem;
-import ui.Doctor.*;
 import model.Enterprise.Enterprise;
 import model.Network.Network;
-import model.Organization.Organization;
 import model.UserAccount.UserAccount;
 import model.WorkQueue.Order;
 import model.WorkQueue.Product;

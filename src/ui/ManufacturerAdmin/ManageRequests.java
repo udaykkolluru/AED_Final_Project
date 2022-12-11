@@ -7,7 +7,6 @@ package ui.ManufacturerAdmin;
 import model.EcoSystem;
 import model.Enterprise.Enterprise;
 import model.Organization.Organization;
-import model.Role.Role;
 import model.UserAccount.UserAccount;
 import model.WorkQueue.Order;
 import model.WorkQueue.Product;

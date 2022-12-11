@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author harish
+ * @author pawan
  */
 public class PreviousOrdersDoctor extends javax.swing.JPanel {
     JPanel userProcessConatiner;

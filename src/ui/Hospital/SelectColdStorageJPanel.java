@@ -4,7 +4,6 @@
  */
 package ui.Hospital;
 
-import ui.Hospital.BuyProductsFromColdStorage;
 import model.EcoSystem;
 import model.Enterprise.Enterprise;
 import model.Network.Network;
