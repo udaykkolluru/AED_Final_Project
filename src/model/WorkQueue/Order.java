@@ -26,12 +26,21 @@ public class Order extends WorkRequest{
     }
 
     public Object totalSuperMarket() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int sum = 0;
+        for(Product product: productList){
+            sum += product.getSuperMarketPrice()*product.getQuantity();
+        }
+        return sum;
     }
 
     public Object totalDistributor() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int sum = 0;
+        for(Product product: productList){
+            sum += product.getDistributorPrice()*product.getQuantity();
+        }
+        return sum;
     }
+
 
     
 }

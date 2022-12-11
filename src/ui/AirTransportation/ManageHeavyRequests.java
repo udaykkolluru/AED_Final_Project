@@ -23,14 +23,16 @@ import javax.swing.table.DefaultTableModel;
  * @author charanpatnaik
  */
 public class ManageHeavyRequests extends javax.swing.JPanel {
+
     JPanel userProcessConatiner;
     Enterprise enterprise;
     UserAccount userAccount;
     EcoSystem ecoSystem;
+
     /**
      * Creates new form ManageRequests
      */
-    public ManageHeavyRequests(JPanel userProcessConatiner, Enterprise enterprise,UserAccount userAccount,EcoSystem ecoSystem) {
+    public ManageHeavyRequests(JPanel userProcessConatiner, Enterprise enterprise, UserAccount userAccount, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessConatiner = userProcessConatiner;
         this.enterprise = enterprise;
@@ -127,15 +129,15 @@ public class ManageHeavyRequests extends javax.swing.JPanel {
     private void btnOrderDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderDetailsActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblRequest.getSelectedRow();
-        if (selectedRow < 0){
+        if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select an item");
             return;
         }
-        Order order = (Order)tblRequest.getValueAt(selectedRow, 0);
-        
+        Order order = (Order) tblRequest.getValueAt(selectedRow, 0);
+
         DefaultTableModel model = (DefaultTableModel) tblDetails.getModel();
         model.setRowCount(0);
-        for(Product product:order.getProductList()){
+        for (Product product : order.getProductList()) {
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
@@ -148,16 +150,35 @@ public class ManageHeavyRequests extends javax.swing.JPanel {
     private void btnProcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblRequest.getSelectedRow();
-        if (selectedRow < 0){
+        if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select an item");
             return;
         }
-        Order order = (Order)tblRequest.getValueAt(selectedRow, 0);
-        ProcessHeavyRequests manageEmployeeJPanel = new ProcessHeavyRequests(userProcessConatiner, order);
-        userProcessConatiner.add("manageEmployeeJPanel", manageEmployeeJPanel);
-
-        CardLayout layout = (CardLayout) userProcessConatiner.getLayout();
-        layout.next(userProcessConatiner);
+        Order order = (Order) tblRequest.getValueAt(selectedRow, 0);
+        order.setStatus("delivered successfully");
+        for (Product product : order.getProductList()) {
+            boolean check = true;
+            for (Product product1 : order.getSenderEnterprise().getProductList()) {
+                if (product.getName().equals(product1.getName())) {
+                    product1.setQuantity(product1.getQuantity() + product.getQuantity());
+                    check = false;
+                }
+            }
+            if (check) {
+                Product prod = new Product(product.getName(), product.getDescription());
+                prod.setSuperMarketPrice(product.getSuperMarketPrice());
+                prod.setDistributorPrice(prod.getSuperMarketPrice());
+                prod.setQuantity(product.getQuantity());
+                order.getSenderEnterprise().getProductList().add(prod);
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Order processed");
+        return;
+//        ProcessHeavyRequests manageEmployeeJPanel = new ProcessHeavyRequests(userProcessConatiner, order);
+//        userProcessConatiner.add("manageEmployeeJPanel", manageEmployeeJPanel);
+//
+//        CardLayout layout = (CardLayout) userProcessConatiner.getLayout();
+//        layout.next(userProcessConatiner);
     }//GEN-LAST:event_btnProcessActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -180,8 +201,8 @@ public class ManageHeavyRequests extends javax.swing.JPanel {
     private void populateRequests() {
         DefaultTableModel model = (DefaultTableModel) tblRequest.getModel();
         model.setRowCount(0);
-        for(WorkRequest workRequest:ecoSystem.getWorkQueue().getWorkRequestList()){
-            if(workRequest.getDelivery()!=null && workRequest.getDelivery().equals(userAccount)){
+        for (WorkRequest workRequest : ecoSystem.getWorkQueue().getWorkRequestList()) {
+            if (workRequest.getDelivery() != null && workRequest.getDelivery().equals(userAccount)) {
                 Object[] row = new Object[5];
                 row[0] = workRequest;
                 row[1] = workRequest.getReceiver();
@@ -192,8 +213,5 @@ public class ManageHeavyRequests extends javax.swing.JPanel {
             }
         }
     }
-    
-    
-    
-    
+
 }

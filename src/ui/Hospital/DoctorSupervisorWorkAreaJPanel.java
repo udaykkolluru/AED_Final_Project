@@ -26,6 +26,7 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
         this.ecoSystem = ecoSystem;
         this.userAccount = userAccount;
         valueLabel.setText(enterprise.getName());
+        userJButton1.setVisible(false);
     }
     
     /** This method is called from within the constructor to
