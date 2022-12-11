@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.ColdStorage;
+package ui.FDA;
 
 import model.EcoSystem;
 import model.Enterprise.Enterprise;
@@ -14,7 +14,7 @@ import javax.swing.JPanel;
  *
  * @author charanpatnaik
  */
-public class ColdStorageAdmWorkAreaJPanel extends javax.swing.JPanel {
+public class FDAAdmWorkAreaJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Enterprise enterprise;
     UserAccount userAccount;
@@ -22,7 +22,7 @@ public class ColdStorageAdmWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DistributorAdmWorkAreaJPanel
      */
-    public ColdStorageAdmWorkAreaJPanel(JPanel userJPanel, Enterprise enterprise, EcoSystem ecoSystem, UserAccount userAccount) {
+    public FDAAdmWorkAreaJPanel(JPanel userJPanel, Enterprise enterprise, EcoSystem ecoSystem, UserAccount userAccount) {
         this.userProcessContainer = userJPanel;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
@@ -51,7 +51,7 @@ public class ColdStorageAdmWorkAreaJPanel extends javax.swing.JPanel {
         setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("My Work Area - Cold Storage");
+        jLabel1.setText("Food and Drug Administration");
         add(jLabel1);
         jLabel1.setBounds(300, 30, 403, 29);
 
@@ -91,7 +91,6 @@ public class ColdStorageAdmWorkAreaJPanel extends javax.swing.JPanel {
         add(btnBuyProducts);
         btnBuyProducts.setBounds(420, 380, 180, 24);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/distributor.jpeg"))); // NOI18N
         jLabel2.setText("jLabel2");
         add(jLabel2);
         jLabel2.setBounds(0, 0, 1000, 620);

@@ -125,7 +125,6 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         }
         if(checkCardValid(txtCard.getText())){
             Employee customer = new Employee(txtName.getText(), txtCard.getText());
-            System.out.println(" uday " +order.getReceiverEnterprise());
             Order newOrder = new Order();
             newOrder.setNetworkName(order.getNetworkName());
             newOrder.setSender(order.getSender());
@@ -135,19 +134,11 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
             for(Product prod:order.getProductList()){
                 newOrder.getProductList().add(prod);
             }
-            System.out.println("priting order product list");
-            System.out.println(order.getProductList());
-            System.out.println("priting new order product list");
-            System.out.println(newOrder.getProductList());
             ecoSystem.getWorkQueue().getWorkRequestList().add(newOrder);
             JOptionPane.showMessageDialog(this, "Thankyou for shopping with us");
             order.setStatus("waiting for distributor admin to accept");
             System.out.println("order placed");
             order.getProductList().clear();
-            System.out.println("priting order product list");
-            System.out.println(order.getProductList());
-            System.out.println("priting new order product list");
-            System.out.println(newOrder.getProductList());
             redirectBackAfterPayemnt();
         }else{
             JOptionPane.showMessageDialog(this, "Please enter valid card number");
@@ -180,7 +171,7 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        BuyProductsFromColdStorage dwjp = (BuyProductsFromColdStorage) component;
+        BuyProductsFromFDA dwjp = (BuyProductsFromFDA) component;
         dwjp.populateProductList();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);

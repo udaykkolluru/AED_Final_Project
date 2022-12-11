@@ -11,9 +11,9 @@ import model.Role.Role;
  *
  * @author pawan
  */
-public class ColdStorageEnterprise extends Enterprise{
-    public ColdStorageEnterprise(String name){
-        super(name,Enterprise.EnterpriseType.ColdStorage);
+public class FDAEnterprise extends Enterprise{
+    public FDAEnterprise(String name){
+        super(name,Enterprise.EnterpriseType.FDA);
     }
     
     @Override

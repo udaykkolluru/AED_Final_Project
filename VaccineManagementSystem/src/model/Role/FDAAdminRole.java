@@ -9,14 +9,14 @@ import model.EcoSystem;
 import model.Enterprise.Enterprise;
 import model.Organization.Organization;
 import model.UserAccount.UserAccount;
-import ui.ColdStorage.ColdStorageAdmWorkAreaJPanel;
+import ui.FDA.FDAAdmWorkAreaJPanel;
 /**
  *
  * @author udaykk
  */
-public class ColdStorageAdminRole extends Role{
+public class FDAAdminRole extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new ColdStorageAdmWorkAreaJPanel(userProcessContainer, enterprise, business, account);
+        return new FDAAdmWorkAreaJPanel(userProcessContainer, enterprise, business, account);
     }
 }

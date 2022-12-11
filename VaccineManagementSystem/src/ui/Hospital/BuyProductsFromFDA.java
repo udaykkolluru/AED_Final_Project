@@ -21,10 +21,10 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author pawan
  */
-public class BuyProductsFromColdStorage extends javax.swing.JPanel {
+public class BuyProductsFromFDA extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     
-    private Enterprise coldStorageEnterprise;
+    private Enterprise FDAEnterprise;
     private Enterprise hospitalEnterprise;
     private UserAccount userAccount;
     private EcoSystem ecoSystem;
@@ -33,10 +33,10 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
     /**
      * Creates new form SalesPersonTransactionHome
      */
-    public BuyProductsFromColdStorage(JPanel userProcessContainer, UserAccount account, Enterprise coldStorageenterprise, Enterprise hospitalEnterprise, EcoSystem ecoSystem) {
+    public BuyProductsFromFDA(JPanel userProcessContainer, UserAccount account, Enterprise FDAenterprise, Enterprise hospitalEnterprise, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.coldStorageEnterprise = coldStorageenterprise;
+        this.FDAEnterprise = FDAenterprise;
         this.hospitalEnterprise = hospitalEnterprise;
         this.userAccount = account;
         this.ecoSystem = ecoSystem;
@@ -53,8 +53,8 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
         order.setNetworkName(net.getName());
         order.setSender(account);
         order.setSenderEnterprise(hospitalEnterprise);
-        order.setReceiverEnterprise(coldStorageenterprise);
-        order.setStatus("waiting for coldStorage to accept");
+        order.setReceiverEnterprise(FDAenterprise);
+        order.setStatus("waiting for FDA to accept");
         populateProductList();
     }
 
@@ -223,7 +223,7 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
         }
         boolean check = true;
         order.getProductList().remove((Product)tblOrderProductList.getValueAt(selectedRow, 0));
-        for(Product product:coldStorageEnterprise.getProductList()){
+        for(Product product:FDAEnterprise.getProductList()){
             if(product.getName()== ((Product)tblOrderProductList.getValueAt(selectedRow, 0)).getName()){
                 product.setQuantity(product.getQuantity()+((Product)tblOrderProductList.getValueAt(selectedRow, 0)).getQuantity());
                 check = false;
@@ -236,7 +236,7 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if(order.getProductList().size()!=0){
-            HospitalAdminDetails salesPersonTransactionHome= new HospitalAdminDetails(userProcessContainer,order, coldStorageEnterprise, ecoSystem);
+            HospitalAdminDetails salesPersonTransactionHome= new HospitalAdminDetails(userProcessContainer,order, FDAEnterprise, ecoSystem);
             userProcessContainer.add("processWorkRequestJPanel", salesPersonTransactionHome);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
@@ -252,15 +252,15 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
         newOrder.setSender(order.getSender());
         newOrder.setSenderEnterprise(order.getSenderEnterprise());
         newOrder.setReceiverEnterprise(order.getReceiverEnterprise());
-        newOrder.setStatus("waiting for coldStorage to accept");
+        newOrder.setStatus("waiting for FDA to accept");
         for(Product prod:order.getProductList()){
             newOrder.getProductList().add(prod);
         }
-        coldStorageEnterprise.restoreProducts(newOrder);
+        FDAEnterprise.restoreProducts(newOrder);
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        SelectColdStorageJPanel dwjp = (SelectColdStorageJPanel) component;
+        SelectFDAJPanel dwjp = (SelectFDAJPanel) component;
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -293,7 +293,7 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
         
         model.setRowCount(0);
-        for(Product product:coldStorageEnterprise.getProductList()){
+        for(Product product:FDAEnterprise.getProductList()){
             Object[] row = new Object[5];
             row[0] = product;
             row[1] = product.getName();
@@ -307,7 +307,7 @@ public class BuyProductsFromColdStorage extends javax.swing.JPanel {
     public void populateSearchProductList(){
         DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
         model.setRowCount(0);
-        for(Product product:coldStorageEnterprise.getProductList()){
+        for(Product product:FDAEnterprise.getProductList()){
             if(product.getName().equals(txtSearch.getText()) || txtSearch.getText().equals("")){
                 Object[] row = new Object[5];
                 row[0] = product;

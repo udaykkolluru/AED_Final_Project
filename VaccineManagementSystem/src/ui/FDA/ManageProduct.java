@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.ColdStorage;
+package ui.FDA;
 
 import model.Enterprise.Enterprise;
 import model.WorkQueue.Product;
@@ -11,6 +11,7 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import util.UtilClass;
 
 /**
  *
@@ -62,17 +63,17 @@ public class ManageProduct extends javax.swing.JPanel {
 
         jLabel3.setText("Price");
         add(jLabel3);
-        jLabel3.setBounds(416, 479, 29, 17);
+        jLabel3.setBounds(416, 479, 26, 14);
 
         jLabel4.setText("Quantity");
         add(jLabel4);
-        jLabel4.setBounds(392, 523, 49, 17);
+        jLabel4.setBounds(392, 523, 46, 14);
         add(txtPrice);
-        txtPrice.setBounds(498, 474, 195, 23);
+        txtPrice.setBounds(498, 474, 195, 18);
         add(txtDescription);
-        txtDescription.setBounds(498, 430, 195, 23);
+        txtDescription.setBounds(498, 430, 195, 18);
         add(txtQuantity);
-        txtQuantity.setBounds(498, 518, 195, 23);
+        txtQuantity.setBounds(498, 518, 195, 18);
 
         tblProductList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -98,9 +99,9 @@ public class ManageProduct extends javax.swing.JPanel {
             }
         });
         add(btnAdd);
-        btnAdd.setBounds(432, 562, 72, 23);
+        btnAdd.setBounds(432, 562, 56, 24);
         add(txtSearch);
-        txtSearch.setBounds(411, 48, 74, 23);
+        txtSearch.setBounds(411, 48, 74, 18);
 
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -109,9 +110,9 @@ public class ManageProduct extends javax.swing.JPanel {
             }
         });
         add(btnSearch);
-        btnSearch.setBounds(523, 48, 72, 23);
+        btnSearch.setBounds(523, 48, 70, 24);
         add(txtName);
-        txtName.setBounds(498, 386, 195, 23);
+        txtName.setBounds(498, 386, 195, 18);
 
         btnUpdate.setText("Update");
         btnUpdate.setEnabled(false);
@@ -121,7 +122,7 @@ public class ManageProduct extends javax.swing.JPanel {
             }
         });
         add(btnUpdate);
-        btnUpdate.setBounds(513, 562, 73, 23);
+        btnUpdate.setBounds(513, 562, 72, 24);
 
         btnModifySelected.setText("Modify Selected Product");
         btnModifySelected.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +131,7 @@ public class ManageProduct extends javax.swing.JPanel {
             }
         });
         add(btnModifySelected);
-        btnModifySelected.setBounds(498, 308, 174, 23);
+        btnModifySelected.setBounds(498, 308, 162, 24);
 
         btnAddNew.setText("Add New Product");
         btnAddNew.addActionListener(new java.awt.event.ActionListener() {
@@ -139,15 +140,15 @@ public class ManageProduct extends javax.swing.JPanel {
             }
         });
         add(btnAddNew);
-        btnAddNew.setBounds(296, 308, 133, 23);
+        btnAddNew.setBounds(296, 308, 126, 24);
 
         jLabel1.setText("Product Name");
         add(jLabel1);
-        jLabel1.setBounds(358, 391, 83, 17);
+        jLabel1.setBounds(358, 391, 75, 14);
 
         jLabel2.setText("Description");
         add(jLabel2);
-        jLabel2.setBounds(373, 435, 66, 17);
+        jLabel2.setBounds(373, 435, 62, 14);
 
         btnDelete.setText("Delete");
         btnDelete.setEnabled(false);
@@ -157,7 +158,7 @@ public class ManageProduct extends javax.swing.JPanel {
             }
         });
         add(btnDelete);
-        btnDelete.setBounds(607, 562, 72, 23);
+        btnDelete.setBounds(607, 562, 67, 24);
 
         jButton1.setText("<<Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -166,7 +167,7 @@ public class ManageProduct extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(50, 40, 76, 23);
+        jButton1.setBounds(50, 40, 76, 24);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/distributor.jpeg"))); // NOI18N
         jLabel5.setText("jLabel5");
@@ -182,12 +183,17 @@ public class ManageProduct extends javax.swing.JPanel {
                 return;
             }
         }
+        if(!UtilClass.isOnlyNumber(txtPrice.getText())){
+            JOptionPane.showMessageDialog(this, "Enter a valid Integer for Price");
+            return;
+        }
+         if(!UtilClass.isOnlyNumber(txtQuantity.getText())){
+            JOptionPane.showMessageDialog(this, "Enter a valid Integer for Quantity");
+            return;
+        }
         Product product = new Product(txtName.getText(),txtDescription.getText());
-        System.out.println(product.getName());
-        System.out.println(product.getDescription());
         product.setDistributorPrice(Integer.parseInt(txtPrice.getText()));
         product.setQuantity(Integer.parseInt(txtQuantity.getText()));
-        System.out.println(product.getDistributorPrice());
         enterprise.getProductList().add(product);
         populateProducts();
         btnAdd.setEnabled(false);
@@ -274,7 +280,7 @@ public class ManageProduct extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ColdStorageAdmWorkAreaJPanel dwjp = (ColdStorageAdmWorkAreaJPanel) component;
+        FDAAdmWorkAreaJPanel dwjp = (FDAAdmWorkAreaJPanel) component;
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed

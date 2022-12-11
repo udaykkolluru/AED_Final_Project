@@ -16,7 +16,7 @@ import javax.swing.JPanel;
  *
  * @author pawan
  */
-public class SelectColdStorageJPanel extends javax.swing.JPanel {
+public class SelectFDAJPanel extends javax.swing.JPanel {
     private EcoSystem ecoSystem;
     private JPanel userProcessContainer;
     private UserAccount userAccount;
@@ -24,7 +24,7 @@ public class SelectColdStorageJPanel extends javax.swing.JPanel {
     /**
      * Creates new form SelectDistributor
      */
-    public SelectColdStorageJPanel(JPanel userProcessContainer,EcoSystem ecoSystem, UserAccount userAccount, Enterprise enterprise) {
+    public SelectFDAJPanel(JPanel userProcessContainer,EcoSystem ecoSystem, UserAccount userAccount, Enterprise enterprise) {
         initComponents();
         this.ecoSystem = ecoSystem;
         this.userProcessContainer = userProcessContainer;
@@ -143,8 +143,8 @@ public class SelectColdStorageJPanel extends javax.swing.JPanel {
         }
         for(Enterprise supplierEnterprise:req.getEnterpriseDirectory().getEnterpriseList()){
             System.out.println(supplierEnterprise.getEnterpriseType().getValue());
-            System.out.println(Enterprise.EnterpriseType.ColdStorage.getValue());
-            if(supplierEnterprise.getEnterpriseType().getValue().equals(Enterprise.EnterpriseType.ColdStorage.getValue())){
+            System.out.println(Enterprise.EnterpriseType.FDA.getValue());
+            if(supplierEnterprise.getEnterpriseType().getValue().equals(Enterprise.EnterpriseType.FDA.getValue())){
                 System.out.println("inside if condition");
                 cboxDistributor.addItem(supplierEnterprise.getName());
             }
@@ -166,7 +166,7 @@ public class SelectColdStorageJPanel extends javax.swing.JPanel {
             System.out.println(supplierEnterprise.getName());
             System.out.println(cboxDistributor.getSelectedItem());
             if(supplierEnterprise.getName().equals(cboxDistributor.getSelectedItem().toString())){
-                BuyProductsFromColdStorage buyProductsFromDistributorJPanel = new BuyProductsFromColdStorage(userProcessContainer, userAccount, supplierEnterprise, enterprise,ecoSystem);
+                BuyProductsFromFDA buyProductsFromDistributorJPanel = new BuyProductsFromFDA(userProcessContainer, userAccount, supplierEnterprise, enterprise,ecoSystem);
                 userProcessContainer.add("manageEmployeeJPanel", buyProductsFromDistributorJPanel);
                 CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                 layout.next(userProcessContainer);

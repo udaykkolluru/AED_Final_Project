@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.ColdStorage;
+package ui.FDA;
 
 import model.EcoSystem;
 import model.Enterprise.Enterprise;
@@ -63,19 +63,19 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
 
         tblRequest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Sender", "Receiver", "SenderEnterprise", "Receiver Enterprise", "Status", "Sender Network"
+                "Sender", "Receiver", "SenderEnterprise", "Receiver Enterprise", "Status"
             }
         ));
         jScrollPane1.setViewportView(tblRequest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(293, 107, 453, 182);
+        jScrollPane1.setBounds(170, 100, 720, 182);
 
         btnAccept.setText("Accept");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
@@ -220,7 +220,7 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
         userProcessConatiner.remove(this);
         Component[] componentArray = userProcessConatiner.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ColdStorageAdmWorkAreaJPanel dwjp = (ColdStorageAdmWorkAreaJPanel) component;
+        FDAAdmWorkAreaJPanel dwjp = (FDAAdmWorkAreaJPanel) component;
         CardLayout layout = (CardLayout) userProcessConatiner.getLayout();
         layout.previous(userProcessConatiner);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -243,15 +243,13 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblRequest.getModel();
         model.setRowCount(0);
         for (WorkRequest workRequest : ecoSystem.getWorkQueue().getWorkRequestList()) {
-//            System.out.println(workRequest.getMessage() + " msg " + workRequest.getReceiverEnterprise().getName() + " name " + enterprise.getName());
             if (workRequest.getReceiverEnterprise() != null && workRequest.getReceiverEnterprise().getName().equals(enterprise.getName())) {
-                Object[] row = new Object[6];
+                Object[] row = new Object[5];
                 row[0] = workRequest;
                 row[1] = workRequest.getReceiver();
                 row[2] = workRequest.getSenderEnterprise();
                 row[3] = workRequest.getReceiverEnterprise();
                 row[4] = workRequest.getStatus();
-                row[5] = workRequest.getNetworkName();
                 model.addRow(row);
             }
         }

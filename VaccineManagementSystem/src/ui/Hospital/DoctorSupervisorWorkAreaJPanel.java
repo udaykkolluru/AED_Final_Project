@@ -182,7 +182,7 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnBuyProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyProductsActionPerformed
         // TODO add your handling code here:
-        SelectColdStorageJPanel buyProductsFromDistributorJPanel = new SelectColdStorageJPanel(userProcessContainer,ecoSystem, userAccount, enterprise);
+        SelectFDAJPanel buyProductsFromDistributorJPanel = new SelectFDAJPanel(userProcessContainer,ecoSystem, userAccount, enterprise);
         userProcessContainer.add("manageEmployeeJPanel", buyProductsFromDistributorJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

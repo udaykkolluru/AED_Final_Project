@@ -5,7 +5,7 @@
 package model.Organization;
 
 import java.util.ArrayList;
-import model.Role.ColdStorageAdminRole;
+import model.Role.FDAAdminRole;
 import model.Role.Role;
 
 /**
@@ -20,7 +20,7 @@ public class PatientAdmin extends Organization{
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new ColdStorageAdminRole());
+        roles.add(new FDAAdminRole());
         return roles;
     }
 }
