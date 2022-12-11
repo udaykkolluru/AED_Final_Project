@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.Hospital;
+package ui.ColdStorage;
 
 import model.EcoSystem;
 import model.Enterprise.Enterprise;
@@ -11,23 +11,25 @@ import model.WorkQueue.Order;
 import model.WorkQueue.Product;
 import model.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+//import ui.SalesSupervisorRole.BuyProductsFromDistributorJPanel;
 
 /**
  *
- * @author pawan
+ * @author charanpatnaik
  */
-public class ManageCustomerRequests extends javax.swing.JPanel {
+public class ManageHospitalRequests extends javax.swing.JPanel {
     JPanel userProcessConatiner;
     Enterprise enterprise;
     UserAccount userAccount;
     EcoSystem ecoSystem;
     /**
-     * Creates new form ManageHospitalRequests
+     * Creates new form ManageSuperMarketRequests
      */
-    public ManageCustomerRequests(JPanel userProcessConatiner, Enterprise enterprise, UserAccount userAccount,EcoSystem ecoSystem) {
+    public ManageHospitalRequests(JPanel userProcessConatiner, Enterprise enterprise, UserAccount userAccount,EcoSystem ecoSystem) {
         initComponents();
         this.userProcessConatiner = userProcessConatiner;
         this.enterprise = enterprise;
@@ -52,8 +54,9 @@ public class ManageCustomerRequests extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDetails = new javax.swing.JTable();
         btnOrderDetails = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        btnRefresh = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -65,13 +68,13 @@ public class ManageCustomerRequests extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Sender", "Receiver", "SenderEnterprise", "Receiver Enterprise", "Sender Network", "Status"
+                "Sender", "Receiver", "SenderEnterprise", "Receiver Enterprise", "Status", "Sender Network"
             }
         ));
         jScrollPane1.setViewportView(tblRequest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(282, 32, 453, 182);
+        jScrollPane1.setBounds(293, 107, 453, 182);
 
         btnAccept.setText("Accept");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +83,7 @@ public class ManageCustomerRequests extends javax.swing.JPanel {
             }
         });
         add(btnAccept);
-        btnAccept.setBounds(321, 226, 71, 24);
+        btnAccept.setBounds(332, 301, 71, 24);
 
         btnReject.setText("Reject");
         btnReject.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +92,7 @@ public class ManageCustomerRequests extends javax.swing.JPanel {
             }
         });
         add(btnReject);
-        btnReject.setBounds(604, 226, 66, 24);
+        btnReject.setBounds(615, 301, 66, 24);
 
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,13 +102,13 @@ public class ManageCustomerRequests extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Product", "Description", "Price", "Quantity"
+                "Product", "Description", "Distributor Price", "Quantity"
             }
         ));
         jScrollPane2.setViewportView(tblDetails);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(280, 340, 453, 160);
+        jScrollPane2.setBounds(293, 393, 453, 160);
 
         btnOrderDetails.setText("Order Details");
         btnOrderDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -114,21 +117,30 @@ public class ManageCustomerRequests extends javax.swing.JPanel {
             }
         });
         add(btnOrderDetails);
-        btnOrderDetails.setBounds(442, 226, 105, 24);
+        btnOrderDetails.setBounds(453, 301, 105, 24);
 
-        jButton1.setText("<<Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRefreshActionPerformed(evt);
             }
         });
-        add(jButton1);
-        jButton1.setBounds(50, 30, 76, 24);
+        add(btnRefresh);
+        btnRefresh.setBounds(917, 24, 75, 24);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2);
-        jLabel2.setBounds(10, -10, 1070, 620);
+        btnBack.setText("<<back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack);
+        btnBack.setBounds(17, 16, 77, 24);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/distributor.jpeg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        add(jLabel1);
+        jLabel1.setBounds(0, 0, 1030, 590);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
@@ -170,10 +182,12 @@ public class ManageCustomerRequests extends javax.swing.JPanel {
         order.setReceiver(userAccount);
         if(!order.getStatus().contains("Accepted")){
             order.setStatus("Rejected by Distributor");
+            enterprise.restoreProducts(order);
             JOptionPane.showMessageDialog(this, "This order has been rejected");
         }else{
             JOptionPane.showMessageDialog(this, "This order was accepted earlier");
         }
+        populateRequests();
     }//GEN-LAST:event_btnRejectActionPerformed
 
     private void btnOrderDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderDetailsActionPerformed
@@ -183,33 +197,43 @@ public class ManageCustomerRequests extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please select an item");
             return;
         }
-        Order order = (Order)tblRequest.getValueAt(selectedRow, 0); 
+        Order order = (Order)tblRequest.getValueAt(selectedRow, 0);
         DefaultTableModel model = (DefaultTableModel) tblDetails.getModel();
         model.setRowCount(0);
         for(Product product:order.getProductList()){
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
-            row[2] = product.getSuperMarketPrice();
+            row[2] = product.getDistributorPrice();
             row[3] = product.getQuantity();
             model.addRow(row);
         }
     }//GEN-LAST:event_btnOrderDetailsActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        populateRequests();
+
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         userProcessConatiner.remove(this);
+        Component[] componentArray = userProcessConatiner.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        ColdStorageAdmWorkAreaJPanel dwjp = (ColdStorageAdmWorkAreaJPanel) component;
         CardLayout layout = (CardLayout) userProcessConatiner.getLayout();
         layout.previous(userProcessConatiner);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccept;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnOrderDetails;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnReject;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblDetails;
@@ -226,8 +250,8 @@ public class ManageCustomerRequests extends javax.swing.JPanel {
                 row[1] = workRequest.getReceiver();
                 row[2] = workRequest.getSenderEnterprise();
                 row[3] = workRequest.getReceiverEnterprise();
-                row[4] = workRequest.getNetworkName();
-                row[5] = workRequest.getStatus();
+                row[4] = workRequest.getStatus();
+                row[5] = workRequest.getNetworkName();
                 model.addRow(row);
             }
         }

@@ -14,7 +14,7 @@ import javax.swing.JPanel;
  *
  * @author charanpatnaik
  */
-public class DistributorAdmWorkAreaJPanel extends javax.swing.JPanel {
+public class ColdStorageAdmWorkAreaJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Enterprise enterprise;
     UserAccount userAccount;
@@ -22,7 +22,7 @@ public class DistributorAdmWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DistributorAdmWorkAreaJPanel
      */
-    public DistributorAdmWorkAreaJPanel(JPanel userJPanel, Enterprise enterprise, EcoSystem ecoSystem, UserAccount userAccount) {
+    public ColdStorageAdmWorkAreaJPanel(JPanel userJPanel, Enterprise enterprise, EcoSystem ecoSystem, UserAccount userAccount) {
         this.userProcessContainer = userJPanel;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
@@ -62,7 +62,7 @@ public class DistributorAdmWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(userJButton);
-        userJButton.setBounds(420, 330, 180, 23);
+        userJButton.setBounds(420, 330, 180, 24);
 
         manageEmployeeJButton.setText("Manage Requests");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +71,7 @@ public class DistributorAdmWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageEmployeeJButton);
-        manageEmployeeJButton.setBounds(420, 280, 180, 23);
+        manageEmployeeJButton.setBounds(420, 280, 180, 24);
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Enterprise :");
@@ -80,7 +80,7 @@ public class DistributorAdmWorkAreaJPanel extends javax.swing.JPanel {
 
         valueLabel.setText("<value>");
         add(valueLabel);
-        valueLabel.setBounds(210, 100, 130, 17);
+        valueLabel.setBounds(210, 100, 130, 14);
 
         btnBuyProducts.setText("Manage products");
         btnBuyProducts.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +89,7 @@ public class DistributorAdmWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBuyProducts);
-        btnBuyProducts.setBounds(420, 380, 180, 23);
+        btnBuyProducts.setBounds(420, 380, 180, 24);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/distributor.jpeg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -99,7 +99,7 @@ public class DistributorAdmWorkAreaJPanel extends javax.swing.JPanel {
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
         // TODO add your handling code here:
-        RaiseSupplierRequest muajp = new RaiseSupplierRequest(userProcessContainer, enterprise, userAccount,ecoSystem);
+        RaiseManufacturerRequest muajp = new RaiseManufacturerRequest(userProcessContainer, enterprise, userAccount,ecoSystem);
         userProcessContainer.add("ManageUserAccountJPanel", muajp);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -108,7 +108,7 @@ public class DistributorAdmWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
 
-        ManageSuperMarketRequests manageEmployeeJPanel = new ManageSuperMarketRequests(userProcessContainer, enterprise, userAccount, ecoSystem);
+        ManageHospitalRequests manageEmployeeJPanel = new ManageHospitalRequests(userProcessContainer, enterprise, userAccount, ecoSystem);
         userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();

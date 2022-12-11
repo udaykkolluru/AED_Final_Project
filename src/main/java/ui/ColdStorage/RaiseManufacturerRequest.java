@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.Hospital;
+package ui.ColdStorage;
 
 import model.EcoSystem;
 import model.Enterprise.Enterprise;
@@ -12,15 +12,17 @@ import model.WorkQueue.Order;
 import model.WorkQueue.Product;
 import model.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+//import ui.SalesSupervisorRole.SalesSupervisorWorkAreaJPanel;
 
 /**
  *
- * @author pawan
+ * @author charanpatnaik
  */
-public class RaiseSupplierRequest extends javax.swing.JPanel {
+public class RaiseManufacturerRequest extends javax.swing.JPanel {
     JPanel userProcessConatiner;
     Enterprise enterprise;
     UserAccount userAccount;
@@ -28,7 +30,7 @@ public class RaiseSupplierRequest extends javax.swing.JPanel {
     /**
      * Creates new form RaiseSupplierRequest
      */
-    public RaiseSupplierRequest(JPanel userProcessConatiner, Enterprise enterprise, UserAccount userAccount,EcoSystem ecoSystem) {
+    public RaiseManufacturerRequest(JPanel userProcessConatiner, Enterprise enterprise, UserAccount userAccount,EcoSystem ecoSystem) {
         initComponents();
         this.userProcessConatiner = userProcessConatiner;
         this.enterprise = enterprise;
@@ -59,6 +61,7 @@ public class RaiseSupplierRequest extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         cboxNetwork = new javax.swing.JComboBox<>();
         btnRequest1 = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
@@ -72,13 +75,13 @@ public class RaiseSupplierRequest extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Sender", "Receiver", "SenderEnterprise", "Receiver Enterprise", "Sender Network", "Status"
+                "Sender", "Receiver", "SenderEnterprise", "Receiver Enterprise", "Status", "Sender Network"
             }
         ));
         jScrollPane1.setViewportView(tblRequest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(281, 51, 454, 176);
+        jScrollPane1.setBounds(284, 64, 453, 176);
 
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,13 +91,13 @@ public class RaiseSupplierRequest extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Product", "Description", "Price", "Quantity"
+                "Product", "Description", "Distributor Price", "Quantity"
             }
         ));
         jScrollPane2.setViewportView(tblDetails);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(281, 416, 454, 160);
+        jScrollPane2.setBounds(284, 419, 453, 160);
 
         btnOrderDetails.setText("Order Details");
         btnOrderDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -103,11 +106,11 @@ public class RaiseSupplierRequest extends javax.swing.JPanel {
             }
         });
         add(btnOrderDetails);
-        btnOrderDetails.setBounds(442, 239, 127, 29);
+        btnOrderDetails.setBounds(488, 252, 105, 24);
 
         cboxSupplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(cboxSupplier);
-        cboxSupplier.setBounds(441, 345, 138, 27);
+        cboxSupplier.setBounds(388, 347, 61, 23);
 
         btnRequest.setText("Request");
         btnRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -116,17 +119,15 @@ public class RaiseSupplierRequest extends javax.swing.JPanel {
             }
         });
         add(btnRequest);
-        btnRequest.setBounds(597, 344, 138, 29);
+        btnRequest.setBounds(521, 346, 77, 24);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("Supplier: ");
         add(jLabel1);
-        jLabel1.setBounds(291, 349, 138, 16);
+        jLabel1.setBounds(317, 351, 50, 14);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel2.setText("Network");
         add(jLabel2);
-        jLabel2.setBounds(291, 302, 138, 16);
+        jLabel2.setBounds(313, 304, 44, 14);
 
         cboxNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboxNetwork.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +136,7 @@ public class RaiseSupplierRequest extends javax.swing.JPanel {
             }
         });
         add(cboxNetwork);
-        cboxNetwork.setBounds(441, 298, 138, 27);
+        cboxNetwork.setBounds(388, 300, 61, 23);
 
         btnRequest1.setText("Select Network");
         btnRequest1.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +145,16 @@ public class RaiseSupplierRequest extends javax.swing.JPanel {
             }
         });
         add(btnRequest1);
-        btnRequest1.setBounds(591, 297, 138, 29);
+        btnRequest1.setBounds(496, 299, 112, 24);
+
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        add(btnRefresh);
+        btnRefresh.setBounds(931, 17, 75, 24);
 
         jButton1.setText("<<Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -153,12 +163,12 @@ public class RaiseSupplierRequest extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(10, 30, 93, 29);
+        jButton1.setBounds(6, 17, 76, 24);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/distributor.jpeg"))); // NOI18N
         jLabel3.setText("jLabel3");
         add(jLabel3);
-        jLabel3.setBounds(10, 10, 1150, 610);
+        jLabel3.setBounds(0, 0, 1030, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrderDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderDetailsActionPerformed
@@ -169,13 +179,14 @@ public class RaiseSupplierRequest extends javax.swing.JPanel {
             return;
         }
         Order order = (Order)tblRequest.getValueAt(selectedRow, 0);
+        order.setReceiver(userAccount);
         DefaultTableModel model = (DefaultTableModel) tblDetails.getModel();
         model.setRowCount(0);
         for(Product product:order.getProductList()){
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
-            row[2] = product.getSuperMarketPrice();
+            row[2] = product.getDistributorPrice();
             row[3] = product.getQuantity();
             model.addRow(row);
         }
@@ -249,9 +260,17 @@ public class RaiseSupplierRequest extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnRequest1ActionPerformed
 
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        populateRequests();
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         userProcessConatiner.remove(this);
+        Component[] componentArray = userProcessConatiner.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        ColdStorageAdmWorkAreaJPanel dwjp = (ColdStorageAdmWorkAreaJPanel) component;
         CardLayout layout = (CardLayout) userProcessConatiner.getLayout();
         layout.previous(userProcessConatiner);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -259,6 +278,7 @@ public class RaiseSupplierRequest extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOrderDetails;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnRequest;
     private javax.swing.JButton btnRequest1;
     private javax.swing.JComboBox<String> cboxNetwork;
@@ -277,14 +297,14 @@ public class RaiseSupplierRequest extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblRequest.getModel();
         model.setRowCount(0);
         for(WorkRequest workRequest:ecoSystem.getWorkQueue().getWorkRequestList()){
-            if(workRequest.getReceiver()!=null && workRequest.getReceiver().equals(userAccount) && (workRequest.getStatus().contains("Accepted by Distributor"))){
+            if(workRequest.getReceiverEnterprise()!=null && workRequest.getReceiver()!=null && workRequest.getReceiverEnterprise().getName().equals(enterprise.getName()) && workRequest.getReceiver().equals(userAccount) && (workRequest.getStatus().contains("Accepted by Distributor") || workRequest.getStatus().contains("Raised request to supplier"))){
                 Object[] row = new Object[6];
                 row[0] = workRequest;
                 row[1] = workRequest.getReceiver();
                 row[2] = workRequest.getSenderEnterprise();
                 row[3] = workRequest.getReceiverEnterprise();
-                row[4] = workRequest.getNetworkName();
-                row[5] = workRequest.getStatus();
+                row[4] = workRequest.getStatus();
+                row[5] = workRequest.getNetworkName();
                 model.addRow(row);
             }
         }

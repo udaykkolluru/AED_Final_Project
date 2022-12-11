@@ -4,7 +4,7 @@
  */
 package ui.Hospital;
 
-import ui.Hospital.BuyProductsFromDistributorJPanel;
+import ui.Hospital.BuyProductsFromColdStorage;
 import model.EcoSystem;
 import model.Enterprise.Enterprise;
 import model.Network.Network;
@@ -17,7 +17,7 @@ import javax.swing.JPanel;
  *
  * @author pawan
  */
-public class SelectDistributorJPanel extends javax.swing.JPanel {
+public class SelectColdStorageJPanel extends javax.swing.JPanel {
     private EcoSystem ecoSystem;
     private JPanel userProcessContainer;
     private UserAccount userAccount;
@@ -25,7 +25,7 @@ public class SelectDistributorJPanel extends javax.swing.JPanel {
     /**
      * Creates new form SelectDistributor
      */
-    public SelectDistributorJPanel(JPanel userProcessContainer,EcoSystem ecoSystem, UserAccount userAccount, Enterprise enterprise) {
+    public SelectColdStorageJPanel(JPanel userProcessContainer,EcoSystem ecoSystem, UserAccount userAccount, Enterprise enterprise) {
         initComponents();
         this.ecoSystem = ecoSystem;
         this.userProcessContainer = userProcessContainer;
@@ -63,11 +63,11 @@ public class SelectDistributorJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Supplier: ");
         add(jLabel2);
-        jLabel2.setBounds(410, 350, 71, 16);
+        jLabel2.setBounds(410, 350, 71, 14);
 
         jLabel3.setText("Network");
         add(jLabel3);
-        jLabel3.setBounds(410, 300, 71, 16);
+        jLabel3.setBounds(410, 300, 71, 14);
 
         cboxNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboxNetwork.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +76,7 @@ public class SelectDistributorJPanel extends javax.swing.JPanel {
             }
         });
         add(cboxNetwork);
-        cboxNetwork.setBounds(500, 300, 96, 27);
+        cboxNetwork.setBounds(500, 300, 61, 23);
 
         btnRequest1.setText("Select Network");
         btnRequest1.addActionListener(new java.awt.event.ActionListener() {
@@ -85,11 +85,11 @@ public class SelectDistributorJPanel extends javax.swing.JPanel {
             }
         });
         add(btnRequest1);
-        btnRequest1.setBounds(610, 300, 160, 29);
+        btnRequest1.setBounds(610, 300, 160, 24);
 
         cboxDistributor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(cboxDistributor);
-        cboxDistributor.setBounds(500, 350, 96, 27);
+        cboxDistributor.setBounds(500, 350, 61, 23);
 
         btnRequest.setText("Select Distributor");
         btnRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +98,7 @@ public class SelectDistributorJPanel extends javax.swing.JPanel {
             }
         });
         add(btnRequest);
-        btnRequest.setBounds(610, 350, 160, 29);
+        btnRequest.setBounds(610, 350, 160, 24);
 
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +107,7 @@ public class SelectDistributorJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(60, 73, 93, 29);
+        btnBack.setBounds(60, 73, 76, 24);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -167,7 +167,7 @@ public class SelectDistributorJPanel extends javax.swing.JPanel {
             System.out.println(supplierEnterprise.getName());
             System.out.println(cboxDistributor.getSelectedItem());
             if(supplierEnterprise.getName().equals(cboxDistributor.getSelectedItem().toString())){
-                BuyProductsFromDistributorJPanel buyProductsFromDistributorJPanel = new BuyProductsFromDistributorJPanel(userProcessContainer, userAccount, supplierEnterprise, enterprise,ecoSystem);
+                BuyProductsFromColdStorage buyProductsFromDistributorJPanel = new BuyProductsFromColdStorage(userProcessContainer, userAccount, supplierEnterprise, enterprise,ecoSystem);
                 userProcessContainer.add("manageEmployeeJPanel", buyProductsFromDistributorJPanel);
                 CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                 layout.next(userProcessContainer);
@@ -181,7 +181,7 @@ public class SelectDistributorJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        SalesSupervisorWorkAreaJPanel dwjp = (SalesSupervisorWorkAreaJPanel) component;
+        DoctorSupervisorWorkAreaJPanel dwjp = (DoctorSupervisorWorkAreaJPanel) component;
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
