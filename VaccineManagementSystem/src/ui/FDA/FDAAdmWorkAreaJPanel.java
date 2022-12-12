@@ -46,15 +46,19 @@ public class FDAAdmWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
         btnBuyProducts = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 0, 102));
         jLabel1.setText("Food and Drug Administration");
         add(jLabel1);
-        jLabel1.setBounds(300, 30, 403, 29);
+        jLabel1.setBounds(500, 79, 403, 50);
 
+        userJButton.setBackground(new java.awt.Color(0, 102, 204));
+        userJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        userJButton.setForeground(new java.awt.Color(255, 255, 255));
         userJButton.setText("Raise Delivery request");
         userJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,8 +66,11 @@ public class FDAAdmWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(userJButton);
-        userJButton.setBounds(420, 330, 180, 24);
+        userJButton.setBounds(560, 430, 260, 80);
 
+        manageEmployeeJButton.setBackground(new java.awt.Color(0, 102, 204));
+        manageEmployeeJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        manageEmployeeJButton.setForeground(new java.awt.Color(255, 255, 255));
         manageEmployeeJButton.setText("Manage Requests");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,17 +78,21 @@ public class FDAAdmWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageEmployeeJButton);
-        manageEmployeeJButton.setBounds(420, 280, 180, 24);
+        manageEmployeeJButton.setBounds(560, 310, 260, 80);
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Enterprise :");
         add(enterpriseLabel);
-        enterpriseLabel.setBounds(70, 90, 120, 30);
+        enterpriseLabel.setBounds(490, 230, 120, 30);
 
+        valueLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         valueLabel.setText("<value>");
         add(valueLabel);
-        valueLabel.setBounds(210, 100, 130, 14);
+        valueLabel.setBounds(630, 240, 130, 18);
 
+        btnBuyProducts.setBackground(new java.awt.Color(0, 102, 204));
+        btnBuyProducts.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnBuyProducts.setForeground(new java.awt.Color(255, 255, 255));
         btnBuyProducts.setText("Manage products");
         btnBuyProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,11 +100,7 @@ public class FDAAdmWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBuyProducts);
-        btnBuyProducts.setBounds(420, 380, 180, 24);
-
-        jLabel2.setText("jLabel2");
-        add(jLabel2);
-        jLabel2.setBounds(0, 0, 1000, 620);
+        btnBuyProducts.setBounds(560, 550, 270, 80);
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
@@ -105,7 +112,7 @@ public class FDAAdmWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_userJButtonActionPerformed
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
- 
+
         ManageHospitalRequests manageEmployeeJPanel = new ManageHospitalRequests(userProcessContainer, enterprise, userAccount, ecoSystem);
         userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
 

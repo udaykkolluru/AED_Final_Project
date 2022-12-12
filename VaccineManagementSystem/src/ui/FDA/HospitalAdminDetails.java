@@ -75,8 +75,11 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
             }
         });
         add(btnCompletePayment);
-        btnCompletePayment.setBounds(432, 241, 134, 24);
+        btnCompletePayment.setBounds(610, 540, 240, 60);
 
+        btnBack.setBackground(new java.awt.Color(0, 102, 204));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +87,7 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
             }
         });
         add(btnBack);
+        btnBack.setBounds(17, 9, 110, 40);
         btnBack.setBounds(17, 9, 76, 24);
 
         jLabel3.setText("jLabel3");

@@ -57,23 +57,25 @@ public class ManageProduct extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         btnDelete = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel3.setText("Price");
         add(jLabel3);
-        jLabel3.setBounds(416, 479, 26, 14);
+        jLabel3.setBounds(500, 620, 34, 18);
 
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel4.setText("Quantity");
         add(jLabel4);
-        jLabel4.setBounds(392, 523, 46, 14);
+        jLabel4.setBounds(480, 660, 56, 18);
         add(txtPrice);
-        txtPrice.setBounds(498, 474, 195, 18);
+        txtPrice.setBounds(560, 620, 195, 23);
         add(txtDescription);
-        txtDescription.setBounds(498, 430, 195, 18);
+        txtDescription.setBounds(560, 570, 195, 23);
         add(txtQuantity);
-        txtQuantity.setBounds(498, 518, 195, 18);
+        txtQuantity.setBounds(560, 660, 195, 23);
 
         tblProductList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,7 +91,7 @@ public class ManageProduct extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblProductList);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(296, 95, 463, 195);
+        jScrollPane1.setBounds(290, 200, 790, 210);
 
         btnAdd.setText("Add");
         btnAdd.setEnabled(false);
@@ -99,10 +101,13 @@ public class ManageProduct extends javax.swing.JPanel {
             }
         });
         add(btnAdd);
-        btnAdd.setBounds(432, 562, 56, 24);
+        btnAdd.setBounds(492, 733, 90, 30);
         add(txtSearch);
-        txtSearch.setBounds(411, 48, 74, 18);
+        txtSearch.setBounds(290, 150, 210, 30);
 
+        btnSearch.setBackground(new java.awt.Color(0, 153, 0));
+        btnSearch.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,9 +115,9 @@ public class ManageProduct extends javax.swing.JPanel {
             }
         });
         add(btnSearch);
-        btnSearch.setBounds(523, 48, 70, 24);
+        btnSearch.setBounds(520, 150, 90, 30);
         add(txtName);
-        txtName.setBounds(498, 386, 195, 18);
+        txtName.setBounds(560, 530, 195, 23);
 
         btnUpdate.setText("Update");
         btnUpdate.setEnabled(false);
@@ -122,8 +127,11 @@ public class ManageProduct extends javax.swing.JPanel {
             }
         });
         add(btnUpdate);
-        btnUpdate.setBounds(513, 562, 72, 24);
+        btnUpdate.setBounds(590, 733, 90, 30);
 
+        btnModifySelected.setBackground(new java.awt.Color(102, 0, 102));
+        btnModifySelected.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnModifySelected.setForeground(new java.awt.Color(255, 255, 255));
         btnModifySelected.setText("Modify Selected Product");
         btnModifySelected.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,8 +139,11 @@ public class ManageProduct extends javax.swing.JPanel {
             }
         });
         add(btnModifySelected);
-        btnModifySelected.setBounds(498, 308, 162, 24);
+        btnModifySelected.setBounds(490, 420, 210, 50);
 
+        btnAddNew.setBackground(new java.awt.Color(102, 0, 102));
+        btnAddNew.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnAddNew.setForeground(new java.awt.Color(255, 255, 255));
         btnAddNew.setText("Add New Product");
         btnAddNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,15 +151,17 @@ public class ManageProduct extends javax.swing.JPanel {
             }
         });
         add(btnAddNew);
-        btnAddNew.setBounds(296, 308, 126, 24);
+        btnAddNew.setBounds(290, 420, 170, 50);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setText("Product Name");
         add(jLabel1);
-        jLabel1.setBounds(358, 391, 75, 14);
+        jLabel1.setBounds(440, 530, 110, 18);
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setText("Description");
         add(jLabel2);
-        jLabel2.setBounds(373, 435, 62, 14);
+        jLabel2.setBounds(460, 570, 78, 18);
 
         btnDelete.setText("Delete");
         btnDelete.setEnabled(false);
@@ -158,8 +171,11 @@ public class ManageProduct extends javax.swing.JPanel {
             }
         });
         add(btnDelete);
-        btnDelete.setBounds(607, 562, 67, 24);
+        btnDelete.setBounds(700, 730, 90, 30);
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("<<Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,11 +183,7 @@ public class ManageProduct extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(50, 40, 76, 24);
-
-        jLabel5.setText("jLabel5");
-        add(jLabel5);
-        jLabel5.setBounds(10, 10, 1010, 590);
+        jButton1.setBounds(20, 20, 100, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -297,7 +309,6 @@ public class ManageProduct extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblProductList;
     private javax.swing.JTextField txtDescription;

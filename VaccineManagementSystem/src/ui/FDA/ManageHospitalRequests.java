@@ -57,8 +57,9 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
         btnOrderDetails = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(null);
 
         tblRequest.setModel(new javax.swing.table.DefaultTableModel(
@@ -75,8 +76,11 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblRequest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(170, 100, 720, 182);
+        jScrollPane1.setBounds(330, 150, 740, 250);
 
+        btnAccept.setBackground(new java.awt.Color(0, 153, 0));
+        btnAccept.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnAccept.setForeground(new java.awt.Color(255, 255, 255));
         btnAccept.setText("Accept");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,8 +88,11 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
             }
         });
         add(btnAccept);
-        btnAccept.setBounds(332, 301, 71, 24);
+        btnAccept.setBounds(340, 440, 100, 40);
 
+        btnReject.setBackground(new java.awt.Color(204, 0, 0));
+        btnReject.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnReject.setForeground(new java.awt.Color(255, 255, 255));
         btnReject.setText("Reject");
         btnReject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +100,7 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
             }
         });
         add(btnReject);
-        btnReject.setBounds(615, 301, 66, 24);
+        btnReject.setBounds(460, 440, 120, 40);
 
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,8 +116,11 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblDetails);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(293, 393, 453, 160);
+        jScrollPane2.setBounds(340, 510, 730, 270);
 
+        btnOrderDetails.setBackground(new java.awt.Color(102, 0, 102));
+        btnOrderDetails.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnOrderDetails.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderDetails.setText("Order Details");
         btnOrderDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,8 +128,11 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
             }
         });
         add(btnOrderDetails);
-        btnOrderDetails.setBounds(453, 301, 105, 24);
+        btnOrderDetails.setBounds(930, 440, 130, 40);
 
+        btnRefresh.setBackground(new java.awt.Color(0, 102, 204));
+        btnRefresh.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,20 +140,19 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
             }
         });
         add(btnRefresh);
-        btnRefresh.setBounds(917, 24, 75, 24);
+        btnRefresh.setBounds(960, 80, 100, 40);
 
-        btnBack.setText("<<back");
+        btnBack.setBackground(new java.awt.Color(0, 102, 204));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
         add(btnBack);
-        btnBack.setBounds(17, 16, 77, 24);
-
-        jLabel1.setText("jLabel1");
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 1030, 590);
+        btnBack.setBounds(17, 16, 100, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
@@ -231,7 +243,6 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
     private javax.swing.JButton btnOrderDetails;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnReject;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblDetails;
