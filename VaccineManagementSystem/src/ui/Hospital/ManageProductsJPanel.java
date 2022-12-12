@@ -63,7 +63,9 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
         add(btnUpdate);
         btnUpdate.setBounds(640, 610, 150, 60);
 
+        btnEdit.setBackground(new java.awt.Color(102, 0, 102));
         btnEdit.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("Edit Hospital Price");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

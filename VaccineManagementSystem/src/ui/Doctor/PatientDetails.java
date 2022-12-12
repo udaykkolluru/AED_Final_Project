@@ -51,21 +51,22 @@ public class PatientDetails extends javax.swing.JPanel {
         txtCard = new javax.swing.JTextField();
         btnCompletePayment = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         txtName1 = new javax.swing.JTextField();
         jtxtMobile = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setText("Name");
         add(jLabel1);
-        jLabel1.setBounds(111, 49, 30, 14);
+        jLabel1.setBounds(500, 330, 70, 18);
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setText("CardNumber");
         add(jLabel2);
-        jLabel2.setBounds(68, 93, 69, 14);
+        jLabel2.setBounds(480, 380, 110, 18);
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,10 +74,13 @@ public class PatientDetails extends javax.swing.JPanel {
             }
         });
         add(txtName);
-        txtName.setBounds(210, 44, 146, 18);
+        txtName.setBounds(590, 310, 200, 40);
         add(txtCard);
-        txtCard.setBounds(210, 88, 146, 18);
+        txtCard.setBounds(590, 363, 210, 40);
 
+        btnCompletePayment.setBackground(new java.awt.Color(0, 153, 0));
+        btnCompletePayment.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnCompletePayment.setForeground(new java.awt.Color(255, 255, 255));
         btnCompletePayment.setText("Complete payment");
         btnCompletePayment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,8 +88,11 @@ public class PatientDetails extends javax.swing.JPanel {
             }
         });
         add(btnCompletePayment);
-        btnCompletePayment.setBounds(206, 159, 134, 24);
+        btnCompletePayment.setBounds(560, 570, 210, 60);
 
+        btnBack.setBackground(new java.awt.Color(0, 102, 204));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,15 +100,7 @@ public class PatientDetails extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(17, 9, 76, 24);
-
-        jLabel3.setText("jLabel3");
-        add(jLabel3);
-        jLabel3.setBounds(0, -10, 1140, 660);
-
-        jLabel4.setText("Name");
-        add(jLabel4);
-        jLabel4.setBounds(111, 49, 30, 14);
+        btnBack.setBounds(17, 9, 120, 40);
 
         txtName1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +108,7 @@ public class PatientDetails extends javax.swing.JPanel {
             }
         });
         add(txtName1);
-        txtName1.setBounds(210, 44, 146, 18);
+        txtName1.setBounds(600, 290, 146, 30);
 
         jtxtMobile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,11 +116,12 @@ public class PatientDetails extends javax.swing.JPanel {
             }
         });
         add(jtxtMobile);
-        jtxtMobile.setBounds(210, 120, 146, 18);
+        jtxtMobile.setBounds(590, 423, 210, 40);
 
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel5.setText("Mobile Number");
         add(jLabel5);
-        jLabel5.setBounds(50, 130, 90, 20);
+        jLabel5.setBounds(460, 430, 120, 20);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -183,8 +183,6 @@ public class PatientDetails extends javax.swing.JPanel {
     private javax.swing.JButton btnCompletePayment;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jtxtMobile;
     private javax.swing.JTextField txtCard;

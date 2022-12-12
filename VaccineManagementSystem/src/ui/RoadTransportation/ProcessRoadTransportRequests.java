@@ -40,12 +40,15 @@ public class ProcessRoadTransportRequests extends javax.swing.JPanel {
         txtStatus = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
         add(txtStatus);
-        txtStatus.setBounds(96, 158, 933, 18);
+        txtStatus.setBounds(140, 320, 1160, 40);
 
+        jButton1.setBackground(new java.awt.Color(0, 153, 0));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Complete");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,8 +56,11 @@ public class ProcessRoadTransportRequests extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(470, 220, 85, 24);
+        jButton1.setBounds(620, 550, 220, 60);
 
+        backJButton.setBackground(new java.awt.Color(0, 102, 204));
+        backJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        backJButton.setForeground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,12 +68,7 @@ public class ProcessRoadTransportRequests extends javax.swing.JPanel {
             }
         });
         add(backJButton);
-        backJButton.setBounds(6, 33, 79, 24);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/WhatsApp Image 2021-12-12 at 8.09.21 PM.jpeg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 1120, 760);
+        backJButton.setBounds(6, 16, 110, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -108,7 +109,6 @@ public class ProcessRoadTransportRequests extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
 }
