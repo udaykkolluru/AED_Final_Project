@@ -272,7 +272,6 @@ public class ManageSupplierUserAccountJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_organizationJComboBoxActionPerformed
 
     private void roleJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleJComboBoxActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_roleJComboBoxActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

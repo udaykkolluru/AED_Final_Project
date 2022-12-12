@@ -175,7 +175,6 @@ public class ManageProduct extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
         for(Product product:enterprise.getProductList()){
             if(product.getName().equals(txtName.getText())){
                 JOptionPane.showMessageDialog(this, "Product already exists");
@@ -201,7 +200,6 @@ public class ManageProduct extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
         int selectedRow = tblProductList.getSelectedRow();
         if (selectedRow < 0){
             JOptionPane.showMessageDialog(this, "Please select an item");
