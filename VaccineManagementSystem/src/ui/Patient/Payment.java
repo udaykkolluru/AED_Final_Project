@@ -18,6 +18,9 @@ import javax.swing.JPanel;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import util.TwilioSMSUtil;
+import static util.UtilClass.isOnlyTextWithWhiteSpaces;
+import static util.UtilClass.isPhoneNumberVerified;
+import static util.UtilClass.isValidTextString;
 
 /**
  *
@@ -135,6 +138,37 @@ public class Payment extends javax.swing.JPanel {
 
     private void btnCompletePaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletePaymentActionPerformed
         // TODO add your handling code here:
+
+        try {
+            if (!isOnlyTextWithWhiteSpaces(txtName.getText())) {
+                JOptionPane.showMessageDialog(this, "Please enter valid name");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid name");
+        }
+        
+        
+
+        try {
+            if (!isValidTextString(txtCard.getText())) {
+                JOptionPane.showMessageDialog(this, "Please enter valid card no");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid card no");
+        }
+
+
+        try {
+            if (!isPhoneNumberVerified(jtxtMobile.getText())) {
+                JOptionPane.showMessageDialog(this, "Please enter valid phone");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid phone");
+        }
+
         if (order.getProductList().size() == 0) {
             JOptionPane.showMessageDialog(this, "Please add items to the cart");
             return;
@@ -159,7 +193,7 @@ public class Payment extends javax.swing.JPanel {
             String mobile = "+1" + jtxtMobile.getText();
             TwilioSMSUtil
                     .sendTextMessage(mobile,
-                            "Hi " + txtName.getText() + ", " + "Thank you for choosing us. Your payment has been debited from Card ending xxxx" + txtCard.getText().substring(12)+". Stay safe and Healthy.");
+                            "Hi " + txtName.getText() + ", " + "Thank you for choosing us. Your payment has been debited from Card ending xxxx" + txtCard.getText().substring(12) + ". Stay safe and Healthy.");
             workRequest.setStatus("waiting for supermarket admin to accept");
             JOptionPane.showMessageDialog(this, "Thankyou for shopping with us");
 

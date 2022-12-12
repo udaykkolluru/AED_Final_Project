@@ -15,6 +15,9 @@ import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import util.TwilioSMSUtil;
+import static util.UtilClass.isOnlyTextWithWhiteSpaces;
+import static util.UtilClass.isPhoneNumberVerified;
+import static util.UtilClass.isValidTextString;
 
 /**
  *
@@ -51,7 +54,6 @@ public class PatientDetails extends javax.swing.JPanel {
         txtCard = new javax.swing.JTextField();
         btnCompletePayment = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        txtName1 = new javax.swing.JTextField();
         jtxtMobile = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
@@ -102,14 +104,6 @@ public class PatientDetails extends javax.swing.JPanel {
         add(btnBack);
         btnBack.setBounds(17, 9, 120, 40);
 
-        txtName1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtName1ActionPerformed(evt);
-            }
-        });
-        add(txtName1);
-        txtName1.setBounds(600, 290, 146, 30);
-
         jtxtMobile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxtMobileActionPerformed(evt);
@@ -133,6 +127,39 @@ public class PatientDetails extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please add items to the cart");
             return;
         }
+        
+        try {
+            if (!isOnlyTextWithWhiteSpaces(txtName.getText())) {
+                JOptionPane.showMessageDialog(this, "Please enter valid name");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid name");
+        }
+        
+        
+
+        try {
+            if (!isValidTextString(txtCard.getText())) {
+                JOptionPane.showMessageDialog(this, "Please enter valid card no");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid card no");
+        }
+
+
+        try {
+            if (!isPhoneNumberVerified(jtxtMobile.getText())) {
+                JOptionPane.showMessageDialog(this, "Please enter valid phone");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid phone");
+        }
+        
+        
+        
         if (txtCard.getText().isEmpty() || txtName.getText().isEmpty() || jtxtMobile.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "All fields are mandatory");
             return;
@@ -169,10 +196,6 @@ public class PatientDetails extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void txtName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtName1ActionPerformed
-
     private void jtxtMobileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtMobileActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtMobileActionPerformed
@@ -187,7 +210,6 @@ public class PatientDetails extends javax.swing.JPanel {
     private javax.swing.JTextField jtxtMobile;
     private javax.swing.JTextField txtCard;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtName1;
     // End of variables declaration//GEN-END:variables
     public boolean checkCardValid(String card) {
         Pattern pattern = Pattern.compile("[0-9]{16}", Pattern.CASE_INSENSITIVE);

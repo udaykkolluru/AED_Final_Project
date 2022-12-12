@@ -12,14 +12,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import util.UtilClass;
+import static util.UtilClass.isOnlyTextWithWhiteSpaces;
+import static util.UtilClass.isValidTextString;
 
 /**
  *
  * @author charanpatnaik
  */
 public class ManageProduct extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private Enterprise enterprise;
+
     /**
      * Creates new form ManageProduct
      */
@@ -71,11 +75,11 @@ public class ManageProduct extends javax.swing.JPanel {
         add(jLabel4);
         jLabel4.setBounds(480, 660, 56, 18);
         add(txtPrice);
-        txtPrice.setBounds(560, 620, 195, 23);
+        txtPrice.setBounds(560, 620, 195, 18);
         add(txtDescription);
-        txtDescription.setBounds(560, 570, 195, 23);
+        txtDescription.setBounds(560, 570, 195, 18);
         add(txtQuantity);
-        txtQuantity.setBounds(560, 660, 195, 23);
+        txtQuantity.setBounds(560, 660, 195, 18);
 
         tblProductList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -117,7 +121,7 @@ public class ManageProduct extends javax.swing.JPanel {
         add(btnSearch);
         btnSearch.setBounds(520, 150, 90, 30);
         add(txtName);
-        txtName.setBounds(560, 530, 195, 23);
+        txtName.setBounds(560, 530, 195, 18);
 
         btnUpdate.setText("Update");
         btnUpdate.setEnabled(false);
@@ -132,7 +136,7 @@ public class ManageProduct extends javax.swing.JPanel {
         btnModifySelected.setBackground(new java.awt.Color(102, 0, 102));
         btnModifySelected.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnModifySelected.setForeground(new java.awt.Color(255, 255, 255));
-        btnModifySelected.setText("Modify Selected Product");
+        btnModifySelected.setText("Edit");
         btnModifySelected.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModifySelectedActionPerformed(evt);
@@ -144,7 +148,7 @@ public class ManageProduct extends javax.swing.JPanel {
         btnAddNew.setBackground(new java.awt.Color(102, 0, 102));
         btnAddNew.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnAddNew.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddNew.setText("Add New Product");
+        btnAddNew.setText("Add");
         btnAddNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewActionPerformed(evt);
@@ -187,21 +191,42 @@ public class ManageProduct extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        for(Product product:enterprise.getProductList()){
-            if(product.getName().equals(txtName.getText())){
+
+        try {
+            if (!isValidTextString(txtName.getText())) {
+                JOptionPane.showMessageDialog(this, "Please enter valid name");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid name");
+        }
+
+        try {
+            if (!isValidTextString(txtDescription.getText())) {
+                JOptionPane.showMessageDialog(this, "Please enter valid description");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid description");
+        }
+
+        if (!UtilClass.isOnlyNumber(txtPrice.getText())) {
+            JOptionPane.showMessageDialog(this, "Enter a valid Integer for Price");
+            return;
+        }
+        if (!UtilClass.isOnlyNumber(txtQuantity.getText())) {
+            JOptionPane.showMessageDialog(this, "Enter a valid Integer for Quantity");
+            return;
+        }
+
+        for (Product product : enterprise.getProductList()) {
+            if (product.getName().equals(txtName.getText())) {
                 JOptionPane.showMessageDialog(this, "Product already exists");
                 return;
             }
         }
-        if(!UtilClass.isOnlyNumber(txtPrice.getText())){
-            JOptionPane.showMessageDialog(this, "Enter a valid Integer for Price");
-            return;
-        }
-         if(!UtilClass.isOnlyNumber(txtQuantity.getText())){
-            JOptionPane.showMessageDialog(this, "Enter a valid Integer for Quantity");
-            return;
-        }
-        Product product = new Product(txtName.getText(),txtDescription.getText());
+
+        Product product = new Product(txtName.getText(), txtDescription.getText());
         product.setFDAPrice(Integer.parseInt(txtPrice.getText()));
         product.setQuantity(Integer.parseInt(txtQuantity.getText()));
         enterprise.getProductList().add(product);
@@ -218,12 +243,39 @@ public class ManageProduct extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         int selectedRow = tblProductList.getSelectedRow();
-        if (selectedRow < 0){
+        if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select an item");
             return;
         }
-        for(Product product:enterprise.getProductList()){
-            if(product.getName().equals(((Product)tblProductList.getValueAt(selectedRow, 0)).getName())){
+        try {
+            if (!isValidTextString(txtName.getText())) {
+                JOptionPane.showMessageDialog(this, "Please enter valid name");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid name");
+        }
+
+        try {   
+            if (!isValidTextString(txtDescription.getText())) {
+                JOptionPane.showMessageDialog(this, "Please enter valid description");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid description");
+        }
+
+        if (!UtilClass.isOnlyNumber(txtPrice.getText())) {
+            JOptionPane.showMessageDialog(this, "Enter a valid Integer for Price");
+            return;
+        }
+        if (!UtilClass.isOnlyNumber(txtQuantity.getText())) {
+            JOptionPane.showMessageDialog(this, "Enter a valid Integer for Quantity");
+            return;
+        }
+
+        for (Product product : enterprise.getProductList()) {
+            if (product.getName().equals(((Product) tblProductList.getValueAt(selectedRow, 0)).getName())) {
                 product.setName(txtName.getText());
                 product.setDescription(txtDescription.getText());
                 product.setFDAPrice(Integer.parseInt(txtPrice.getText()));
@@ -243,12 +295,12 @@ public class ManageProduct extends javax.swing.JPanel {
         btnAdd.setEnabled(false);
         btnDelete.setEnabled(true);
         int selectedRow = tblProductList.getSelectedRow();
-        if (selectedRow < 0){
+        if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select an item");
             return;
         }
-        for(Product product:enterprise.getProductList()){
-            if(product.getName().equals(((Product)tblProductList.getValueAt(selectedRow, 0)).getName())){
+        for (Product product : enterprise.getProductList()) {
+            if (product.getName().equals(((Product) tblProductList.getValueAt(selectedRow, 0)).getName())) {
                 txtName.setText(product.getName());
                 txtDescription.setText(product.getDescription());
                 txtPrice.setText(String.valueOf(product.getFDAPrice()));
@@ -268,12 +320,12 @@ public class ManageProduct extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblProductList.getSelectedRow();
-        if (selectedRow < 0){
+        if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select an item");
             return;
         }
-        for(Product product:enterprise.getProductList()){
-            if(product.getName().equals(((Product)tblProductList.getValueAt(selectedRow, 0)).getName())){
+        for (Product product : enterprise.getProductList()) {
+            if (product.getName().equals(((Product) tblProductList.getValueAt(selectedRow, 0)).getName())) {
                 enterprise.getProductList().remove(product);
                 break;
             }
@@ -318,9 +370,9 @@ public class ManageProduct extends javax.swing.JPanel {
 
     private void populateProducts() {
         DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
-        
+
         model.setRowCount(0);
-        for(Product product:enterprise.getProductList()){
+        for (Product product : enterprise.getProductList()) {
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
@@ -329,12 +381,12 @@ public class ManageProduct extends javax.swing.JPanel {
             model.addRow(row);
         }
     }
-    
-    public void populateSearchProductList(){
+
+    public void populateSearchProductList() {
         DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
         model.setRowCount(0);
-        for(Product product:enterprise.getProductList()){
-            if(product.getName().equals(txtSearch.getText()) || txtSearch.getText().equals("")){
+        for (Product product : enterprise.getProductList()) {
+            if (product.getName().equals(txtSearch.getText()) || txtSearch.getText().equals("")) {
                 Object[] row = new Object[4];
                 row[0] = product;
                 row[1] = product.getDescription();

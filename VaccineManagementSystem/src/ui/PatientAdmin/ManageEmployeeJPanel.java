@@ -8,8 +8,10 @@ import model.Employee.Employee;
 import model.Organization.Organization;
 import model.Organization.OrganizationDirectory;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import static util.UtilClass.isOnlyTextWithWhiteSpaces;
 
 /**
  *
@@ -179,9 +181,18 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
+        String name = nameJTextField.getText();
+        try {
+            if (!isOnlyTextWithWhiteSpaces(name)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid name");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid name");
+        }
         
         Organization organization = (Organization) organizationEmpJComboBox.getSelectedItem();
-        String name = nameJTextField.getText();
+        
         
         organization.getEmployeeDirectory().createEmployee(name);
         populateTable(organization);

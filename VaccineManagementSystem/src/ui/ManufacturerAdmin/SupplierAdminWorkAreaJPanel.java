@@ -52,7 +52,7 @@ public class SupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setBackground(new java.awt.Color(102, 0, 102));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 102));
-        jLabel1.setText("My Work Area -Supplier Adminstrative Role");
+        jLabel1.setText("Manufacturer Admin Work Area");
         add(jLabel1);
         jLabel1.setBounds(430, 59, 540, 50);
 

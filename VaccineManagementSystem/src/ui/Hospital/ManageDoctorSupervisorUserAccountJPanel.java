@@ -15,6 +15,7 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import static util.UtilClass.isValidTextString;
 
 /**
  *
@@ -216,6 +217,25 @@ public class ManageDoctorSupervisorUserAccountJPanel extends javax.swing.JPanel 
     private void createUserJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserJButtonActionPerformed
         String userName = nameJTextField.getText();
         String password = passwordJTextField.getText();
+        try {
+            if (!isValidTextString(userName)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid username");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid username");
+            return;
+        }
+        
+        try {
+            if (!isValidTextString(password)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid password");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid password");
+            return;
+        }
         Enterprise inEnterprise=null;
         Organization inOrganization=null;
         boolean userAccount =true;

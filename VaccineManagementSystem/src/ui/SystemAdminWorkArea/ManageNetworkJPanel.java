@@ -8,8 +8,10 @@ import model.EcoSystem;
 import model.Network.Network;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import static util.UtilClass.isValidTextString;
 
 /**
  *
@@ -138,6 +140,16 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
 
         String name = txtNetworkName.getText();
+        
+        try {
+            if (!isValidTextString(name)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid name");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid name");
+            return;
+        }
 
         Network network = system.createAndAddNetwork();
         network.setName(name);

@@ -68,7 +68,7 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(userJButton);
-        userJButton.setBounds(670, 440, 260, 40);
+        userJButton.setBounds(200, 520, 260, 40);
 
         manageEmployeeJButton.setBackground(new java.awt.Color(0, 102, 204));
         manageEmployeeJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -80,7 +80,7 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageEmployeeJButton);
-        manageEmployeeJButton.setBounds(670, 380, 260, 40);
+        manageEmployeeJButton.setBounds(200, 460, 260, 40);
 
         manageOrganizationJButton.setBackground(new java.awt.Color(0, 102, 204));
         manageOrganizationJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -92,10 +92,10 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageOrganizationJButton);
-        manageOrganizationJButton.setBounds(670, 320, 260, 40);
+        manageOrganizationJButton.setBounds(200, 400, 260, 40);
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel.setText("EnterPrise :");
+        enterpriseLabel.setText("Enterprise :");
         add(enterpriseLabel);
         enterpriseLabel.setBounds(630, 250, 120, 30);
 
@@ -107,26 +107,26 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
         btnManageProducts.setBackground(new java.awt.Color(0, 102, 204));
         btnManageProducts.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnManageProducts.setForeground(new java.awt.Color(255, 255, 255));
-        btnManageProducts.setText("Manage product prices");
+        btnManageProducts.setText("Manage Prices");
         btnManageProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageProductsActionPerformed(evt);
             }
         });
         add(btnManageProducts);
-        btnManageProducts.setBounds(670, 560, 260, 40);
+        btnManageProducts.setBounds(540, 460, 260, 40);
 
         btnBuyProducts.setBackground(new java.awt.Color(0, 102, 204));
         btnBuyProducts.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBuyProducts.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuyProducts.setText("Buy Products from Distributor");
+        btnBuyProducts.setText("Get Approval From FDA");
         btnBuyProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuyProductsActionPerformed(evt);
             }
         });
         add(btnBuyProducts);
-        btnBuyProducts.setBounds(670, 500, 260, 40);
+        btnBuyProducts.setBounds(540, 400, 260, 40);
 
         userJButton1.setBackground(new java.awt.Color(0, 102, 204));
         userJButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -138,7 +138,7 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(userJButton1);
-        userJButton1.setBounds(670, 680, 260, 40);
+        userJButton1.setBounds(670, 760, 260, 40);
 
         manageEmployeeJButton1.setBackground(new java.awt.Color(0, 102, 204));
         manageEmployeeJButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -150,7 +150,7 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageEmployeeJButton1);
-        manageEmployeeJButton1.setBounds(670, 620, 260, 40);
+        manageEmployeeJButton1.setBounds(860, 400, 260, 40);
 
         jButton1.setBackground(new java.awt.Color(0, 102, 204));
         jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -162,7 +162,7 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(670, 743, 260, 40);
+        jButton1.setBounds(860, 460, 260, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed

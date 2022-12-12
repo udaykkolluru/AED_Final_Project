@@ -44,7 +44,7 @@ public class SelectNetwork extends javax.swing.JPanel {
 
         cboxNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(cboxNetwork);
-        cboxNetwork.setBounds(270, 90, 72, 23);
+        cboxNetwork.setBounds(270, 90, 170, 40);
 
         btnSelectNetwork.setText("Select Network");
         btnSelectNetwork.addActionListener(new java.awt.event.ActionListener() {
@@ -53,7 +53,7 @@ public class SelectNetwork extends javax.swing.JPanel {
             }
         });
         add(btnSelectNetwork);
-        btnSelectNetwork.setBounds(380, 90, 118, 23);
+        btnSelectNetwork.setBounds(270, 180, 170, 40);
 
         jButton1.setBackground(new java.awt.Color(0, 102, 204));
         jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -65,7 +65,7 @@ public class SelectNetwork extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(10, 30, 76, 23);
+        jButton1.setBounds(10, 30, 80, 27);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSelectNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectNetworkActionPerformed

@@ -16,15 +16,21 @@ import javax.swing.JPanel;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import util.TwilioSMSUtil;
+import static util.UtilClass.isOnlyTextWithWhiteSpaces;
+import static util.UtilClass.isPhoneNumberVerified;
+import static util.UtilClass.isValidTextString;
+
 /**
  *
  * @author pawan
  */
 public class HospitalAdminDetails extends javax.swing.JPanel {
+
     Enterprise enterprise;
     Order order;
     JPanel userProcessContainer;
     EcoSystem ecoSystem;
+
     /**
      * Creates new form CustomerDetails
      */
@@ -35,7 +41,7 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
         int total = 0;
-        
+
         lblTotal.setText(String.valueOf(order.totalFDA()));
     }
 
@@ -130,15 +136,42 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
 
     private void btnCompletePaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletePaymentActionPerformed
         // TODO add your handling code here:
-        if(order.getProductList().size()==0){
+        try {
+            if (!isOnlyTextWithWhiteSpaces(txtName.getText())) {
+                JOptionPane.showMessageDialog(this, "Please enter valid name");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid name");
+        }
+
+        try {
+            if (!isValidTextString(txtCard.getText())) {
+                JOptionPane.showMessageDialog(this, "Please enter valid card no");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid card no");
+        }
+
+        try {
+            if (!isPhoneNumberVerified(jtxtMobile.getText())) {
+                JOptionPane.showMessageDialog(this, "Please enter valid phone");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid phone");
+        }
+        
+        if (order.getProductList().size() == 0) {
             JOptionPane.showMessageDialog(this, "Please add items to the cart");
             return;
         }
-        if(txtCard.getText().isEmpty() || txtName.getText().isEmpty()){
+        if (txtCard.getText().isEmpty() || txtName.getText().isEmpty() || jtxtMobile.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "All fields are mandatory");
             return;
         }
-        if(checkCardValid(txtCard.getText())){
+        if (checkCardValid(txtCard.getText())) {
             Employee customer = new Employee(txtName.getText(), txtCard.getText());
             Order newOrder = new Order();
             newOrder.setNetworkName(order.getNetworkName());
@@ -146,7 +179,7 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
             newOrder.setSenderEnterprise(order.getSenderEnterprise());
             newOrder.setReceiverEnterprise(order.getReceiverEnterprise());
             newOrder.setStatus("waiting for FDA to accept");
-            for(Product prod:order.getProductList()){
+            for (Product prod : order.getProductList()) {
                 newOrder.getProductList().add(prod);
             }
             ecoSystem.getWorkQueue().getWorkRequestList().add(newOrder);
@@ -156,10 +189,10 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
             String mobile = "+1" + jtxtMobile.getText();
             TwilioSMSUtil
                     .sendTextMessage(mobile,
-                            "Hi " + txtName.getText() + ", " + "Thank you for choosing us. Your payment has been debited from Card ending xxxx" + txtCard.getText().substring(12)+". Stay safe and Healthy.");
-            
+                            "Hi " + txtName.getText() + ", " + "Thank you for choosing us. Your payment has been debited from Card ending xxxx" + txtCard.getText().substring(12) + ". Stay safe and Healthy.");
+
             redirectBackAfterPayemnt();
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Please enter valid card number");
         }
     }//GEN-LAST:event_btnCompletePaymentActionPerformed
@@ -181,13 +214,13 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
     private javax.swing.JTextField txtCard;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
-    public boolean checkCardValid(String card){
+    public boolean checkCardValid(String card) {
         Pattern pattern = Pattern.compile("[0-9]{16}", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(card);
         return matcher.find();
     }
-    
-    public void redirectBackAfterPayemnt(){
+
+    public void redirectBackAfterPayemnt() {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];

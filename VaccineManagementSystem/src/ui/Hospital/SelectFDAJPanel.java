@@ -58,7 +58,7 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
         jLabel1.setBackground(new java.awt.Color(102, 0, 102));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 102));
-        jLabel1.setText("Select a Distributor");
+        jLabel1.setText("Select FDA Branch");
         add(jLabel1);
         jLabel1.setBounds(530, 122, 290, 70);
 

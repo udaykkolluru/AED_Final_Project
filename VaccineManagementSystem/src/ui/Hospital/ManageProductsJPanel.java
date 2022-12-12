@@ -16,13 +16,15 @@ import javax.swing.table.DefaultTableModel;
  * @author pawan
  */
 public class ManageProductsJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private Enterprise enterprise;
+
     /**
      * Creates new form ManageProductsJPanel
      */
     public ManageProductsJPanel(JPanel userProcessContainer, Enterprise enterprise) {
-        
+
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
@@ -66,7 +68,7 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
         btnEdit.setBackground(new java.awt.Color(102, 0, 102));
         btnEdit.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnEdit.setForeground(new java.awt.Color(255, 255, 255));
-        btnEdit.setText("Edit Hospital Price");
+        btnEdit.setText("Edit Price");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
@@ -107,7 +109,7 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblProduct.getSelectedRow();
-        if (selectedRow < 0){
+        if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select an item");
             return;
         }
@@ -117,11 +119,17 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblProduct.getSelectedRow();
-        if (selectedRow < 0){
+        if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select an item");
             return;
         }
-        Product prod = (Product)tblProduct.getValueAt(selectedRow, 0);
+        Product prod = (Product) tblProduct.getValueAt(selectedRow, 0);
+        try {
+            int p = Integer.parseInt(txtPrice.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid price");
+            return;
+        }
         prod.setSuperMarketPrice(Integer.parseInt(txtPrice.getText()));
         populateProducts();
         txtPrice.setText("");
@@ -149,7 +157,7 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
         System.out.println(tblProduct);
         DefaultTableModel model = (DefaultTableModel) tblProduct.getModel();
         model.setRowCount(0);
-        for(Product product:enterprise.getProductList()){
+        for (Product product : enterprise.getProductList()) {
             Object[] row = new Object[5];
             row[0] = product;
             row[1] = product.getDescription();

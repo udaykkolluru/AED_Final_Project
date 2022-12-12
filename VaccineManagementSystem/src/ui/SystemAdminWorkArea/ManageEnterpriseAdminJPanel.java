@@ -19,6 +19,8 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import static util.UtilClass.isOnlyTextWithWhiteSpaces;
+import static util.UtilClass.isValidTextString;
 
 /**
  *
@@ -60,23 +62,23 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         }
     }
 
-    private void populateNetworkComboBox(){
+    private void populateNetworkComboBox() {
         networkJComboBox.removeAllItems();
-        
-        for (Network network : system.getNetworkList()){
+
+        for (Network network : system.getNetworkList()) {
             networkJComboBox.addItem(network);
         }
     }
-    
-    private void populateEnterpriseComboBox(Network network){
+
+    private void populateEnterpriseComboBox(Network network) {
         enterpriseJComboBox.removeAllItems();
-        
-        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()){
+
+        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
             enterpriseJComboBox.addItem(enterprise);
         }
-        
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -201,69 +203,101 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     private void networkJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkJComboBoxActionPerformed
 
         Network network = (Network) networkJComboBox.getSelectedItem();
-        if (network != null){
+        if (network != null) {
             populateEnterpriseComboBox(network);
         }
-        
-        
+
+
     }//GEN-LAST:event_networkJComboBoxActionPerformed
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
-        
+
         Enterprise enterprise = (Enterprise) enterpriseJComboBox.getSelectedItem();
-        
+
         String username = usernameJTextField.getText();
         String password = String.valueOf(passwordJPasswordField.getPassword());
         String name = nameJTextField.getText();
-        Enterprise inEnterprise=null;
-        Organization inOrganization=null;
-        boolean userAccount =true;
-        for(Network network:system.getNetworkList()){
-                //Step 2.a: check against each enterprise
-            for(Enterprise ent:network.getEnterpriseDirectory().getEnterpriseList()){
-                userAccount=ent.getUserAccountDirectory().checkIfUsernameIsUnique(username);
-                if(userAccount==true){
-                   //Step 3:check against each organization for each enterprise
-                   for(Organization organization:ent.getOrganizationDirectory().getOrganizationList()){
-                       userAccount=organization.getUserAccountDirectory().checkIfUsernameIsUnique(username);
-                       if(userAccount!=true){
-                           inEnterprise=ent;
-                           inOrganization=organization;
-                           break;
-                       }
-                   }
 
-                }
-                else{
-                   inEnterprise=ent;
-                   break;
-                }
-                if(inOrganization!=null){
-                    break;
-                }  
+        try {
+            if (!isValidTextString(username)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid username");
+                return;
             }
-            if(inEnterprise!=null){
-                break;
-            }
-        }
-        if(userAccount!=true){
-            JOptionPane.showMessageDialog(this, "username already exists");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid username");
             return;
         }
         
-        Employee employee = enterprise.getEmployeeDirectory().createEmployee(name);
-        if(enterprise.getEnterpriseType()==Enterprise.EnterpriseType.Hospital){
-            UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new DoctorSupervisor());
-        }else if(enterprise.getEnterpriseType()==Enterprise.EnterpriseType.FDA){
-            UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new FDAAdminRole());
-        }else if(enterprise.getEnterpriseType()==Enterprise.EnterpriseType.Manufacturer){
-            UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ManufacturingManager());
-        }else if(enterprise.getEnterpriseType()==Enterprise.EnterpriseType.Patient){
-            UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new PatientAdmin());
+        try {
+            if (!isValidTextString(password)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid password");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid password");
+            return;
         }
         
-        populateTable();
+        try {
+            if (!isOnlyTextWithWhiteSpaces(name)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid name");
+                return;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid name");
+            return;
+        }
         
+        
+
+        Enterprise inEnterprise = null;
+        Organization inOrganization = null;
+        boolean userAccount = true;
+        for (Network network : system.getNetworkList()) {
+            //Step 2.a: check against each enterprise
+            for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
+                userAccount = ent.getUserAccountDirectory().checkIfUsernameIsUnique(username);
+                if (userAccount == true) {
+                    //Step 3:check against each organization for each enterprise
+                    for (Organization organization : ent.getOrganizationDirectory().getOrganizationList()) {
+                        userAccount = organization.getUserAccountDirectory().checkIfUsernameIsUnique(username);
+                        if (userAccount != true) {
+                            inEnterprise = ent;
+                            inOrganization = organization;
+                            break;
+                        }
+                    }
+
+                } else {
+                    inEnterprise = ent;
+                    break;
+                }
+                if (inOrganization != null) {
+                    break;
+                }
+            }
+            if (inEnterprise != null) {
+                break;
+            }
+        }
+        if (userAccount != true) {
+            JOptionPane.showMessageDialog(this, "username already exists");
+            return;
+        }
+
+        Employee employee = enterprise.getEmployeeDirectory().createEmployee(name);
+        if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Hospital) {
+            UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new DoctorSupervisor());
+        } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.FDA) {
+            UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new FDAAdminRole());
+        } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Manufacturer) {
+            UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ManufacturingManager());
+        } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Patient) {
+            UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new PatientAdmin());
+        }
+
+        populateTable();
+
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

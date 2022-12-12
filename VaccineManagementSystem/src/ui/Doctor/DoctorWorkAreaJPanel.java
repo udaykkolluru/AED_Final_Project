@@ -54,7 +54,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
-        jLabel1.setText("Sales Person Work Area :");
+        jLabel1.setText("Doctor Work Area :");
         add(jLabel1);
         jLabel1.setBounds(350, 150, 210, 70);
 

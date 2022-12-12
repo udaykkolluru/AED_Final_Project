@@ -18,28 +18,25 @@ public class UtilClass {
 
     public static boolean isOnlyNumber(String str) {
         try {
-            int p =  Integer.parseInt(str);
-            return ((str != null) && (!str.equals(""))
-                   && (str.chars().allMatch(ch -> Character.isDigit(ch))));
+            int p = Integer.parseInt(str);
+            return true;
         } catch (Exception e) {
             return false;
         }
-
     }
 
     public static boolean isOnlyText(String str) {
         try {
-            return ((str != null) && (!str.equals(""))
-                    && (str.chars().allMatch(ch -> Character.isLetter(ch))));
+            return ((str != null) && (!str.equals("")));
         } catch (Exception e) {
             return false;
         }
     }
 
+    //same as above
     public static boolean isOnlyTextWithWhiteSpaces(String str) {
         try {
-            return ((str != null) && (!str.equals(""))
-                    && (str.chars().allMatch(ch -> Character.isLetter(ch) || Character.isWhitespace(ch))));
+            return ((str != null) && (!str.equals("")));
         } catch (Exception e) {
             return false;
         }
@@ -75,10 +72,27 @@ public class UtilClass {
 
     public static boolean isPhoneNumberVerified(String phone) {
         try {
-            String regex = "^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$";
+            String regex = "^(\\+\\d{1,2}\\s?)?1?\\-?\\.?\\s?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$";
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(phone);
             return matcher.matches();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean isOnlyTextWithCharAndNums(String str) {
+        try {
+            return ((str != null) && (!str.equals(""))
+                    && (str.chars().allMatch(ch -> Character.isLetter(ch) || Character.isWhitespace(ch) || Character.isDigit(ch))));
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean isValidTextString(String str) {
+        try {
+            return ((str != null) && (!str.equals("")));
         } catch (Exception e) {
             return false;
         }
