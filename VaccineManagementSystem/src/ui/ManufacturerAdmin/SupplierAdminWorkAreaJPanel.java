@@ -42,17 +42,23 @@ public class SupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageEmployeeJButton = new javax.swing.JButton();
         manageOrganizationJButton = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
-        valueLabel = new javax.swing.JLabel();
         btnManageRequests = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        valueLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(null);
 
+        jLabel1.setBackground(new java.awt.Color(102, 0, 102));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 0, 102));
         jLabel1.setText("My Work Area -Supplier Adminstrative Role");
         add(jLabel1);
-        jLabel1.setBounds(160, 70, 540, 29);
+        jLabel1.setBounds(430, 59, 540, 50);
 
+        userJButton.setBackground(new java.awt.Color(0, 102, 204));
+        userJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        userJButton.setForeground(new java.awt.Color(255, 255, 255));
         userJButton.setText("Manage User");
         userJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,8 +66,11 @@ public class SupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(userJButton);
-        userJButton.setBounds(400, 330, 190, 23);
+        userJButton.setBounds(580, 580, 290, 80);
 
+        manageEmployeeJButton.setBackground(new java.awt.Color(0, 102, 204));
+        manageEmployeeJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        manageEmployeeJButton.setForeground(new java.awt.Color(255, 255, 255));
         manageEmployeeJButton.setText("Manage Employee");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,8 +78,11 @@ public class SupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageEmployeeJButton);
-        manageEmployeeJButton.setBounds(410, 280, 180, 23);
+        manageEmployeeJButton.setBounds(580, 470, 290, 80);
 
+        manageOrganizationJButton.setBackground(new java.awt.Color(0, 102, 204));
+        manageOrganizationJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        manageOrganizationJButton.setForeground(new java.awt.Color(255, 255, 255));
         manageOrganizationJButton.setText("Manage Organization");
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,17 +90,16 @@ public class SupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageOrganizationJButton);
-        manageOrganizationJButton.setBounds(410, 230, 152, 23);
+        manageOrganizationJButton.setBounds(580, 360, 290, 80);
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("EnterPrise :");
         add(enterpriseLabel);
-        enterpriseLabel.setBounds(340, 120, 120, 30);
+        enterpriseLabel.setBounds(540, 260, 120, 40);
 
-        valueLabel.setText("<value>");
-        add(valueLabel);
-        valueLabel.setBounds(490, 130, 130, 17);
-
+        btnManageRequests.setBackground(new java.awt.Color(0, 102, 204));
+        btnManageRequests.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        btnManageRequests.setForeground(new java.awt.Color(255, 255, 255));
         btnManageRequests.setText("Manage Requests");
         btnManageRequests.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,12 +107,12 @@ public class SupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnManageRequests);
-        btnManageRequests.setBounds(410, 380, 180, 23);
+        btnManageRequests.setBounds(580, 690, 300, 80);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supplier.jpeg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2);
-        jLabel2.setBounds(0, 10, 1030, 580);
+        valueLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        valueLabel.setText("<value>");
+        add(valueLabel);
+        valueLabel.setBounds(670, 267, 170, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
@@ -144,7 +155,6 @@ public class SupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageRequests;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton userJButton;

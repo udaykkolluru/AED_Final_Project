@@ -64,10 +64,14 @@ public class ManageRequests extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(null);
 
+        btnAccept.setBackground(new java.awt.Color(0, 153, 0));
+        btnAccept.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnAccept.setForeground(new java.awt.Color(255, 255, 255));
         btnAccept.setText("Accept");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,8 +79,11 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(btnAccept);
-        btnAccept.setBounds(278, 200, 71, 24);
+        btnAccept.setBounds(290, 320, 80, 30);
 
+        btnReject.setBackground(new java.awt.Color(204, 0, 0));
+        btnReject.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnReject.setForeground(new java.awt.Color(255, 255, 255));
         btnReject.setText("Reject");
         btnReject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,7 +91,7 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(btnReject);
-        btnReject.setBounds(561, 200, 66, 24);
+        btnReject.setBounds(380, 320, 80, 30);
 
         tblRequest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,7 +107,7 @@ public class ManageRequests extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblRequest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(238, 6, 453, 182);
+        jScrollPane1.setBounds(280, 130, 730, 182);
 
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -116,8 +123,11 @@ public class ManageRequests extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblDetails);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(238, 395, 453, 160);
+        jScrollPane2.setBounds(280, 560, 740, 230);
 
+        btnOrderDetails.setBackground(new java.awt.Color(102, 0, 102));
+        btnOrderDetails.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnOrderDetails.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderDetails.setText("Order Details");
         btnOrderDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +135,7 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(btnOrderDetails);
-        btnOrderDetails.setBounds(398, 200, 105, 24);
+        btnOrderDetails.setBounds(887, 320, 120, 30);
 
         cboxDriverType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboxDriverType.addActionListener(new java.awt.event.ActionListener() {
@@ -134,12 +144,16 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(cboxDriverType);
-        cboxDriverType.setBounds(398, 248, 61, 23);
+        cboxDriverType.setBounds(400, 460, 130, 30);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setText("Driver Type:");
         add(jLabel1);
-        jLabel1.setBounds(289, 252, 65, 14);
+        jLabel1.setBounds(290, 460, 80, 30);
 
+        jButton1.setBackground(new java.awt.Color(102, 0, 102));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Assign");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,16 +161,20 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(561, 295, 81, 24);
+        jButton1.setBounds(560, 510, 90, 30);
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setText("Driver");
         add(jLabel2);
-        jLabel2.setBounds(329, 300, 33, 14);
+        jLabel2.setBounds(290, 500, 80, 30);
 
         cboxDriver.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(cboxDriver);
-        cboxDriver.setBounds(400, 296, 61, 23);
+        cboxDriver.setBounds(400, 510, 130, 30);
 
+        jButton2.setBackground(new java.awt.Color(102, 0, 102));
+        jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Select");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,8 +182,11 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(jButton2);
-        jButton2.setBounds(561, 247, 65, 24);
+        jButton2.setBounds(560, 460, 80, 30);
 
+        btnRefresh.setBackground(new java.awt.Color(0, 102, 204));
+        btnRefresh.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,8 +194,11 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(btnRefresh);
-        btnRefresh.setBounds(798, 53, 75, 24);
+        btnRefresh.setBounds(900, 90, 110, 30);
 
+        jButton3.setBackground(new java.awt.Color(0, 102, 204));
+        jButton3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("<<Back");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,12 +206,7 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
         add(jButton3);
-        jButton3.setBounds(30, 30, 97, 24);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supplier.jpeg"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        add(jLabel3);
-        jLabel3.setBounds(20, 10, 1010, 590);
+        jButton3.setBounds(17, 13, 110, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
@@ -339,7 +358,6 @@ public class ManageRequests extends javax.swing.JPanel {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblDetails;
