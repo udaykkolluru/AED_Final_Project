@@ -169,7 +169,6 @@ public class ManageProduct extends javax.swing.JPanel {
         add(jButton1);
         jButton1.setBounds(50, 40, 76, 24);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/fDA.jpeg"))); // NOI18N
         jLabel5.setText("jLabel5");
         add(jLabel5);
         jLabel5.setBounds(10, 10, 1010, 590);

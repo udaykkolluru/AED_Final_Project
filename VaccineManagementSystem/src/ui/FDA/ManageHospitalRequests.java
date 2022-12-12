@@ -103,7 +103,7 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Product", "Description", "FDA Price", "Quantity"
+                "Product", "Description", "Distributor Price", "Quantity"
             }
         ));
         jScrollPane2.setViewportView(tblDetails);
@@ -138,7 +138,6 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
         add(btnBack);
         btnBack.setBounds(17, 16, 77, 24);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/fDA.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
         add(jLabel1);
         jLabel1.setBounds(0, 0, 1030, 590);

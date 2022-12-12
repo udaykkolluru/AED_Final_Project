@@ -65,15 +65,18 @@ public class Payment extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jtxtMobile = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel1.setText("Name");
         add(jLabel1);
-        jLabel1.setBounds(179, 173, 162, 14);
+        jLabel1.setBounds(530, 280, 162, 17);
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel2.setText("Mobile No");
         add(jLabel2);
-        jLabel2.setBounds(180, 250, 162, 14);
+        jLabel2.setBounds(530, 370, 162, 17);
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,10 +84,13 @@ public class Payment extends javax.swing.JPanel {
             }
         });
         add(txtName);
-        txtName.setBounds(404, 168, 162, 18);
+        txtName.setBounds(710, 273, 190, 30);
         add(txtCard);
-        txtCard.setBounds(410, 210, 162, 18);
+        txtCard.setBounds(710, 313, 190, 30);
 
+        btnCompletePayment.setBackground(new java.awt.Color(0, 153, 0));
+        btnCompletePayment.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        btnCompletePayment.setForeground(new java.awt.Color(255, 255, 255));
         btnCompletePayment.setText("Complete payment");
         btnCompletePayment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,8 +98,11 @@ public class Payment extends javax.swing.JPanel {
             }
         });
         add(btnCompletePayment);
-        btnCompletePayment.setBounds(313, 283, 134, 50);
+        btnCompletePayment.setBounds(650, 500, 180, 60);
 
+        btnBack.setBackground(new java.awt.Color(0, 102, 204));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,21 +110,23 @@ public class Payment extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(17, 9, 76, 24);
+        btnBack.setBounds(17, 9, 90, 40);
 
         lblTotal.setText("<Order Total>");
         add(lblTotal);
-        lblTotal.setBounds(404, 134, 162, 14);
+        lblTotal.setBounds(710, 230, 162, 30);
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel3.setText("Order Total:");
         add(jLabel3);
-        jLabel3.setBounds(179, 134, 162, 14);
+        jLabel3.setBounds(530, 240, 162, 17);
 
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel5.setText("CardNumber");
         add(jLabel5);
-        jLabel5.setBounds(179, 217, 162, 14);
+        jLabel5.setBounds(530, 320, 162, 17);
         add(jtxtMobile);
-        jtxtMobile.setBounds(410, 250, 162, 18);
+        jtxtMobile.setBounds(710, 360, 190, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed

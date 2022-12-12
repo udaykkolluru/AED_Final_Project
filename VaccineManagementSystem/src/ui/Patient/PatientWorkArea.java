@@ -56,25 +56,27 @@ public class PatientWorkArea extends javax.swing.JPanel {
         cboxFDA = new javax.swing.JComboBox<>();
         btnRequest = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
-        jLabel2.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel2.setBackground(new java.awt.Color(102, 0, 102));
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(102, 0, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Select a Hospital");
         add(jLabel2);
-        jLabel2.setBounds(20, 70, 897, 55);
+        jLabel2.setBounds(640, 130, 640, 60);
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel3.setText("Hospital");
         add(jLabel3);
-        jLabel3.setBounds(170, 260, 167, 29);
+        jLabel3.setBounds(660, 390, 167, 29);
 
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel4.setText("Network");
         add(jLabel4);
-        jLabel4.setBounds(180, 210, 167, 29);
+        jLabel4.setBounds(660, 310, 167, 29);
 
         cboxNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboxNetwork.addActionListener(new java.awt.event.ActionListener() {
@@ -83,8 +85,11 @@ public class PatientWorkArea extends javax.swing.JPanel {
             }
         });
         add(cboxNetwork);
-        cboxNetwork.setBounds(370, 210, 167, 29);
+        cboxNetwork.setBounds(750, 310, 220, 29);
 
+        btnRequest1.setBackground(new java.awt.Color(0, 153, 0));
+        btnRequest1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnRequest1.setForeground(new java.awt.Color(255, 255, 255));
         btnRequest1.setText("Select Network");
         btnRequest1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +97,7 @@ public class PatientWorkArea extends javax.swing.JPanel {
             }
         });
         add(btnRequest1);
-        btnRequest1.setBounds(560, 210, 167, 24);
+        btnRequest1.setBounds(1020, 310, 180, 30);
 
         cboxFDA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboxFDA.addActionListener(new java.awt.event.ActionListener() {
@@ -101,8 +106,11 @@ public class PatientWorkArea extends javax.swing.JPanel {
             }
         });
         add(cboxFDA);
-        cboxFDA.setBounds(360, 260, 167, 29);
+        cboxFDA.setBounds(747, 390, 220, 29);
 
+        btnRequest.setBackground(new java.awt.Color(0, 153, 0));
+        btnRequest.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnRequest.setForeground(new java.awt.Color(255, 255, 255));
         btnRequest.setText("Select Hospital");
         btnRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,20 +118,19 @@ public class PatientWorkArea extends javax.swing.JPanel {
             }
         });
         add(btnRequest);
-        btnRequest.setBounds(570, 260, 112, 24);
+        btnRequest.setBounds(1018, 390, 180, 30);
 
-        jButton1.setText("<<back");
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("<< Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         add(jButton1);
-        jButton1.setBounds(20, 20, 77, 24);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/Customer.jpeg"))); // NOI18N
-        add(jLabel1);
-        jLabel1.setBounds(10, 10, 1030, 620);
+        jButton1.setBounds(20, 20, 110, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cboxNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxNetworkActionPerformed

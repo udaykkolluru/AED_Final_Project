@@ -56,18 +56,21 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jtxtMobile = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setText("Name");
         add(jLabel1);
-        jLabel1.setBounds(144, 160, 30, 14);
+        jLabel1.setBounds(590, 330, 60, 30);
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setText("CardNumber");
         add(jLabel2);
-        jLabel2.setBounds(101, 204, 69, 14);
+        jLabel2.setBounds(580, 390, 100, 30);
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,10 +78,13 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
             }
         });
         add(txtName);
-        txtName.setBounds(243, 155, 146, 18);
+        txtName.setBounds(676, 323, 210, 40);
         add(txtCard);
-        txtCard.setBounds(243, 199, 146, 18);
+        txtCard.setBounds(680, 390, 210, 40);
 
+        btnCompletePayment.setBackground(new java.awt.Color(0, 153, 0));
+        btnCompletePayment.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        btnCompletePayment.setForeground(new java.awt.Color(255, 255, 255));
         btnCompletePayment.setText("Complete payment");
         btnCompletePayment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,30 +92,36 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
             }
         });
         add(btnCompletePayment);
-        btnCompletePayment.setBounds(235, 273, 134, 24);
+        btnCompletePayment.setBounds(730, 570, 230, 70);
 
-        btnBack.setText("<<Back");
+        btnBack.setBackground(new java.awt.Color(0, 102, 204));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
         add(btnBack);
-        btnBack.setBounds(17, 9, 76, 24);
+        btnBack.setBounds(17, 9, 110, 40);
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel3.setText("Order Total:");
         add(jLabel3);
-        jLabel3.setBounds(105, 103, 65, 14);
+        jLabel3.setBounds(580, 260, 110, 50);
 
+        lblTotal.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         lblTotal.setText("<Order Total>");
         add(lblTotal);
-        lblTotal.setBounds(266, 103, 80, 14);
-        add(jtxtMobile);
-        jtxtMobile.setBounds(240, 240, 162, 18);
+        lblTotal.setBounds(691, 267, 160, 40);
 
-        jLabel5.setText("Mobile No");
-        add(jLabel5);
-        jLabel5.setBounds(120, 240, 162, 20);
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel4.setText("Mobile No");
+        add(jLabel4);
+        jLabel4.setBounds(590, 470, 162, 18);
+        add(jtxtMobile);
+        jtxtMobile.setBounds(680, 460, 210, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -133,20 +145,19 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
             newOrder.setSender(order.getSender());
             newOrder.setSenderEnterprise(order.getSenderEnterprise());
             newOrder.setReceiverEnterprise(order.getReceiverEnterprise());
-            newOrder.setStatus("waiting for fDA to accept");
+            newOrder.setStatus("waiting for FDA to accept");
             for(Product prod:order.getProductList()){
                 newOrder.getProductList().add(prod);
             }
             ecoSystem.getWorkQueue().getWorkRequestList().add(newOrder);
             JOptionPane.showMessageDialog(this, "Thankyou for shopping with us");
-            order.setStatus("waiting for fDA admin to accept");
-            System.out.println("order placed");
+            order.setStatus("waiting for FDA admin to accept");
+            order.getProductList().clear();
             String mobile = "+1" + jtxtMobile.getText();
             TwilioSMSUtil
                     .sendTextMessage(mobile,
                             "Hi " + txtName.getText() + ", " + "Thank you for choosing us. Your payment has been debited from Card ending xxxx" + txtCard.getText().substring(12)+". Stay safe and Healthy.");
             
-            order.getProductList().clear();
             redirectBackAfterPayemnt();
         }else{
             JOptionPane.showMessageDialog(this, "Please enter valid card number");
@@ -164,7 +175,7 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jtxtMobile;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JTextField txtCard;

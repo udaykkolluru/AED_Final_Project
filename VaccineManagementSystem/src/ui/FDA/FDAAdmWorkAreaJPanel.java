@@ -105,7 +105,7 @@ public class FDAAdmWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_userJButtonActionPerformed
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
-
+ 
         ManageHospitalRequests manageEmployeeJPanel = new ManageHospitalRequests(userProcessContainer, enterprise, userAccount, ecoSystem);
         userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
 

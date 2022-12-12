@@ -79,8 +79,8 @@ private JPanel userProcessContainer;
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnRefresh = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
         tblProductList.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
@@ -98,13 +98,16 @@ private JPanel userProcessContainer;
         jScrollPane2.setViewportView(tblProductList);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(6, 103, 824, 192);
+        jScrollPane2.setBounds(280, 140, 824, 192);
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel2.setText("Order List");
         add(jLabel2);
-        jLabel2.setBounds(270, 360, 140, 30);
+        jLabel2.setBounds(240, 450, 140, 30);
 
+        btnRemove.setBackground(new java.awt.Color(102, 0, 102));
+        btnRemove.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRemove.setForeground(new java.awt.Color(255, 255, 255));
         btnRemove.setText("Remove");
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,8 +115,11 @@ private JPanel userProcessContainer;
             }
         });
         add(btnRemove);
-        btnRemove.setBounds(879, 488, 76, 24);
+        btnRemove.setBounds(900, 350, 90, 30);
 
+        btnAdd.setBackground(new java.awt.Color(102, 0, 102));
+        btnAdd.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,16 +127,19 @@ private JPanel userProcessContainer;
             }
         });
         add(btnAdd);
-        btnAdd.setBounds(879, 182, 93, 24);
+        btnAdd.setBounds(1010, 350, 90, 30);
 
-        btnBack.setText("<<Back");
+        btnBack.setBackground(new java.awt.Color(0, 102, 204));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
         add(btnBack);
-        btnBack.setBounds(6, 23, 76, 24);
+        btnBack.setBounds(6, 23, 110, 30);
 
         tblOrderProductList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -146,8 +155,11 @@ private JPanel userProcessContainer;
         jScrollPane1.setViewportView(tblOrderProductList);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(6, 403, 824, 192);
+        jScrollPane1.setBounds(280, 500, 824, 192);
 
+        jButton1.setBackground(new java.awt.Color(0, 153, 0));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Payment Page");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,13 +167,16 @@ private JPanel userProcessContainer;
             }
         });
         add(jButton1);
-        jButton1.setBounds(324, 607, 107, 24);
+        jButton1.setBounds(640, 750, 170, 50);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel1.setText("Products List");
         add(jLabel1);
         jLabel1.setBounds(240, 60, 180, 30);
 
+        btnRefresh.setBackground(new java.awt.Color(0, 102, 204));
+        btnRefresh.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,12 +184,7 @@ private JPanel userProcessContainer;
             }
         });
         add(btnRefresh);
-        btnRefresh.setBounds(879, 43, 93, 24);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/Customer.jpeg"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        add(jLabel3);
-        jLabel3.setBounds(5, 6, 1000, 640);
+        btnRefresh.setBounds(1180, 30, 130, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
@@ -278,7 +288,6 @@ private JPanel userProcessContainer;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblOrderProductList;

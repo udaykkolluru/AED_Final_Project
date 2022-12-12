@@ -60,8 +60,9 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
         cboxNetwork = new javax.swing.JComboBox<>();
         btnRequest1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(null);
 
         tblRequest.setModel(new javax.swing.table.DefaultTableModel(
@@ -78,7 +79,7 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblRequest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(281, 51, 453, 176);
+        jScrollPane1.setBounds(270, 130, 800, 210);
 
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -94,8 +95,11 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblDetails);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(281, 416, 453, 160);
+        jScrollPane2.setBounds(280, 560, 800, 200);
 
+        btnOrderDetails.setBackground(new java.awt.Color(102, 0, 102));
+        btnOrderDetails.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnOrderDetails.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderDetails.setText("Order Details");
         btnOrderDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,12 +107,15 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
             }
         });
         add(btnOrderDetails);
-        btnOrderDetails.setBounds(442, 239, 105, 24);
+        btnOrderDetails.setBounds(270, 360, 140, 30);
 
         cboxSupplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(cboxSupplier);
-        cboxSupplier.setBounds(441, 345, 138, 23);
+        cboxSupplier.setBounds(340, 490, 160, 30);
 
+        btnRequest.setBackground(new java.awt.Color(102, 0, 102));
+        btnRequest.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRequest.setForeground(new java.awt.Color(255, 255, 255));
         btnRequest.setText("Request");
         btnRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,17 +123,19 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
             }
         });
         add(btnRequest);
-        btnRequest.setBounds(597, 344, 138, 24);
+        btnRequest.setBounds(690, 460, 150, 30);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel1.setText("Supplier: ");
+        jLabel1.setText("Supplier ");
         add(jLabel1);
-        jLabel1.setBounds(291, 349, 138, 14);
+        jLabel1.setBounds(190, 500, 138, 18);
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel2.setText("Network");
         add(jLabel2);
-        jLabel2.setBounds(291, 302, 138, 14);
+        jLabel2.setBounds(180, 460, 138, 17);
 
         cboxNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboxNetwork.addActionListener(new java.awt.event.ActionListener() {
@@ -135,8 +144,11 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
             }
         });
         add(cboxNetwork);
-        cboxNetwork.setBounds(441, 298, 138, 23);
+        cboxNetwork.setBounds(340, 450, 160, 30);
 
+        btnRequest1.setBackground(new java.awt.Color(102, 0, 102));
+        btnRequest1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRequest1.setForeground(new java.awt.Color(255, 255, 255));
         btnRequest1.setText("Select Network");
         btnRequest1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,21 +156,19 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
             }
         });
         add(btnRequest1);
-        btnRequest1.setBounds(591, 297, 112, 24);
+        btnRequest1.setBounds(530, 460, 140, 30);
 
-        jButton1.setText("<<Back");
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("<< Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         add(jButton1);
-        jButton1.setBounds(10, 30, 76, 24);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        add(jLabel3);
-        jLabel3.setBounds(10, 10, 1150, 610);
+        jButton1.setBounds(10, 13, 110, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrderDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderDetailsActionPerformed
@@ -266,7 +276,6 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblDetails;

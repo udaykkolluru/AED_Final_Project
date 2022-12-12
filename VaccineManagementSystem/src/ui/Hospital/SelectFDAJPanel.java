@@ -47,26 +47,30 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         cboxNetwork = new javax.swing.JComboBox<>();
         btnRequest1 = new javax.swing.JButton();
-        cboxFDA = new javax.swing.JComboBox<>();
+        cboxDistributor = new javax.swing.JComboBox<>();
         btnRequest = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setPreferredSize(new java.awt.Dimension(900, 900));
         setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel1.setText("Select a FDA");
+        jLabel1.setBackground(new java.awt.Color(102, 0, 102));
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 0, 102));
+        jLabel1.setText("Select a Distributor");
         add(jLabel1);
-        jLabel1.setBounds(430, 100, 166, 22);
+        jLabel1.setBounds(530, 122, 290, 70);
 
-        jLabel2.setText("Supplier: ");
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel2.setText("Supplier");
         add(jLabel2);
-        jLabel2.setBounds(410, 350, 71, 14);
+        jLabel2.setBounds(410, 350, 71, 18);
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel3.setText("Network");
         add(jLabel3);
-        jLabel3.setBounds(410, 300, 71, 14);
+        jLabel3.setBounds(410, 300, 71, 18);
 
         cboxNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboxNetwork.addActionListener(new java.awt.event.ActionListener() {
@@ -75,8 +79,11 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
             }
         });
         add(cboxNetwork);
-        cboxNetwork.setBounds(500, 300, 61, 23);
+        cboxNetwork.setBounds(500, 293, 200, 30);
 
+        btnRequest1.setBackground(new java.awt.Color(102, 0, 102));
+        btnRequest1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRequest1.setForeground(new java.awt.Color(255, 255, 255));
         btnRequest1.setText("Select Network");
         btnRequest1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,21 +91,32 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
             }
         });
         add(btnRequest1);
-        btnRequest1.setBounds(610, 300, 160, 24);
+        btnRequest1.setBounds(750, 293, 170, 30);
 
-        cboxFDA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(cboxFDA);
-        cboxFDA.setBounds(500, 350, 61, 23);
+        cboxDistributor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboxDistributor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxDistributorActionPerformed(evt);
+            }
+        });
+        add(cboxDistributor);
+        cboxDistributor.setBounds(500, 343, 200, 30);
 
-        btnRequest.setText("Select FDA");
+        btnRequest.setBackground(new java.awt.Color(102, 0, 102));
+        btnRequest.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRequest.setForeground(new java.awt.Color(255, 255, 255));
+        btnRequest.setText("Select Distributor");
         btnRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRequestActionPerformed(evt);
             }
         });
         add(btnRequest);
-        btnRequest.setBounds(610, 350, 160, 24);
+        btnRequest.setBounds(750, 343, 170, 30);
 
+        btnBack.setBackground(new java.awt.Color(0, 102, 204));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,12 +124,7 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(60, 73, 76, 24);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        add(jLabel4);
-        jLabel4.setBounds(0, 20, 1210, 630);
+        btnBack.setBounds(30, 30, 120, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cboxNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxNetworkActionPerformed
@@ -135,18 +148,15 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         Network req=null;
-        System.out.println(cboxNetwork.getSelectedItem().toString());
         for(Network network:ecoSystem.getNetworkList()){
             if(network.getName().equals(cboxNetwork.getSelectedItem().toString())){
                 req = network;
             }
         }
+        cboxDistributor.removeAllItems();
         for(Enterprise supplierEnterprise:req.getEnterpriseDirectory().getEnterpriseList()){
-            System.out.println(supplierEnterprise.getEnterpriseType().getValue());
-            System.out.println(Enterprise.EnterpriseType.FDA.getValue());
             if(supplierEnterprise.getEnterpriseType().getValue().equals(Enterprise.EnterpriseType.FDA.getValue())){
-                System.out.println("inside if condition");
-                cboxFDA.addItem(supplierEnterprise.getName());
+                cboxDistributor.addItem(supplierEnterprise.getName());
             }
         }
     }//GEN-LAST:event_btnRequest1ActionPerformed
@@ -155,7 +165,6 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         Network req=null;
-        System.out.println(cboxNetwork.getSelectedItem().toString());
         for(Network network:ecoSystem.getNetworkList()){
             if(network.getName().equals(cboxNetwork.getSelectedItem().toString())){
                 req = network;
@@ -163,9 +172,7 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
         }
 
         for(Enterprise supplierEnterprise:req.getEnterpriseDirectory().getEnterpriseList()){
-            System.out.println(supplierEnterprise.getName());
-            System.out.println(cboxFDA.getSelectedItem());
-            if(supplierEnterprise.getName().equals(cboxFDA.getSelectedItem().toString())){
+            if(supplierEnterprise.getName().equals(cboxDistributor.getSelectedItem().toString())){
                 BuyProductsFromFDA buyProductsFromFDAJPanel = new BuyProductsFromFDA(userProcessContainer, userAccount, supplierEnterprise, enterprise,ecoSystem);
                 userProcessContainer.add("manageEmployeeJPanel", buyProductsFromFDAJPanel);
                 CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -185,21 +192,24 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void cboxDistributorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxDistributorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxDistributorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRequest;
     private javax.swing.JButton btnRequest1;
-    private javax.swing.JComboBox<String> cboxFDA;
+    private javax.swing.JComboBox<String> cboxDistributor;
     private javax.swing.JComboBox<String> cboxNetwork;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 
     private void populateNetworkCombo(){
-        cboxFDA.removeAllItems();
+        cboxDistributor.removeAllItems();
         cboxNetwork.removeAllItems();
         for(Network network:ecoSystem.getNetworkList()){
             cboxNetwork.addItem(network.getName());

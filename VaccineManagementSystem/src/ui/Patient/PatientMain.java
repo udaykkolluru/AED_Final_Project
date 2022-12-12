@@ -44,11 +44,13 @@ public class PatientMain extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         btnPrevious = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 153));
+        jButton1.setBackground(new java.awt.Color(102, 0, 102));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Buy Vaccine");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,9 +58,11 @@ public class PatientMain extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(390, 90, 250, 70);
+        jButton1.setBounds(580, 240, 460, 150);
 
-        btnPrevious.setBackground(new java.awt.Color(153, 153, 153));
+        btnPrevious.setBackground(new java.awt.Color(102, 0, 102));
+        btnPrevious.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        btnPrevious.setForeground(new java.awt.Color(255, 255, 255));
         btnPrevious.setText("Previous Orders");
         btnPrevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,18 +70,13 @@ public class PatientMain extends javax.swing.JPanel {
             }
         });
         add(btnPrevious);
-        btnPrevious.setBounds(390, 280, 250, 70);
+        btnPrevious.setBounds(580, 490, 460, 140);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Patient Work Area");
         add(jLabel1);
-        jLabel1.setBounds(370, 20, 290, 30);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/Customer.jpeg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2);
-        jLabel2.setBounds(30, -10, 1050, 650);
+        jLabel1.setBounds(670, 100, 290, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -101,6 +100,5 @@ public class PatientMain extends javax.swing.JPanel {
     private javax.swing.JButton btnPrevious;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

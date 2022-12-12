@@ -44,12 +44,15 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblProduct = new javax.swing.JTable();
         backJButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
         add(txtPrice);
-        txtPrice.setBounds(370, 500, 98, 26);
+        txtPrice.setBounds(650, 490, 110, 30);
 
+        btnUpdate.setBackground(new java.awt.Color(0, 153, 0));
+        btnUpdate.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.setEnabled(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -58,16 +61,17 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
             }
         });
         add(btnUpdate);
-        btnUpdate.setBounds(530, 500, 88, 29);
+        btnUpdate.setBounds(640, 610, 150, 60);
 
-        btnEdit.setText("Edit SuperMarket Price");
+        btnEdit.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnEdit.setText("Edit Hospital Price");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
             }
         });
         add(btnEdit);
-        btnEdit.setBounds(400, 313, 184, 29);
+        btnEdit.setBounds(600, 430, 220, 40);
 
         tblProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,8 +87,11 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblProduct);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(265, 162, 454, 133);
+        jScrollPane2.setBounds(310, 170, 830, 230);
 
+        backJButton.setBackground(new java.awt.Color(0, 102, 204));
+        backJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        backJButton.setForeground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,12 +99,7 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
             }
         });
         add(backJButton);
-        backJButton.setBounds(30, 20, 97, 29);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 1020, 570);
+        backJButton.setBounds(30, 20, 100, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
@@ -120,6 +122,7 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
         Product prod = (Product)tblProduct.getValueAt(selectedRow, 0);
         prod.setSuperMarketPrice(Integer.parseInt(txtPrice.getText()));
         populateProducts();
+        txtPrice.setText("");
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -134,7 +137,6 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton backJButton;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblProduct;
     private javax.swing.JTextField txtPrice;

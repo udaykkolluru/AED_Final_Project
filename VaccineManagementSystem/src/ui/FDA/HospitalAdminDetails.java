@@ -86,7 +86,6 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         add(btnBack);
         btnBack.setBounds(17, 9, 76, 24);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/payment.jpeg"))); // NOI18N
         jLabel3.setText("jLabel3");
         add(jLabel3);
         jLabel3.setBounds(0, 0, 1140, 620);
