@@ -83,8 +83,8 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         enterpriseTypeJComboBox = new javax.swing.JComboBox();
         submitJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
         enterpriseJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -109,30 +109,36 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(enterpriseJTable);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(259, 185, 523, 95);
+        jScrollPane1.setBounds(470, 240, 770, 200);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel1.setText("Network");
         add(jLabel1);
-        jLabel1.setBounds(308, 329, 53, 16);
+        jLabel1.setBounds(680, 520, 70, 17);
 
         networkJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(networkJComboBox);
-        networkJComboBox.setBounds(457, 325, 136, 27);
+        networkJComboBox.setBounds(810, 520, 136, 23);
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel2.setText("Name");
         add(jLabel2);
-        jLabel2.setBounds(308, 433, 36, 16);
+        jLabel2.setBounds(680, 610, 50, 17);
         add(nameJTextField);
-        nameJTextField.setBounds(457, 428, 136, 26);
+        nameJTextField.setBounds(810, 610, 136, 23);
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel3.setText("Enterprise Type");
         add(jLabel3);
-        jLabel3.setBounds(308, 387, 97, 16);
+        jLabel3.setBounds(680, 560, 110, 17);
 
         enterpriseTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(enterpriseTypeJComboBox);
-        enterpriseTypeJComboBox.setBounds(457, 383, 136, 27);
+        enterpriseTypeJComboBox.setBounds(810, 560, 136, 23);
 
+        submitJButton.setBackground(new java.awt.Color(0, 153, 0));
+        submitJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        submitJButton.setForeground(new java.awt.Color(255, 255, 255));
         submitJButton.setText("Submit");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,8 +146,11 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             }
         });
         add(submitJButton);
-        submitJButton.setBounds(694, 472, 88, 29);
+        submitJButton.setBounds(810, 700, 110, 40);
 
+        backJButton.setBackground(new java.awt.Color(0, 102, 204));
+        backJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        backJButton.setForeground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,12 +158,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             }
         });
         add(backJButton);
-        backJButton.setBounds(6, 11, 97, 29);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/what-system-administrator-do.jpg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        add(jLabel4);
-        jLabel4.setBounds(0, 0, 990, 620);
+        backJButton.setBounds(6, 11, 80, 23);
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
@@ -191,7 +195,6 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox networkJComboBox;

@@ -62,8 +62,9 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
         btnRequest1 = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(null);
 
         tblRequest.setModel(new javax.swing.table.DefaultTableModel(
@@ -80,7 +81,7 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblRequest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(284, 64, 453, 176);
+        jScrollPane1.setBounds(290, 160, 810, 230);
 
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -96,8 +97,11 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblDetails);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(284, 419, 453, 160);
+        jScrollPane2.setBounds(300, 590, 800, 260);
 
+        btnOrderDetails.setBackground(new java.awt.Color(102, 0, 102));
+        btnOrderDetails.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnOrderDetails.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderDetails.setText("Order Details");
         btnOrderDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,12 +109,15 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
             }
         });
         add(btnOrderDetails);
-        btnOrderDetails.setBounds(488, 252, 105, 24);
+        btnOrderDetails.setBounds(610, 410, 160, 40);
 
         cboxSupplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(cboxSupplier);
-        cboxSupplier.setBounds(388, 347, 61, 23);
+        cboxSupplier.setBounds(590, 530, 130, 30);
 
+        btnRequest.setBackground(new java.awt.Color(102, 0, 102));
+        btnRequest.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRequest.setForeground(new java.awt.Color(255, 255, 255));
         btnRequest.setText("Request");
         btnRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,15 +125,17 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
             }
         });
         add(btnRequest);
-        btnRequest.setBounds(521, 346, 77, 24);
+        btnRequest.setBounds(740, 530, 170, 30);
 
-        jLabel1.setText("Supplier: ");
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel1.setText("Supplier");
         add(jLabel1);
-        jLabel1.setBounds(317, 351, 50, 14);
+        jLabel1.setBounds(500, 530, 64, 18);
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setText("Network");
         add(jLabel2);
-        jLabel2.setBounds(313, 304, 44, 14);
+        jLabel2.setBounds(500, 490, 70, 18);
 
         cboxNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboxNetwork.addActionListener(new java.awt.event.ActionListener() {
@@ -135,8 +144,11 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
             }
         });
         add(cboxNetwork);
-        cboxNetwork.setBounds(388, 300, 61, 23);
+        cboxNetwork.setBounds(590, 480, 130, 30);
 
+        btnRequest1.setBackground(new java.awt.Color(102, 0, 102));
+        btnRequest1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRequest1.setForeground(new java.awt.Color(255, 255, 255));
         btnRequest1.setText("Select Network");
         btnRequest1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,8 +156,11 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
             }
         });
         add(btnRequest1);
-        btnRequest1.setBounds(496, 299, 112, 24);
+        btnRequest1.setBounds(740, 480, 170, 30);
 
+        btnRefresh.setBackground(new java.awt.Color(0, 102, 204));
+        btnRefresh.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,8 +168,11 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
             }
         });
         add(btnRefresh);
-        btnRefresh.setBounds(931, 17, 75, 24);
+        btnRefresh.setBounds(1000, 110, 100, 40);
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("<<Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,12 +180,7 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(6, 17, 76, 24);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/distributor.jpeg"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        add(jLabel3);
-        jLabel3.setBounds(0, 0, 1030, 600);
+        jButton1.setBounds(6, 17, 100, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrderDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderDetailsActionPerformed
@@ -285,7 +298,6 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblDetails;

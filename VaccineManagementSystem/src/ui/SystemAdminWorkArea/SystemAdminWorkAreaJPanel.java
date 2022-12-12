@@ -38,15 +38,14 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jSplitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        lblSelectedNode = new javax.swing.JLabel();
         btnManageNetwork = new javax.swing.JButton();
         btnManageEnterprise = new javax.swing.JButton();
         btnManageAdmin = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -56,21 +55,17 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 583, Short.MAX_VALUE)
+            .addGap(0, 1705, Short.MAX_VALUE)
         );
 
         jSplitPane.setLeftComponent(jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setLayout(null);
 
-        jLabel1.setText("Selected Node:");
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(30, 30, 78, 14);
-
-        lblSelectedNode.setText("<View_selected_node>");
-        jPanel2.add(lblSelectedNode);
-        lblSelectedNode.setBounds(140, 30, 125, 14);
-
+        btnManageNetwork.setBackground(new java.awt.Color(0, 102, 204));
+        btnManageNetwork.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnManageNetwork.setForeground(new java.awt.Color(255, 255, 255));
         btnManageNetwork.setText("Manage Network");
         btnManageNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,8 +73,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         jPanel2.add(btnManageNetwork);
-        btnManageNetwork.setBounds(70, 90, 204, 24);
+        btnManageNetwork.setBounds(430, 260, 400, 120);
 
+        btnManageEnterprise.setBackground(new java.awt.Color(0, 102, 204));
+        btnManageEnterprise.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnManageEnterprise.setForeground(new java.awt.Color(255, 255, 255));
         btnManageEnterprise.setText("Manage Enterprise");
         btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,8 +85,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         jPanel2.add(btnManageEnterprise);
-        btnManageEnterprise.setBounds(70, 140, 204, 24);
+        btnManageEnterprise.setBounds(430, 430, 400, 120);
 
+        btnManageAdmin.setBackground(new java.awt.Color(0, 102, 204));
+        btnManageAdmin.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnManageAdmin.setForeground(new java.awt.Color(255, 255, 255));
         btnManageAdmin.setText("Manage Enterprise Admin");
         btnManageAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,8 +97,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         jPanel2.add(btnManageAdmin);
-        btnManageAdmin.setBounds(70, 190, 171, 24);
+        btnManageAdmin.setBounds(430, 590, 400, 120);
 
+        jButton2.setBackground(new java.awt.Color(0, 102, 204));
+        jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 19)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Analytics");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,12 +109,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         jPanel2.add(jButton2);
-        jButton2.setBounds(70, 240, 204, 24);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/what-system-administrator-do.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(0, 0, 960, 580);
+        jButton2.setBounds(430, 750, 400, 120);
 
         jSplitPane.setRightComponent(jPanel2);
 
@@ -152,11 +151,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageEnterprise;
     private javax.swing.JButton btnManageNetwork;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane;
-    private javax.swing.JLabel lblSelectedNode;
     // End of variables declaration//GEN-END:variables
 }

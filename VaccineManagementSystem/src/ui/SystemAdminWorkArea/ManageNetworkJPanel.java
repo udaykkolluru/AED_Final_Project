@@ -59,8 +59,8 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         btnSubmit = new javax.swing.JButton();
         txtNetworkName = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
         networkJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -95,12 +95,16 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         }
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(257, 204, 404, 91);
+        jScrollPane1.setBounds(560, 180, 500, 140);
 
+        lblName.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblName.setText("Name:");
         add(lblName);
-        lblName.setBounds(257, 327, 40, 16);
+        lblName.setBounds(650, 400, 50, 20);
 
+        btnSubmit.setBackground(new java.awt.Color(0, 153, 0));
+        btnSubmit.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,10 +112,19 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             }
         });
         add(btnSubmit);
-        btnSubmit.setBounds(573, 322, 88, 29);
-        add(txtNetworkName);
-        txtNetworkName.setBounds(343, 322, 181, 26);
+        btnSubmit.setBounds(770, 520, 140, 50);
 
+        txtNetworkName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNetworkNameActionPerformed(evt);
+            }
+        });
+        add(txtNetworkName);
+        txtNetworkName.setBounds(720, 390, 230, 30);
+
+        btnBack.setBackground(new java.awt.Color(0, 102, 204));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,12 +132,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(6, 6, 97, 29);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/what-system-administrator-do.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 990, 610);
+        btnBack.setBounds(6, 6, 80, 23);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
@@ -146,10 +154,13 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void txtNetworkNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNetworkNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNetworkNameActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblName;
     private javax.swing.JTable networkJTable;
