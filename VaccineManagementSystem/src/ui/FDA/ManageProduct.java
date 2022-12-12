@@ -75,11 +75,11 @@ public class ManageProduct extends javax.swing.JPanel {
         add(jLabel4);
         jLabel4.setBounds(480, 660, 56, 18);
         add(txtPrice);
-        txtPrice.setBounds(560, 620, 195, 18);
+        txtPrice.setBounds(560, 620, 195, 30);
         add(txtDescription);
-        txtDescription.setBounds(560, 570, 195, 18);
+        txtDescription.setBounds(560, 570, 195, 30);
         add(txtQuantity);
-        txtQuantity.setBounds(560, 660, 195, 18);
+        txtQuantity.setBounds(560, 660, 195, 30);
 
         tblProductList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -121,7 +121,7 @@ public class ManageProduct extends javax.swing.JPanel {
         add(btnSearch);
         btnSearch.setBounds(520, 150, 90, 30);
         add(txtName);
-        txtName.setBounds(560, 530, 195, 18);
+        txtName.setBounds(560, 518, 195, 30);
 
         btnUpdate.setText("Update");
         btnUpdate.setEnabled(false);
