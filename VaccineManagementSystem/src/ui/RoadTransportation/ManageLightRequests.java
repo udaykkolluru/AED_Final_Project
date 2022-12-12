@@ -53,8 +53,8 @@ public class ManageLightRequests extends javax.swing.JPanel {
         btnProcess = new javax.swing.JButton();
         btnOrderDetails = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
         tblRequest.setModel(new javax.swing.table.DefaultTableModel(
@@ -71,7 +71,7 @@ public class ManageLightRequests extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblRequest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(307, 148, 454, 182);
+        jScrollPane1.setBounds(350, 150, 810, 220);
 
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,8 +87,11 @@ public class ManageLightRequests extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblDetails);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(307, 534, 454, 160);
+        jScrollPane2.setBounds(350, 530, 810, 230);
 
+        btnProcess.setBackground(new java.awt.Color(102, 0, 102));
+        btnProcess.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnProcess.setForeground(new java.awt.Color(255, 255, 255));
         btnProcess.setText("Process");
         btnProcess.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,8 +99,11 @@ public class ManageLightRequests extends javax.swing.JPanel {
             }
         });
         add(btnProcess);
-        btnProcess.setBounds(634, 413, 127, 29);
+        btnProcess.setBounds(770, 423, 150, 40);
 
+        btnOrderDetails.setBackground(new java.awt.Color(102, 0, 102));
+        btnOrderDetails.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnOrderDetails.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderDetails.setText("Order Details");
         btnOrderDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,8 +111,11 @@ public class ManageLightRequests extends javax.swing.JPanel {
             }
         });
         add(btnOrderDetails);
-        btnOrderDetails.setBounds(473, 413, 127, 29);
+        btnOrderDetails.setBounds(557, 423, 140, 40);
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Refresh");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,12 +123,7 @@ public class ManageLightRequests extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(307, 413, 127, 29);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/WhatsApp Image 2021-12-12 at 8.09.21 PM.jpeg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        add(jLabel1);
-        jLabel1.setBounds(-5, -4, 1120, 770);
+        jButton1.setBounds(1017, 103, 140, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrderDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderDetailsActionPerformed
@@ -185,7 +189,6 @@ public class ManageLightRequests extends javax.swing.JPanel {
     private javax.swing.JButton btnOrderDetails;
     private javax.swing.JButton btnProcess;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblDetails;
