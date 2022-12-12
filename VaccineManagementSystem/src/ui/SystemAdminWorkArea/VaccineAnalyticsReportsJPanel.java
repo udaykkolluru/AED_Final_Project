@@ -51,22 +51,7 @@ public class VaccineAnalyticsReportsJPanel extends javax.swing.JPanel {
     
  
     
-    private void pieChart(DefaultPieDataset dataset,String tHeader){
-        JFreeChart chart = ChartFactory.createPieChart3D(
-        tHeader, // Title
-        dataset, // Dataset
-        true, // Show Legend
-        true, // Use tooltips
-        false // Configure chart to generate URLs?
-        );
-        
-        pieplotJPanel.removeAll();
-        pieplotJPanel.setLayout(new java.awt.BorderLayout());
-        ChartPanel CP = new ChartPanel(chart);
-        pieplotJPanel.add(CP,BorderLayout.CENTER);
-        pieplotJPanel.validate();
-    }
-    
+   
     private void barGraph(DefaultCategoryDataset dataset,String tHeader,String bHeader,String lHeader){
 
         JFreeChart chart = ChartFactory.createBarChart3D(
@@ -97,7 +82,8 @@ public class VaccineAnalyticsReportsJPanel extends javax.swing.JPanel {
 
         plotJPanel = new javax.swing.JPanel();
         backBtn = new javax.swing.JButton();
-        pieplotJPanel = new javax.swing.JPanel();
+
+        setBackground(new java.awt.Color(255, 204, 204));
 
         javax.swing.GroupLayout plotJPanelLayout = new javax.swing.GroupLayout(plotJPanel);
         plotJPanel.setLayout(plotJPanelLayout);
@@ -110,51 +96,37 @@ public class VaccineAnalyticsReportsJPanel extends javax.swing.JPanel {
             .addGap(0, 218, Short.MAX_VALUE)
         );
 
-        backBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        backBtn.setText("<< back");
+        backBtn.setBackground(new java.awt.Color(0, 102, 204));
+        backBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        backBtn.setText("<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backBtnActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout pieplotJPanelLayout = new javax.swing.GroupLayout(pieplotJPanel);
-        pieplotJPanel.setLayout(pieplotJPanelLayout);
-        pieplotJPanelLayout.setHorizontalGroup(
-            pieplotJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 407, Short.MAX_VALUE)
-        );
-        pieplotJPanelLayout.setVerticalGroup(
-            pieplotJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 186, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pieplotJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plotJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(365, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(243, 243, 243)
+                        .addComponent(plotJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(261, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(backBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(plotJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
-                .addComponent(pieplotJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(25, 25, 25)
+                .addComponent(backBtn)
+                .addGap(163, 163, 163)
+                .addComponent(plotJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(211, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -168,7 +140,6 @@ public class VaccineAnalyticsReportsJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
-    private javax.swing.JPanel pieplotJPanel;
     private javax.swing.JPanel plotJPanel;
     // End of variables declaration//GEN-END:variables
 }
