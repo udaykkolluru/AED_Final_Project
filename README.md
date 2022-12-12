@@ -11,9 +11,9 @@ Quarantines, mask regulations, product shortages, business closures, and firms r
 ## Methodology:
 
 To create an impartial and efficient vaccine distribution system we have created the below user journey:
-1. Firstly there two ways to get medical products : person visiting the doctor in the hospital to get vaccination and person ordering vaccine to be delivered at home.
-2. Post the requirement both doctor and patient ( at home ) , the hospital would cumulate all the requirements and send a bulk request to the nearest Government body.
-3. Once the Government receives the request it validates and forwards the request to Pharmaceutical companies. 
+1. Patient Enterprise : Firstly there two ways to get medical products : person visiting the doctor in the hospital to get vaccination and person ordering vaccine to be delivered at home.
+2. Hospital Enterprise : Post the requirement both doctor and patient ( at home ) , the hospital would cumulate all the requirements and send a bulk request to the nearest Government body.
+3. FDA Enterprise : Once the Government receives the request it validates and forwards the request to Pharmaceutical companies. 
 4. These requested are accepted and delivered via Air Transportation or Road Transportation to both doctor at hospital and person ordering at home.
 
 ## Goal:
