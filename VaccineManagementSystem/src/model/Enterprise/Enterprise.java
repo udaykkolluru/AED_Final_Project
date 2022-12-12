@@ -27,11 +27,9 @@ public abstract class Enterprise extends Organization{
     
     public enum EnterpriseType{
         Hospital("Hospital"),
-        ColdStorage("ColdStorage"),
+        FDA("FDA"),
         Manufacturer("Manufacturer"),
-        Patient("Patient"),
-        Orphanage("Orphanage");
-        
+        Patient("Patient");        
         private String value;
         
         private EnterpriseType(String value){
@@ -68,7 +66,7 @@ public abstract class Enterprise extends Organization{
         super(name);
         this.enterpriseType=type;
         organizationDirectory=new OrganizationDirectory();
-        productList = new ArrayList<Product>();
+        productList = new ArrayList<>();
     }
     
     public void restoreProducts(Order order){

@@ -58,7 +58,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Helvetica Neue" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Edit SuperMarket Price"/>
+        <Property name="text" type="java.lang.String" value="Edit Hospital Price"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditActionPerformed"/>
@@ -87,7 +87,7 @@
               <Table columnCount="5" rowCount="4">
                 <Column editable="true" title="Product" type="java.lang.Object"/>
                 <Column editable="true" title="Description" type="java.lang.Object"/>
-                <Column editable="true" title="Distributor Price" type="java.lang.Object"/>
+                <Column editable="true" title="FDA Price" type="java.lang.Object"/>
                 <Column editable="true" title="Market Price" type="java.lang.Object"/>
                 <Column editable="true" title="Quantity" type="java.lang.Object"/>
               </Table>

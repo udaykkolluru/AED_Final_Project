@@ -77,7 +77,7 @@ public class PreviousOrdersHospital extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Product", "Description", "Distributor Price", "Quantity"
+                "Product", "Description", "FDA Price", "Quantity"
             }
         ));
         jScrollPane2.setViewportView(tblDetails);
@@ -113,7 +113,7 @@ public class PreviousOrdersHospital extends javax.swing.JPanel {
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
-            row[2] = product.getDistributorPrice();
+            row[2] = product.getFDAPrice();
             row[3] = product.getQuantity();
             model.addRow(row);
         }

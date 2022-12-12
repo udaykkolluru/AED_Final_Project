@@ -8,7 +8,7 @@ import model.EcoSystem;
 import model.Enterprise.Enterprise;
 import model.Organization.Organization;
 import model.UserAccount.UserAccount;
-import ui.AirTransportation.ManageHeavyRequests;
+import ui.AirTransportation.ManageAirTransportRequests;
 /**
  *
  * @author udaykk
@@ -16,6 +16,6 @@ import ui.AirTransportation.ManageHeavyRequests;
 public class Pilot  extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new ManageHeavyRequests(userProcessContainer, enterprise, account,business);
+        return new ManageAirTransportRequests(userProcessContainer, enterprise, account,business);
     }
 }

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.AirTransportation;
+package ui.RoadTransportation;
 
 import model.WorkQueue.Order;
 import model.WorkQueue.Product;
@@ -13,18 +13,19 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author charanpatnaik
+ * @author pawan
  */
-public class ProcessHeavyRequests extends javax.swing.JPanel {
+public class ProcessRoadTransportRequests extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Order order;
     /**
      * Creates new form ProcessLightRequests
      */
-    public ProcessHeavyRequests(JPanel userProcessContainer, Order order) {
+    public ProcessRoadTransportRequests(JPanel userProcessContainer, Order order) {
         initComponents();
         this.order = order;
         this.userProcessContainer = userProcessContainer;
+        System.out.println(order.getReceiver());
     }
 
     /**
@@ -39,15 +40,12 @@ public class ProcessHeavyRequests extends javax.swing.JPanel {
         txtStatus = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
         add(txtStatus);
-        txtStatus.setBounds(190, 280, 1028, 23);
+        txtStatus.setBounds(96, 158, 933, 18);
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 0));
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Complete");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,11 +53,8 @@ public class ProcessHeavyRequests extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(580, 430, 150, 50);
+        jButton1.setBounds(470, 220, 85, 24);
 
-        backJButton.setBackground(new java.awt.Color(0, 102, 204));
-        backJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        backJButton.setForeground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,10 +62,16 @@ public class ProcessHeavyRequests extends javax.swing.JPanel {
             }
         });
         add(backJButton);
-        backJButton.setBounds(0, 6, 110, 40);
+        backJButton.setBounds(6, 33, 79, 24);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/WhatsApp Image 2021-12-12 at 8.09.21 PM.jpeg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        add(jLabel1);
+        jLabel1.setBounds(0, 0, 1120, 760);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
         if(order.getStatus().toLowerCase().contains("success") || order.getStatus().toLowerCase().contains("fail")){
            JOptionPane.showMessageDialog(this, "Cannot complete this order");
            return; 
@@ -88,32 +89,26 @@ public class ProcessHeavyRequests extends javax.swing.JPanel {
                 if(check){
                     Product prod = new Product(product.getName(),product.getDescription());
                     prod.setSuperMarketPrice(product.getSuperMarketPrice());
-                    prod.setDistributorPrice(prod.getSuperMarketPrice());
                     prod.setQuantity(product.getQuantity());
                     order.getSenderEnterprise().getProductList().add(prod);
                 }
             }
-            JOptionPane.showMessageDialog(this, "Order processed");
-            back();
-        } else{
-            JOptionPane.showMessageDialog(this, "Please enter correct status");
         }
-        
+        JOptionPane.showMessageDialog(this, "Order processed");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        back();
+
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
-    private void back(){
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }
 }

@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.RoadTransportation;
+package ui.AirTransportation;
 
+//import ui.LightDriverRole.*;
 import model.EcoSystem;
 import model.Enterprise.Enterprise;
 import model.UserAccount.UserAccount;
@@ -16,9 +17,9 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author pawan
+ * @author charanpatnaik
  */
-public class ManageLightRequests extends javax.swing.JPanel {
+public class ManageAirTransportRequests extends javax.swing.JPanel {
 
     JPanel userProcessConatiner;
     Enterprise enterprise;
@@ -28,7 +29,7 @@ public class ManageLightRequests extends javax.swing.JPanel {
     /**
      * Creates new form ManageRequests
      */
-    public ManageLightRequests(JPanel userProcessConatiner, Enterprise enterprise, UserAccount userAccount, EcoSystem ecoSystem) {
+    public ManageAirTransportRequests(JPanel userProcessConatiner, Enterprise enterprise, UserAccount userAccount, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessConatiner = userProcessConatiner;
         this.enterprise = enterprise;
@@ -53,8 +54,8 @@ public class ManageLightRequests extends javax.swing.JPanel {
         btnProcess = new javax.swing.JButton();
         btnOrderDetails = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
         tblRequest.setModel(new javax.swing.table.DefaultTableModel(
@@ -71,7 +72,7 @@ public class ManageLightRequests extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblRequest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(307, 148, 454, 182);
+        jScrollPane1.setBounds(201, 56, 830, 220);
 
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,8 +88,11 @@ public class ManageLightRequests extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblDetails);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(307, 534, 454, 160);
+        jScrollPane2.setBounds(210, 490, 830, 300);
 
+        btnProcess.setBackground(new java.awt.Color(102, 0, 102));
+        btnProcess.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnProcess.setForeground(new java.awt.Color(255, 255, 255));
         btnProcess.setText("Process");
         btnProcess.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,8 +100,11 @@ public class ManageLightRequests extends javax.swing.JPanel {
             }
         });
         add(btnProcess);
-        btnProcess.setBounds(634, 413, 127, 29);
+        btnProcess.setBounds(520, 360, 120, 40);
 
+        btnOrderDetails.setBackground(new java.awt.Color(102, 0, 102));
+        btnOrderDetails.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnOrderDetails.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderDetails.setText("Order Details");
         btnOrderDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,8 +112,11 @@ public class ManageLightRequests extends javax.swing.JPanel {
             }
         });
         add(btnOrderDetails);
-        btnOrderDetails.setBounds(473, 413, 127, 29);
+        btnOrderDetails.setBounds(360, 360, 130, 40);
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Refresh");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,16 +124,10 @@ public class ManageLightRequests extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(307, 413, 127, 29);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/WhatsApp Image 2021-12-12 at 8.09.21 PM.jpeg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        add(jLabel1);
-        jLabel1.setBounds(-5, -4, 1120, 770);
+        jButton1.setBounds(210, 360, 120, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrderDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderDetailsActionPerformed
-        // TODO add your handling code here:
         int selectedRow = tblRequest.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select an item");
@@ -137,14 +141,13 @@ public class ManageLightRequests extends javax.swing.JPanel {
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
-            row[2] = product.getDistributorPrice();
+            row[2] = product.getFDAPrice();
             row[3] = product.getQuantity();
             model.addRow(row);
         }
     }//GEN-LAST:event_btnOrderDetailsActionPerformed
 
     private void btnProcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessActionPerformed
-        // TODO add your handling code here:
         int selectedRow = tblRequest.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select an item");
@@ -163,12 +166,14 @@ public class ManageLightRequests extends javax.swing.JPanel {
             if (check) {
                 Product prod = new Product(product.getName(), product.getDescription());
                 prod.setSuperMarketPrice(product.getSuperMarketPrice());
+                prod.setFDAPrice(prod.getSuperMarketPrice());
                 prod.setQuantity(product.getQuantity());
                 order.getSenderEnterprise().getProductList().add(prod);
             }
         }
         JOptionPane.showMessageDialog(this, "Order processed");
-//        ProcessLightRequests manageEmployeeJPanel = new ProcessLightRequests(userProcessConatiner, order);
+        return;
+//        ProcessHeavyRequests manageEmployeeJPanel = new ProcessHeavyRequests(userProcessConatiner, order);
 //        userProcessConatiner.add("manageEmployeeJPanel", manageEmployeeJPanel);
 //
 //        CardLayout layout = (CardLayout) userProcessConatiner.getLayout();
@@ -176,7 +181,6 @@ public class ManageLightRequests extends javax.swing.JPanel {
     }//GEN-LAST:event_btnProcessActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         populateRequests();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -185,7 +189,6 @@ public class ManageLightRequests extends javax.swing.JPanel {
     private javax.swing.JButton btnOrderDetails;
     private javax.swing.JButton btnProcess;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblDetails;

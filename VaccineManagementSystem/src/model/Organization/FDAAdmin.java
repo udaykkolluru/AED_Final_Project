@@ -6,21 +6,21 @@ package model.Organization;
 
 import java.util.ArrayList;
 import model.Role.Role;
-import model.Role.ColdStorageAdminRole;
+import model.Role.FDAAdminRole;
 
 /**
  *
  * @author charanpatnaik
  */
-public class ColdStorageAdmin extends Organization{
-    public ColdStorageAdmin() {
-        super(Organization.Type.ColdStorageAdmin.getValue());
+public class FDAAdmin extends Organization{
+    public FDAAdmin() {
+        super(Organization.Type.FDAAdmin.getValue());
     }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new ColdStorageAdminRole());
+        roles.add(new FDAAdminRole());
         return roles;
     }
 }

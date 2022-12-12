@@ -53,7 +53,7 @@ public class PatientWorkArea extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         cboxNetwork = new javax.swing.JComboBox<>();
         btnRequest1 = new javax.swing.JButton();
-        cboxDistributor = new javax.swing.JComboBox<>();
+        cboxFDA = new javax.swing.JComboBox<>();
         btnRequest = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -99,14 +99,14 @@ public class PatientWorkArea extends javax.swing.JPanel {
         add(btnRequest1);
         btnRequest1.setBounds(1020, 310, 180, 30);
 
-        cboxDistributor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cboxDistributor.addActionListener(new java.awt.event.ActionListener() {
+        cboxFDA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboxFDA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboxDistributorActionPerformed(evt);
+                cboxFDAActionPerformed(evt);
             }
         });
-        add(cboxDistributor);
-        cboxDistributor.setBounds(747, 390, 220, 29);
+        add(cboxFDA);
+        cboxFDA.setBounds(747, 390, 220, 29);
 
         btnRequest.setBackground(new java.awt.Color(0, 153, 0));
         btnRequest.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -164,7 +164,7 @@ public class PatientWorkArea extends javax.swing.JPanel {
             System.out.println(Enterprise.EnterpriseType.Hospital.getValue());
             if(supplierEnterprise.getEnterpriseType().getValue().equals(Enterprise.EnterpriseType.Hospital.getValue())){
                 System.out.println("inside if condition");
-                cboxDistributor.addItem(supplierEnterprise.getName());
+                cboxFDA.addItem(supplierEnterprise.getName());
             }
         }
     }//GEN-LAST:event_btnRequest1ActionPerformed
@@ -182,10 +182,10 @@ public class PatientWorkArea extends javax.swing.JPanel {
 
         for(Enterprise supplierEnterprise:req.getEnterpriseDirectory().getEnterpriseList()){
             System.out.println(supplierEnterprise.getName());
-            System.out.println(cboxDistributor.getSelectedItem());
-            if(supplierEnterprise.getName().equals(cboxDistributor.getSelectedItem().toString())){
-                ProductList buyProductsFromDistributorJPanel = new ProductList(userProcessContainer, userAccount, supplierEnterprise, enterprise,ecoSystem);
-                userProcessContainer.add("manageEmployeeJPanel", buyProductsFromDistributorJPanel);
+            System.out.println(cboxFDA.getSelectedItem());
+            if(supplierEnterprise.getName().equals(cboxFDA.getSelectedItem().toString())){
+                ProductList buyProductsFromFDAJPanel = new ProductList(userProcessContainer, userAccount, supplierEnterprise, enterprise,ecoSystem);
+                userProcessContainer.add("manageEmployeeJPanel", buyProductsFromFDAJPanel);
                 CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                 layout.next(userProcessContainer);
             }
@@ -203,23 +203,24 @@ public class PatientWorkArea extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void cboxDistributorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxDistributorActionPerformed
+    private void cboxFDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxFDAActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cboxDistributorActionPerformed
+    }//GEN-LAST:event_cboxFDAActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRequest;
     private javax.swing.JButton btnRequest1;
-    private javax.swing.JComboBox<String> cboxDistributor;
+    private javax.swing.JComboBox<String> cboxFDA;
     private javax.swing.JComboBox<String> cboxNetwork;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
     private void populateNetworkCombo(){
-        cboxDistributor.removeAllItems();
+        cboxFDA.removeAllItems();
         cboxNetwork.removeAllItems();
         for(Network network:ecoSystem.getNetworkList()){
             cboxNetwork.addItem(network.getName());

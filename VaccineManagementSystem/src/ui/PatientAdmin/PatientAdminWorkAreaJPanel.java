@@ -59,7 +59,7 @@ public class PatientAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(userJButton);
-        userJButton.setBounds(610, 360, 340, 100);
+        userJButton.setBounds(610, 630, 340, 100);
 
         manageEmployeeJButton.setBackground(new java.awt.Color(0, 102, 204));
         manageEmployeeJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
@@ -83,7 +83,7 @@ public class PatientAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageOrganizationJButton);
-        manageOrganizationJButton.setBounds(610, 630, 340, 100);
+        manageOrganizationJButton.setBounds(610, 350, 340, 100);
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Enterprise :");

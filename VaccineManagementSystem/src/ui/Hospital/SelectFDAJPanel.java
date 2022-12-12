@@ -16,15 +16,15 @@ import javax.swing.JPanel;
  *
  * @author pawan
  */
-public class SelectColdStorageJPanel extends javax.swing.JPanel {
+public class SelectFDAJPanel extends javax.swing.JPanel {
     private EcoSystem ecoSystem;
     private JPanel userProcessContainer;
     private UserAccount userAccount;
     private Enterprise enterprise;
     /**
-     * Creates new form SelectDistributor
+     * Creates new form SelectFDA
      */
-    public SelectColdStorageJPanel(JPanel userProcessContainer,EcoSystem ecoSystem, UserAccount userAccount, Enterprise enterprise) {
+    public SelectFDAJPanel(JPanel userProcessContainer,EcoSystem ecoSystem, UserAccount userAccount, Enterprise enterprise) {
         initComponents();
         this.ecoSystem = ecoSystem;
         this.userProcessContainer = userProcessContainer;
@@ -94,6 +94,11 @@ public class SelectColdStorageJPanel extends javax.swing.JPanel {
         btnRequest1.setBounds(750, 293, 170, 30);
 
         cboxDistributor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboxDistributor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxDistributorActionPerformed(evt);
+            }
+        });
         add(cboxDistributor);
         cboxDistributor.setBounds(500, 343, 200, 30);
 
@@ -143,17 +148,14 @@ public class SelectColdStorageJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         Network req=null;
-        System.out.println(cboxNetwork.getSelectedItem().toString());
         for(Network network:ecoSystem.getNetworkList()){
             if(network.getName().equals(cboxNetwork.getSelectedItem().toString())){
                 req = network;
             }
         }
+        cboxDistributor.removeAllItems();
         for(Enterprise supplierEnterprise:req.getEnterpriseDirectory().getEnterpriseList()){
-            System.out.println(supplierEnterprise.getEnterpriseType().getValue());
-            System.out.println(Enterprise.EnterpriseType.ColdStorage.getValue());
-            if(supplierEnterprise.getEnterpriseType().getValue().equals(Enterprise.EnterpriseType.ColdStorage.getValue())){
-                System.out.println("inside if condition");
+            if(supplierEnterprise.getEnterpriseType().getValue().equals(Enterprise.EnterpriseType.FDA.getValue())){
                 cboxDistributor.addItem(supplierEnterprise.getName());
             }
         }
@@ -163,7 +165,6 @@ public class SelectColdStorageJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         Network req=null;
-        System.out.println(cboxNetwork.getSelectedItem().toString());
         for(Network network:ecoSystem.getNetworkList()){
             if(network.getName().equals(cboxNetwork.getSelectedItem().toString())){
                 req = network;
@@ -171,11 +172,9 @@ public class SelectColdStorageJPanel extends javax.swing.JPanel {
         }
 
         for(Enterprise supplierEnterprise:req.getEnterpriseDirectory().getEnterpriseList()){
-            System.out.println(supplierEnterprise.getName());
-            System.out.println(cboxDistributor.getSelectedItem());
             if(supplierEnterprise.getName().equals(cboxDistributor.getSelectedItem().toString())){
-                BuyProductsFromColdStorage buyProductsFromDistributorJPanel = new BuyProductsFromColdStorage(userProcessContainer, userAccount, supplierEnterprise, enterprise,ecoSystem);
-                userProcessContainer.add("manageEmployeeJPanel", buyProductsFromDistributorJPanel);
+                BuyProductsFromFDA buyProductsFromFDAJPanel = new BuyProductsFromFDA(userProcessContainer, userAccount, supplierEnterprise, enterprise,ecoSystem);
+                userProcessContainer.add("manageEmployeeJPanel", buyProductsFromFDAJPanel);
                 CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                 layout.next(userProcessContainer);
             }
@@ -192,6 +191,10 @@ public class SelectColdStorageJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void cboxDistributorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxDistributorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxDistributorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import util.TwilioSMSUtil;
 /**
  *
  * @author pawan
@@ -35,7 +36,7 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         this.ecoSystem = ecoSystem;
         int total = 0;
         
-        lblTotal.setText(String.valueOf(order.totalDistributor()));
+        lblTotal.setText(String.valueOf(order.totalFDA()));
     }
 
     /**
@@ -55,6 +56,8 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jtxtMobile = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
@@ -89,7 +92,7 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
             }
         });
         add(btnCompletePayment);
-        btnCompletePayment.setBounds(730, 540, 230, 70);
+        btnCompletePayment.setBounds(730, 570, 230, 70);
 
         btnBack.setBackground(new java.awt.Color(0, 102, 204));
         btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -112,6 +115,13 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         lblTotal.setText("<Order Total>");
         add(lblTotal);
         lblTotal.setBounds(691, 267, 160, 40);
+
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel4.setText("Mobile No");
+        add(jLabel4);
+        jLabel4.setBounds(590, 470, 162, 18);
+        add(jtxtMobile);
+        jtxtMobile.setBounds(680, 460, 210, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -130,29 +140,24 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         }
         if(checkCardValid(txtCard.getText())){
             Employee customer = new Employee(txtName.getText(), txtCard.getText());
-            System.out.println(" uday " +order.getReceiverEnterprise());
             Order newOrder = new Order();
             newOrder.setNetworkName(order.getNetworkName());
             newOrder.setSender(order.getSender());
             newOrder.setSenderEnterprise(order.getSenderEnterprise());
             newOrder.setReceiverEnterprise(order.getReceiverEnterprise());
-            newOrder.setStatus("waiting for distributor to accept");
+            newOrder.setStatus("waiting for FDA to accept");
             for(Product prod:order.getProductList()){
                 newOrder.getProductList().add(prod);
             }
-            System.out.println("priting order product list");
-            System.out.println(order.getProductList());
-            System.out.println("priting new order product list");
-            System.out.println(newOrder.getProductList());
             ecoSystem.getWorkQueue().getWorkRequestList().add(newOrder);
             JOptionPane.showMessageDialog(this, "Thankyou for shopping with us");
-            order.setStatus("waiting for distributor admin to accept");
-            System.out.println("order placed");
+            order.setStatus("waiting for FDA admin to accept");
             order.getProductList().clear();
-            System.out.println("priting order product list");
-            System.out.println(order.getProductList());
-            System.out.println("priting new order product list");
-            System.out.println(newOrder.getProductList());
+            String mobile = "+1" + jtxtMobile.getText();
+            TwilioSMSUtil
+                    .sendTextMessage(mobile,
+                            "Hi " + txtName.getText() + ", " + "Thank you for choosing us. Your payment has been debited from Card ending xxxx" + txtCard.getText().substring(12)+". Stay safe and Healthy.");
+            
             redirectBackAfterPayemnt();
         }else{
             JOptionPane.showMessageDialog(this, "Please enter valid card number");
@@ -170,6 +175,8 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField jtxtMobile;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JTextField txtCard;
     private javax.swing.JTextField txtName;
@@ -184,7 +191,7 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        BuyProductsFromColdStorage dwjp = (BuyProductsFromColdStorage) component;
+        BuyProductsFromFDA dwjp = (BuyProductsFromFDA) component;
         dwjp.populateProductList();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
