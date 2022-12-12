@@ -18,8 +18,9 @@ public class UtilClass {
 
     public static boolean isOnlyNumber(String str) {
         try {
+            int p =  Integer.parseInt(str);
             return ((str != null) && (!str.equals(""))
-                    && str.length() < 4 && (str.chars().allMatch(ch -> Character.isDigit(ch))));
+                   && (str.chars().allMatch(ch -> Character.isDigit(ch))));
         } catch (Exception e) {
             return false;
         }

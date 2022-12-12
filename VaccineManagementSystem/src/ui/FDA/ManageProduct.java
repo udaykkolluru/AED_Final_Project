@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.ColdStorage;
+package ui.FDA;
 
 import model.Enterprise.Enterprise;
 import model.WorkQueue.Product;
@@ -11,6 +11,7 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import util.UtilClass;
 
 /**
  *
@@ -192,12 +193,17 @@ public class ManageProduct extends javax.swing.JPanel {
                 return;
             }
         }
+        if(!UtilClass.isOnlyNumber(txtPrice.getText())){
+            JOptionPane.showMessageDialog(this, "Enter a valid Integer for Price");
+            return;
+        }
+         if(!UtilClass.isOnlyNumber(txtQuantity.getText())){
+            JOptionPane.showMessageDialog(this, "Enter a valid Integer for Quantity");
+            return;
+        }
         Product product = new Product(txtName.getText(),txtDescription.getText());
-        System.out.println(product.getName());
-        System.out.println(product.getDescription());
-        product.setDistributorPrice(Integer.parseInt(txtPrice.getText()));
+        product.setFDAPrice(Integer.parseInt(txtPrice.getText()));
         product.setQuantity(Integer.parseInt(txtQuantity.getText()));
-        System.out.println(product.getDistributorPrice());
         enterprise.getProductList().add(product);
         populateProducts();
         btnAdd.setEnabled(false);
@@ -220,7 +226,7 @@ public class ManageProduct extends javax.swing.JPanel {
             if(product.getName().equals(((Product)tblProductList.getValueAt(selectedRow, 0)).getName())){
                 product.setName(txtName.getText());
                 product.setDescription(txtDescription.getText());
-                product.setDistributorPrice(Integer.parseInt(txtPrice.getText()));
+                product.setFDAPrice(Integer.parseInt(txtPrice.getText()));
                 product.setQuantity(Integer.parseInt(txtQuantity.getText()));
                 break;
             }
@@ -245,7 +251,7 @@ public class ManageProduct extends javax.swing.JPanel {
             if(product.getName().equals(((Product)tblProductList.getValueAt(selectedRow, 0)).getName())){
                 txtName.setText(product.getName());
                 txtDescription.setText(product.getDescription());
-                txtPrice.setText(String.valueOf(product.getDistributorPrice()));
+                txtPrice.setText(String.valueOf(product.getFDAPrice()));
                 txtQuantity.setText(String.valueOf(product.getQuantity()));
                 break;
             }
@@ -283,7 +289,7 @@ public class ManageProduct extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ColdStorageAdmWorkAreaJPanel dwjp = (ColdStorageAdmWorkAreaJPanel) component;
+        FDAAdmWorkAreaJPanel dwjp = (FDAAdmWorkAreaJPanel) component;
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -318,7 +324,7 @@ public class ManageProduct extends javax.swing.JPanel {
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
-            row[2] = product.getDistributorPrice();
+            row[2] = product.getFDAPrice();
             row[3] = product.getQuantity();
             model.addRow(row);
         }
@@ -332,7 +338,7 @@ public class ManageProduct extends javax.swing.JPanel {
                 Object[] row = new Object[4];
                 row[0] = product;
                 row[1] = product.getDescription();
-                row[2] = product.getDistributorPrice();
+                row[2] = product.getFDAPrice();
                 row[3] = product.getQuantity();
                 model.addRow(row);
             }

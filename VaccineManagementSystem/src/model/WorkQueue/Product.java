@@ -12,7 +12,7 @@ public class Product {
  
     
     private String name;
-    private int distributorPrice;
+    private int fDAPrice;
     private int superMarketPrice;
     private int quantity;
     private static int idCount = 1;
@@ -40,12 +40,12 @@ public class Product {
         this.name = name;
     }
 
-    public int getDistributorPrice() {
-        return distributorPrice;
+    public int getFDAPrice() {
+        return fDAPrice;
     }
 
-    public void setDistributorPrice(int distributorPrice) {
-        this.distributorPrice = distributorPrice;
+    public void setFDAPrice(int fDAPrice) {
+        this.fDAPrice = fDAPrice;
     }
 
     public int getSuperMarketPrice() {

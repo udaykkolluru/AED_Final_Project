@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.ColdStorage;
+package ui.FDA;
 
 import model.EcoSystem;
 import model.Enterprise.Enterprise;
@@ -69,13 +69,13 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
 
         tblRequest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Sender", "Receiver", "SenderEnterprise", "Receiver Enterprise", "Status", "Sender Network"
+                "Sender", "Receiver", "SenderEnterprise", "Receiver Enterprise", "Status"
             }
         ));
         jScrollPane1.setViewportView(tblRequest);
@@ -91,7 +91,7 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Product", "Description", "Distributor Price", "Quantity"
+                "Product", "Description", "FDA Price", "Quantity"
             }
         ));
         jScrollPane2.setViewportView(tblDetails);
@@ -198,7 +198,7 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
-            row[2] = product.getDistributorPrice();
+            row[2] = product.getFDAPrice();
             row[3] = product.getQuantity();
             model.addRow(row);
         }
@@ -206,19 +206,6 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
 
     private void cboxNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxNetworkActionPerformed
         // TODO add your handling code here:
-//        Network req=null;
-//        System.out.println(cboxNetwork.getSelectedItem().toString());
-//        for(Network network:ecoSystem.getNetworkList()){
-//            if(network.getName().equals(cboxNetwork.getSelectedItem().toString())){
-//                req = network;
-//            }
-//        }
-//        for(Enterprise supplierEnterprise:req.getEnterpriseDirectory().getEnterpriseList()){
-//            if(supplierEnterprise.getEnterpriseType().equals(Enterprise.EnterpriseType.Supplier)){
-//                cboxSupplier.addItem(supplierEnterprise.getName());
-//            }
-//        }
-        
     }//GEN-LAST:event_cboxNetworkActionPerformed
 
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
@@ -249,24 +236,21 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
                 break;
             }
         }
-        
+        populateRequests();
+
         
     }//GEN-LAST:event_btnRequestActionPerformed
 
     private void btnRequest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequest1ActionPerformed
         // TODO add your handling code here:
         Network req=null;
-        System.out.println(cboxNetwork.getSelectedItem().toString());
         for(Network network:ecoSystem.getNetworkList()){
             if(network.getName().equals(cboxNetwork.getSelectedItem().toString())){
                 req = network;
             }
         }
         for(Enterprise supplierEnterprise:req.getEnterpriseDirectory().getEnterpriseList()){
-            System.out.println(supplierEnterprise.getEnterpriseType().getValue());
-            System.out.println(Enterprise.EnterpriseType.Manufacturer.getValue());
             if(supplierEnterprise.getEnterpriseType().getValue().equals(Enterprise.EnterpriseType.Manufacturer.getValue())){
-                System.out.println("inside if condition");
                 cboxSupplier.addItem(supplierEnterprise.getName());
             }
         }
@@ -282,7 +266,7 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
         userProcessConatiner.remove(this);
         Component[] componentArray = userProcessConatiner.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ColdStorageAdmWorkAreaJPanel dwjp = (ColdStorageAdmWorkAreaJPanel) component;
+        FDAAdmWorkAreaJPanel dwjp = (FDAAdmWorkAreaJPanel) component;
         CardLayout layout = (CardLayout) userProcessConatiner.getLayout();
         layout.previous(userProcessConatiner);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -308,14 +292,13 @@ public class RaiseManufacturerRequest extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblRequest.getModel();
         model.setRowCount(0);
         for(WorkRequest workRequest:ecoSystem.getWorkQueue().getWorkRequestList()){
-            if(workRequest.getReceiverEnterprise()!=null && workRequest.getReceiver()!=null && workRequest.getReceiverEnterprise().getName().equals(enterprise.getName()) && workRequest.getReceiver().equals(userAccount) && (workRequest.getStatus().contains("Accepted by Distributor") || workRequest.getStatus().contains("Raised request to supplier"))){
-                Object[] row = new Object[6];
+            if(workRequest.getReceiverEnterprise()!=null && workRequest.getReceiver()!=null && workRequest.getReceiverEnterprise().getName().equals(enterprise.getName()) && workRequest.getReceiver().equals(userAccount) && (workRequest.getStatus().contains("Accepted by FDA") || workRequest.getStatus().contains("Raised request to supplier"))){
+                Object[] row = new Object[5];
                 row[0] = workRequest;
                 row[1] = workRequest.getReceiver();
                 row[2] = workRequest.getSenderEnterprise();
                 row[3] = workRequest.getReceiverEnterprise();
                 row[4] = workRequest.getStatus();
-                row[5] = workRequest.getNetworkName();
                 model.addRow(row);
             }
         }

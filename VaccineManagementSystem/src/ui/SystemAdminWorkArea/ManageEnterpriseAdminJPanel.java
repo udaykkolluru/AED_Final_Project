@@ -10,7 +10,7 @@ import model.Enterprise.Enterprise;
 import model.Network.Network;
 import model.Organization.Organization;
 import model.Role.PatientAdmin;
-import model.Role.ColdStorageAdminRole;
+import model.Role.FDAAdminRole;
 import model.Role.DoctorSupervisor;
 import model.Role.ManufacturingManager;
 import model.UserAccount.UserAccount;
@@ -254,8 +254,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         Employee employee = enterprise.getEmployeeDirectory().createEmployee(name);
         if(enterprise.getEnterpriseType()==Enterprise.EnterpriseType.Hospital){
             UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new DoctorSupervisor());
-        }else if(enterprise.getEnterpriseType()==Enterprise.EnterpriseType.ColdStorage){
-            UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ColdStorageAdminRole());
+        }else if(enterprise.getEnterpriseType()==Enterprise.EnterpriseType.FDA){
+            UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new FDAAdminRole());
         }else if(enterprise.getEnterpriseType()==Enterprise.EnterpriseType.Manufacturer){
             UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ManufacturingManager());
         }else if(enterprise.getEnterpriseType()==Enterprise.EnterpriseType.Patient){

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.ColdStorage;
+package ui.FDA;
 
 import ui.Doctor.*;
 import model.Employee.Employee;
@@ -46,19 +46,17 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         txtCard = new javax.swing.JTextField();
         btnCompletePayment = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setText("Name");
         add(jLabel1);
-        jLabel1.setBounds(530, 320, 80, 18);
+        jLabel1.setBounds(156, 131, 30, 14);
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setText("CardNumber");
         add(jLabel2);
-        jLabel2.setBounds(480, 380, 100, 18);
+        jLabel2.setBounds(113, 175, 69, 14);
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,13 +64,10 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
             }
         });
         add(txtName);
-        txtName.setBounds(620, 313, 270, 40);
+        txtName.setBounds(255, 126, 146, 18);
         add(txtCard);
-        txtCard.setBounds(620, 370, 270, 40);
+        txtCard.setBounds(255, 170, 146, 18);
 
-        btnCompletePayment.setBackground(new java.awt.Color(0, 153, 0));
-        btnCompletePayment.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnCompletePayment.setForeground(new java.awt.Color(255, 255, 255));
         btnCompletePayment.setText("Complete payment");
         btnCompletePayment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +88,11 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
         });
         add(btnBack);
         btnBack.setBounds(17, 9, 110, 40);
+        btnBack.setBounds(17, 9, 76, 24);
+
+        jLabel3.setText("jLabel3");
+        add(jLabel3);
+        jLabel3.setBounds(0, 0, 1140, 620);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -125,6 +125,7 @@ public class HospitalAdminDetails extends javax.swing.JPanel {
     private javax.swing.JButton btnCompletePayment;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtCard;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.ColdStorage;
+package ui.FDA;
 
 import model.EcoSystem;
 import model.Enterprise.Enterprise;
@@ -14,15 +14,15 @@ import javax.swing.JPanel;
  *
  * @author charanpatnaik
  */
-public class ColdStorageAdmWorkAreaJPanel extends javax.swing.JPanel {
+public class FDAAdmWorkAreaJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Enterprise enterprise;
     UserAccount userAccount;
     EcoSystem ecoSystem;
     /**
-     * Creates new form DistributorAdmWorkAreaJPanel
+     * Creates new form FDAAdmWorkAreaJPanel
      */
-    public ColdStorageAdmWorkAreaJPanel(JPanel userJPanel, Enterprise enterprise, EcoSystem ecoSystem, UserAccount userAccount) {
+    public FDAAdmWorkAreaJPanel(JPanel userJPanel, Enterprise enterprise, EcoSystem ecoSystem, UserAccount userAccount) {
         this.userProcessContainer = userJPanel;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
@@ -52,7 +52,7 @@ public class ColdStorageAdmWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 102));
-        jLabel1.setText("My Work Area - Cold Storage");
+        jLabel1.setText("Food and Drug Administration");
         add(jLabel1);
         jLabel1.setBounds(500, 79, 403, 50);
 
@@ -122,8 +122,8 @@ public class ColdStorageAdmWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageEmployeeJButtonActionPerformed
 
     private void btnBuyProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyProductsActionPerformed
-        ManageProduct buyProductsFromDistributorJPanel = new ManageProduct(userProcessContainer, enterprise);
-        userProcessContainer.add("manageEmployeeJPanel", buyProductsFromDistributorJPanel);
+        ManageProduct buyProductsFromFDAJPanel = new ManageProduct(userProcessContainer, enterprise);
+        userProcessContainer.add("manageEmployeeJPanel", buyProductsFromFDAJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -134,6 +134,7 @@ public class ColdStorageAdmWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBuyProducts;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton userJButton;
     private javax.swing.JLabel valueLabel;

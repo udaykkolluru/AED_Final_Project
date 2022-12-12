@@ -25,7 +25,7 @@ public abstract class Role {
         ManufacturingManager("Manufacturing Manager"),
         Pilot("Pilot"),
         TruckDriver("Driver"),
-        ColdStorageAdmin("ColdStorage Admin");
+        FDAAdmin("FDA Admin");
         
         
         private String value;
@@ -51,7 +51,7 @@ public abstract class Role {
     
     @Override
     public String toString() {
-        return this.getClass().getName();
+        return this.getClass().getSimpleName();
     }
     
     

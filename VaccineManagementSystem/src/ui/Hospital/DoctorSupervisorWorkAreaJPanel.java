@@ -54,9 +54,9 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 102));
-        jLabel1.setText("My Work Area -Super Market Admin");
+        jLabel1.setText("My Work Area -Hospital Admin");
         add(jLabel1);
-        jLabel1.setBounds(570, 60, 426, 29);
+        jLabel1.setBounds(570, 60, 365, 29);
 
         userJButton.setBackground(new java.awt.Color(0, 102, 204));
         userJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -99,10 +99,10 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
         add(enterpriseLabel);
         enterpriseLabel.setBounds(630, 250, 120, 30);
 
-        valueLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        valueLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
         add(valueLabel);
-        valueLabel.setBounds(760, 240, 200, 40);
+        valueLabel.setBounds(760, 240, 230, 60);
 
         btnManageProducts.setBackground(new java.awt.Color(0, 102, 204));
         btnManageProducts.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -194,8 +194,8 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProductsActionPerformed
         // TODO add your handling code here:
-        ManageProductsJPanel buyProductsFromDistributorJPanel = new ManageProductsJPanel(userProcessContainer, enterprise);
-        userProcessContainer.add("manageEmployeeJPanel", buyProductsFromDistributorJPanel);
+        ManageProductsJPanel buyProductsFromFDAJPanel = new ManageProductsJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("manageEmployeeJPanel", buyProductsFromFDAJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
         
@@ -203,8 +203,8 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnBuyProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyProductsActionPerformed
         // TODO add your handling code here:
-        SelectColdStorageJPanel buyProductsFromDistributorJPanel = new SelectColdStorageJPanel(userProcessContainer,ecoSystem, userAccount, enterprise);
-        userProcessContainer.add("manageEmployeeJPanel", buyProductsFromDistributorJPanel);
+        SelectFDAJPanel buyProductsFromFDAJPanel = new SelectFDAJPanel(userProcessContainer,ecoSystem, userAccount, enterprise);
+        userProcessContainer.add("manageEmployeeJPanel", buyProductsFromFDAJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBuyProductsActionPerformed

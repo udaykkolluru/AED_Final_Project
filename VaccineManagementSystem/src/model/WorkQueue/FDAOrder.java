@@ -10,10 +10,10 @@ import java.util.ArrayList;
  *
  * @author udaykk
  */
-public class ColdStorageOrder extends WorkRequest{
+public class FDAOrder extends WorkRequest{
     ArrayList<Product> productList;
 
-    public ColdStorageOrder() {
+    public FDAOrder() {
         productList = new ArrayList<Product>();
     }
 

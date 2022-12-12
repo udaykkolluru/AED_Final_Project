@@ -25,7 +25,7 @@ public abstract class Organization {
     
      public enum Type{
         
-        ColdStorageAdmin("ColdStorage Admin"),
+        FDAAdmin("FDA Admin"),
         ManufacturerAdmin("Manufacturer Admin"),
         Doctor("Doctor Organization"),
         DoctorSupervisorOrganization("Doctor Supervisor Organization"),
