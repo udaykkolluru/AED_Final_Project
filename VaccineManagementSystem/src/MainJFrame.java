@@ -124,6 +124,9 @@ public class MainJFrame extends javax.swing.JFrame {
         container.setLayout(new java.awt.CardLayout());
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 255));
+        jLabel4.setFont(new java.awt.Font("Dialog", 3, 48)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Vaccine Management System");
         container.add(jLabel4, "card2");
 
         jSplitPane1.setRightComponent(container);
