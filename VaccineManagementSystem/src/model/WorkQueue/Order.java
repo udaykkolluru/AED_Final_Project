@@ -25,10 +25,10 @@ public class Order extends WorkRequest{
         this.productList = productList;
     }
 
-    public Object totalSuperMarket() {
+    public Object totalHospital() {
         int sum = 0;
         for(Product product: productList){
-            sum += product.getSuperMarketPrice()*product.getQuantity();
+            sum += product.getHospitalPrice()*product.getQuantity();
         }
         return sum;
     }

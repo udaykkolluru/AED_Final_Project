@@ -166,7 +166,7 @@ public class RoadTransportRequests extends javax.swing.JPanel {
             }
             if (check) {
                 Product prod = new Product(product.getName(), product.getDescription());
-                prod.setSuperMarketPrice(product.getSuperMarketPrice());
+                prod.setHospitalPrice(product.getHospitalPrice());
                 prod.setQuantity(product.getQuantity());
                 order.getSenderEnterprise().getProductList().add(prod);
             }

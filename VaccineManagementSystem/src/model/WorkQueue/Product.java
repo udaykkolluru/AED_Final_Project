@@ -13,7 +13,7 @@ public class Product {
     
     private String name;
     private int fDAPrice;
-    private int superMarketPrice;
+    private int hospitalPrice;
     private int quantity;
     private static int idCount = 1;
     private int id;
@@ -48,12 +48,12 @@ public class Product {
         this.fDAPrice = fDAPrice;
     }
 
-    public int getSuperMarketPrice() {
-        return superMarketPrice;
+    public int getHospitalPrice() {
+        return hospitalPrice;
     }
 
-    public void setSuperMarketPrice(int superMarketPrice) {
-        this.superMarketPrice = superMarketPrice;
+    public void setHospitalPrice(int hospitalPrice) {
+        this.hospitalPrice = hospitalPrice;
     }
 
     public int getQuantity() {

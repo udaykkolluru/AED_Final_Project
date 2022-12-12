@@ -87,8 +87,8 @@ public class ProcessAirTransportRequests extends javax.swing.JPanel {
                 }
                 if(check){
                     Product prod = new Product(product.getName(),product.getDescription());
-                    prod.setSuperMarketPrice(product.getSuperMarketPrice());
-                    prod.setFDAPrice(prod.getSuperMarketPrice());
+                    prod.setHospitalPrice(product.getHospitalPrice());
+                    prod.setFDAPrice(prod.getHospitalPrice());
                     prod.setQuantity(product.getQuantity());
                     order.getSenderEnterprise().getProductList().add(prod);
                 }

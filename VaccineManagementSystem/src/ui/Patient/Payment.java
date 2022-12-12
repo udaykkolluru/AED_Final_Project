@@ -44,7 +44,7 @@ public class Payment extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
         this.order = order;
-        lblTotal.setText(String.valueOf(order.totalSuperMarket()));
+        lblTotal.setText(String.valueOf(order.totalHospital()));
         System.out.println("inside payment");
     }
 
@@ -184,7 +184,7 @@ public class Payment extends javax.swing.JPanel {
             newOrder.setNetworkName(order.getNetworkName());
             newOrder.setSenderEnterprise(order.getSenderEnterprise());
             newOrder.setReceiverEnterprise(order.getReceiverEnterprise());
-            newOrder.setStatus("waiting for supermarket to accept");
+            newOrder.setStatus("waiting for Hospital to accept");
             for (Product prod : order.getProductList()) {
                 newOrder.getProductList().add(prod);
             }
@@ -194,7 +194,7 @@ public class Payment extends javax.swing.JPanel {
             TwilioSMSUtil
                     .sendTextMessage(mobile,
                             "Hi " + txtName.getText() + ", " + "Thank you for choosing us. Your payment has been debited from Card ending xxxx" + txtCard.getText().substring(12) + ". Stay safe and Healthy.");
-            workRequest.setStatus("waiting for supermarket admin to accept");
+            workRequest.setStatus("waiting for Hospital admin to accept");
             JOptionPane.showMessageDialog(this, "Thankyou for shopping with us");
 
         } else {
@@ -229,7 +229,7 @@ public class Payment extends javax.swing.JPanel {
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
     public boolean checkCardValid(String card) {
-        Pattern pattern = Pattern.compile("[0-9]{16}", Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile("^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\\d{3})\\d{11})$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(card);
         return matcher.find();
     }

@@ -28,7 +28,7 @@ public class ManageHospitalRequests extends javax.swing.JPanel {
     EcoSystem ecoSystem;
 
     /**
-     * Creates new form ManageSuperMarketRequests
+     * Creates new form ManageHospitalRequests
      */
     public ManageHospitalRequests(JPanel userProcessConatiner, Enterprise enterprise, UserAccount userAccount, EcoSystem ecoSystem) {
         initComponents();

@@ -212,7 +212,7 @@ public class PatientDetails extends javax.swing.JPanel {
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
     public boolean checkCardValid(String card) {
-        Pattern pattern = Pattern.compile("[0-9]{16}", Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile("^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\\d{3})\\d{11})$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(card);
         return matcher.find();
     }

@@ -127,7 +127,7 @@ public class PreviousOrdersDoctor extends javax.swing.JPanel {
             Object[] row = new Object[4];
             row[0] = product;
             row[1] = product.getDescription();
-            row[2] = product.getSuperMarketPrice();
+            row[2] = product.getHospitalPrice();
             row[3] = product.getQuantity();
             model.addRow(row);
         }

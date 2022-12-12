@@ -209,7 +209,7 @@ public class DoctorTransactionHome extends javax.swing.JPanel {
         }
         if(check){
            Product product = new Product(((Product)tblProductList.getValueAt(selectedRow, 0)).getName(),((Product)tblProductList.getValueAt(selectedRow, 0)).getDescription());
-           product.setSuperMarketPrice(((Product)tblProductList.getValueAt(selectedRow, 0)).getSuperMarketPrice());
+           product.setHospitalPrice(((Product)tblProductList.getValueAt(selectedRow, 0)).getHospitalPrice());
            order.getProductList().add(product);
         }
         ((Product)tblProductList.getValueAt(selectedRow, 0)).reduceQuantity();
@@ -301,7 +301,7 @@ public class DoctorTransactionHome extends javax.swing.JPanel {
             row[0] = product;
             row[1] = product.getName();
             row[2] = product.getDescription();
-            row[3] = product.getSuperMarketPrice();
+            row[3] = product.getHospitalPrice();
             row[4] = product.getQuantity();
             model.addRow(row);
         }
@@ -316,7 +316,7 @@ public class DoctorTransactionHome extends javax.swing.JPanel {
                 row[0] = product;
                 row[1] = product.getName();
                 row[2] = product.getDescription();
-                row[3] = product.getSuperMarketPrice();
+                row[3] = product.getHospitalPrice();
                 row[4] = product.getQuantity();
                 model.addRow(row);
             }
@@ -332,7 +332,7 @@ public class DoctorTransactionHome extends javax.swing.JPanel {
             row[0] = product;
             row[1] = product.getName();
             row[2] = product.getDescription();
-            row[3] = product.getSuperMarketPrice();
+            row[3] = product.getHospitalPrice();
             row[4] = product.getQuantity();
             model.addRow(row);
         }

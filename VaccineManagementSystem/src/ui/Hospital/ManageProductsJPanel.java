@@ -130,7 +130,7 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please enter a valid price");
             return;
         }
-        prod.setSuperMarketPrice(Integer.parseInt(txtPrice.getText()));
+        prod.setHospitalPrice(Integer.parseInt(txtPrice.getText()));
         populateProducts();
         txtPrice.setText("");
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -162,7 +162,7 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
             row[0] = product;
             row[1] = product.getDescription();
             row[2] = product.getFDAPrice();
-            row[3] = product.getSuperMarketPrice();
+            row[3] = product.getHospitalPrice();
             row[4] = product.getQuantity();
             model.addRow(row);
         }

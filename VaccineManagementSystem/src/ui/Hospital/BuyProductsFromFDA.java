@@ -232,7 +232,7 @@ public class BuyProductsFromFDA extends javax.swing.JPanel {
         if(check){
            Product product = new Product(((Product)tblProductList.getValueAt(selectedRow, 0)).getName(),((Product)tblProductList.getValueAt(selectedRow, 0)).getDescription());
            product.setFDAPrice(((Product)tblProductList.getValueAt(selectedRow, 0)).getFDAPrice());
-           product.setSuperMarketPrice(product.getFDAPrice());
+           product.setHospitalPrice(product.getFDAPrice());
            order.getProductList().add(product);
         }
         ((Product)tblProductList.getValueAt(selectedRow, 0)).reduceQuantity();

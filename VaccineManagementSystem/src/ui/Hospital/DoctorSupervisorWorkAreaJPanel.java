@@ -102,7 +102,7 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
         add(valueLabel);
-        valueLabel.setBounds(760, 240, 230, 60);
+        valueLabel.setBounds(750, 240, 140, 50);
 
         btnManageProducts.setBackground(new java.awt.Color(0, 102, 204));
         btnManageProducts.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -119,7 +119,7 @@ public class DoctorSupervisorWorkAreaJPanel extends javax.swing.JPanel {
         btnBuyProducts.setBackground(new java.awt.Color(0, 102, 204));
         btnBuyProducts.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBuyProducts.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuyProducts.setText("Get Approval From FDA");
+        btnBuyProducts.setText("Buy Vaccines");
         btnBuyProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuyProductsActionPerformed(evt);

@@ -26,7 +26,7 @@ public class ProductList extends javax.swing.JPanel {
 private JPanel userProcessContainer;
     
     private Enterprise customerEnterprise;
-    private Enterprise superMarketEnterprise;
+    private Enterprise hospitalEnterprise;
     private UserAccount userAccount;
     private EcoSystem ecoSystem;
     Order order;
@@ -34,11 +34,11 @@ private JPanel userProcessContainer;
     /**
      * Creates new form ProductList
      */
-    public ProductList(JPanel userProcessContainer, UserAccount account, Enterprise superMarketenterprise, Enterprise customerEnterprise, EcoSystem ecoSystem) {
+    public ProductList(JPanel userProcessContainer, UserAccount account, Enterprise hospitalenterprise, Enterprise customerEnterprise, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.customerEnterprise = customerEnterprise;
-        this.superMarketEnterprise = superMarketenterprise;
+        this.hospitalEnterprise = hospitalenterprise;
         this.userAccount = account;
         this.ecoSystem = ecoSystem;
         order = new Order();
@@ -51,8 +51,8 @@ private JPanel userProcessContainer;
         }
         order.setSender(account);
         order.setSenderEnterprise(customerEnterprise);
-        order.setReceiverEnterprise(superMarketenterprise);
-        order.setStatus("waiting for supermarket to accept");
+        order.setReceiverEnterprise(hospitalenterprise);
+        order.setStatus("waiting for Hospital to accept");
         populateProductList();
         System.out.println("init product list");
     }
@@ -198,7 +198,7 @@ private JPanel userProcessContainer;
         boolean check = true;
         System.out.println(customerEnterprise);
         
-        for(Product product:superMarketEnterprise.getProductList()){
+        for(Product product:hospitalEnterprise.getProductList()){
             System.out.println(product.getName() + "   " +((Product)tblProductList.getValueAt(selectedRow, 0)).getName());
             if(product.getName().equals(((Product)tblOrderProductList.getValueAt(selectedRow, 0)).getName())){
                 
@@ -233,7 +233,7 @@ private JPanel userProcessContainer;
         if(check){
             Product product = new Product(((Product)tblProductList.getValueAt(selectedRow, 0)).getName(),((Product)tblProductList.getValueAt(selectedRow, 0)).getDescription());
             //product.setFDAPrice(((Product)tblProductList.getValueAt(selectedRow, 0)).getFDAPrice());
-            product.setSuperMarketPrice(((Product)tblProductList.getValueAt(selectedRow, 0)).getSuperMarketPrice());
+            product.setHospitalPrice(((Product)tblProductList.getValueAt(selectedRow, 0)).getHospitalPrice());
             order.getProductList().add(product);
         }
         ((Product)tblProductList.getValueAt(selectedRow, 0)).reduceQuantity();
@@ -248,8 +248,8 @@ private JPanel userProcessContainer;
         newOrder.setNetworkName(order.getNetworkName());
         newOrder.setSenderEnterprise(order.getSenderEnterprise());
         newOrder.setReceiverEnterprise(order.getReceiverEnterprise());
-        newOrder.setStatus("waiting for supermarket to accept");
-        superMarketEnterprise.restoreProducts(newOrder);
+        newOrder.setStatus("waiting for Hospital to accept");
+        hospitalEnterprise.restoreProducts(newOrder);
         for(Product prod:order.getProductList()){
             newOrder.getProductList().add(prod);
         }
@@ -298,16 +298,16 @@ public void populateProductList() {
         
         model.setRowCount(0);
         System.out.println("inside product pop");
-        if(superMarketEnterprise.getProductList()==null){
+        if(hospitalEnterprise.getProductList()==null){
             JOptionPane.showMessageDialog(this, "Item not available");
             return;
         }
-        for(Product product:superMarketEnterprise.getProductList()){
+        for(Product product:hospitalEnterprise.getProductList()){
             Object[] row = new Object[5];
             row[0] = product;
             row[1] = product.getName();
             row[2] = product.getDescription();
-            row[3] = product.getSuperMarketPrice();
+            row[3] = product.getHospitalPrice();
             row[4] = product.getQuantity();
             model.addRow(row);
         }
@@ -321,7 +321,7 @@ public void populateProductList() {
             row[0] = product;
             row[1] = product.getName();
             row[2] = product.getDescription();
-            row[3] = product.getSuperMarketPrice();
+            row[3] = product.getHospitalPrice();
             row[4] = product.getQuantity();
             model.addRow(row);
         }
