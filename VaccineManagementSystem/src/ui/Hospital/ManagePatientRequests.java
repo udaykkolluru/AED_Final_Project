@@ -152,7 +152,7 @@ public class ManagePatientRequests extends javax.swing.JPanel {
         }
         order.setReceiver(userAccount);
         if(!order.getStatus().contains("Rejected")){
-            order.setStatus("Accepted by FDA");
+            order.setStatus("Accepted by Hospital");
             JOptionPane.showMessageDialog(this, "This order has been accepted");
         }else{
             JOptionPane.showMessageDialog(this, "This order was rejected earlier");
