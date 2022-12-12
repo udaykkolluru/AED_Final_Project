@@ -49,14 +49,18 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         valueLabel = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
-        jLabel1.setText("Sales Person Work Area");
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        jLabel1.setText("Sales Person Work Area :");
         add(jLabel1);
-        jLabel1.setBounds(269, 22, 125, 14);
+        jLabel1.setBounds(350, 150, 210, 70);
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Start Transaction");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,8 +68,11 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(261, 195, 165, 24);
+        jButton1.setBounds(530, 280, 260, 80);
 
+        jButton2.setBackground(new java.awt.Color(0, 102, 204));
+        jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("All Orders");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,16 +80,12 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton2);
-        jButton2.setBounds(261, 282, 165, 24);
+        jButton2.setBounds(530, 450, 260, 80);
 
+        valueLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         valueLabel.setText("jLabel3");
         add(valueLabel);
-        valueLabel.setBounds(440, 20, 150, 14);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2);
-        jLabel2.setBounds(20, 10, 1220, 570);
+        valueLabel.setBounds(560, 160, 200, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -108,7 +111,6 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 }

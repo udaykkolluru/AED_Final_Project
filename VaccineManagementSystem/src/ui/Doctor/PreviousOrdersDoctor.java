@@ -51,8 +51,8 @@ public class PreviousOrdersDoctor extends javax.swing.JPanel {
         tblDetails = new javax.swing.JTable();
         btnOrderDetails = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
         tblRequest.setModel(new javax.swing.table.DefaultTableModel(
@@ -69,7 +69,7 @@ public class PreviousOrdersDoctor extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblRequest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(131, 64, 794, 182);
+        jScrollPane1.setBounds(280, 120, 890, 230);
 
         tblDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -85,8 +85,11 @@ public class PreviousOrdersDoctor extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblDetails);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(131, 402, 794, 160);
+        jScrollPane2.setBounds(290, 500, 880, 240);
 
+        btnOrderDetails.setBackground(new java.awt.Color(102, 0, 102));
+        btnOrderDetails.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnOrderDetails.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderDetails.setText("Order Details");
         btnOrderDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,8 +97,11 @@ public class PreviousOrdersDoctor extends javax.swing.JPanel {
             }
         });
         add(btnOrderDetails);
-        btnOrderDetails.setBounds(470, 304, 105, 24);
+        btnOrderDetails.setBounds(650, 400, 180, 40);
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("<<Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,12 +109,7 @@ public class PreviousOrdersDoctor extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(20, 20, 76, 24);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        add(jLabel1);
-        jLabel1.setBounds(10, 0, 1230, 590);
+        jButton1.setBounds(10, 10, 120, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrderDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderDetailsActionPerformed
@@ -143,7 +144,6 @@ public class PreviousOrdersDoctor extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOrderDetails;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblDetails;

@@ -102,10 +102,13 @@ public class ManageSupplierUserAccountJPanel extends javax.swing.JPanel {
         organizationJComboBox = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         roleJComboBox = new javax.swing.JComboBox();
-        jLabel6 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
+        createUserJButton.setBackground(new java.awt.Color(0, 153, 0));
+        createUserJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        createUserJButton.setForeground(new java.awt.Color(255, 255, 255));
         createUserJButton.setText("Create");
         createUserJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,13 +116,14 @@ public class ManageSupplierUserAccountJPanel extends javax.swing.JPanel {
             }
         });
         add(createUserJButton);
-        createUserJButton.setBounds(450, 565, 72, 23);
+        createUserJButton.setBounds(550, 700, 170, 50);
         add(nameJTextField);
-        nameJTextField.setBounds(570, 440, 146, 23);
+        nameJTextField.setBounds(590, 523, 170, 30);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel1.setText("User Name");
         add(jLabel1);
-        jLabel1.setBounds(460, 450, 65, 17);
+        jLabel1.setBounds(490, 530, 69, 17);
 
         userJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -151,23 +155,27 @@ public class ManageSupplierUserAccountJPanel extends javax.swing.JPanel {
         }
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(333, 88, 375, 179);
+        jScrollPane1.setBounds(290, 140, 730, 210);
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel2.setText("Password");
         add(jLabel2);
-        jLabel2.setBounds(470, 500, 58, 17);
+        jLabel2.setBounds(500, 580, 62, 17);
         add(passwordJTextField);
-        passwordJTextField.setBounds(570, 490, 146, 23);
+        passwordJTextField.setBounds(590, 573, 170, 30);
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel3.setText("Employee");
         add(jLabel3);
-        jLabel3.setBounds(470, 360, 58, 17);
+        jLabel3.setBounds(490, 450, 60, 17);
 
         employeeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(employeeJComboBox);
-        employeeJComboBox.setBounds(570, 350, 146, 23);
+        employeeJComboBox.setBounds(590, 440, 170, 30);
 
-        backjButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        backjButton1.setBackground(new java.awt.Color(0, 102, 204));
+        backjButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        backjButton1.setForeground(new java.awt.Color(255, 255, 255));
         backjButton1.setText("<< Back");
         backjButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,11 +183,12 @@ public class ManageSupplierUserAccountJPanel extends javax.swing.JPanel {
             }
         });
         add(backjButton1);
-        backjButton1.setBounds(6, 20, 112, 28);
+        backjButton1.setBounds(6, 8, 120, 40);
 
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel5.setText("Organization");
         add(jLabel5);
-        jLabel5.setBounds(450, 310, 72, 17);
+        jLabel5.setBounds(470, 400, 100, 17);
 
         organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -188,11 +197,12 @@ public class ManageSupplierUserAccountJPanel extends javax.swing.JPanel {
             }
         });
         add(organizationJComboBox);
-        organizationJComboBox.setBounds(570, 300, 146, 23);
+        organizationJComboBox.setBounds(590, 390, 170, 30);
 
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel4.setText("Role");
         add(jLabel4);
-        jLabel4.setBounds(490, 400, 26, 17);
+        jLabel4.setBounds(520, 490, 50, 17);
 
         roleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         roleJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -201,12 +211,7 @@ public class ManageSupplierUserAccountJPanel extends javax.swing.JPanel {
             }
         });
         add(roleJComboBox);
-        roleJComboBox.setBounds(570, 390, 146, 23);
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supplier.jpeg"))); // NOI18N
-        jLabel6.setText("jLabel6");
-        add(jLabel6);
-        jLabel6.setBounds(0, 0, 1050, 620);
+        roleJComboBox.setBounds(590, 480, 170, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void createUserJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserJButtonActionPerformed
@@ -283,7 +288,6 @@ public class ManageSupplierUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox organizationJComboBox;

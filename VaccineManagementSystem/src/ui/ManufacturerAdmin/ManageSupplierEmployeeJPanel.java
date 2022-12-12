@@ -80,8 +80,8 @@ public class ManageSupplierEmployeeJPanel extends javax.swing.JPanel {
         nameJTextField = new javax.swing.JTextField();
         organizationEmpJComboBox = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -117,8 +117,11 @@ public class ManageSupplierEmployeeJPanel extends javax.swing.JPanel {
         }
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(271, 204, 480, 134);
+        jScrollPane1.setBounds(340, 220, 720, 200);
 
+        addJButton.setBackground(new java.awt.Color(0, 153, 0));
+        addJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        addJButton.setForeground(new java.awt.Color(255, 255, 255));
         addJButton.setText("Create Employee");
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +129,7 @@ public class ManageSupplierEmployeeJPanel extends javax.swing.JPanel {
             }
         });
         add(addJButton);
-        addJButton.setBounds(715, 507, 130, 23);
+        addJButton.setBounds(620, 650, 180, 50);
 
         organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -135,12 +138,16 @@ public class ManageSupplierEmployeeJPanel extends javax.swing.JPanel {
             }
         });
         add(organizationJComboBox);
-        organizationJComboBox.setBounds(400, 171, 175, 23);
+        organizationJComboBox.setBounds(460, 160, 200, 40);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setText("Organization");
         add(jLabel1);
-        jLabel1.setBounds(287, 175, 72, 17);
+        jLabel1.setBounds(340, 160, 100, 40);
 
+        backJButton.setBackground(new java.awt.Color(0, 102, 204));
+        backJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        backJButton.setForeground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,26 +155,23 @@ public class ManageSupplierEmployeeJPanel extends javax.swing.JPanel {
             }
         });
         add(backJButton);
-        backJButton.setBounds(18, 33, 80, 23);
+        backJButton.setBounds(18, 16, 100, 40);
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setText("Name");
         add(jLabel2);
-        jLabel2.setBounds(370, 429, 126, 17);
+        jLabel2.setBounds(350, 520, 126, 17);
         add(nameJTextField);
-        nameJTextField.setBounds(528, 424, 126, 23);
+        nameJTextField.setBounds(476, 513, 170, 30);
 
         organizationEmpJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(organizationEmpJComboBox);
-        organizationEmpJComboBox.setBounds(528, 379, 126, 23);
+        organizationEmpJComboBox.setBounds(476, 463, 160, 30);
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel3.setText("Organization");
         add(jLabel3);
-        jLabel3.setBounds(370, 383, 126, 17);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supplier.jpeg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        add(jLabel4);
-        jLabel4.setBounds(0, 0, 1040, 590);
+        jLabel3.setBounds(350, 470, 126, 17);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
@@ -200,7 +204,6 @@ public class ManageSupplierEmployeeJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox organizationEmpJComboBox;

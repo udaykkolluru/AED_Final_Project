@@ -68,8 +68,8 @@ public class DoctorTransactionHome extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
         setLayout(null);
 
         tblOrderProductList.setModel(new javax.swing.table.DefaultTableModel(
@@ -86,15 +86,18 @@ public class DoctorTransactionHome extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblOrderProductList);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(130, 410, 596, 192);
+        jScrollPane1.setBounds(210, 490, 840, 240);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel1.setText("Products List");
         add(jLabel1);
-        jLabel1.setBounds(373, 49, 112, 22);
+        jLabel1.setBounds(210, 60, 170, 40);
         add(txtSearch);
-        txtSearch.setBounds(296, 106, 126, 18);
+        txtSearch.setBounds(210, 103, 190, 30);
 
+        btnSearch.setBackground(new java.awt.Color(102, 0, 102));
+        btnSearch.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("Search Product");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +105,7 @@ public class DoctorTransactionHome extends javax.swing.JPanel {
             }
         });
         add(btnSearch);
-        btnSearch.setBounds(477, 106, 115, 24);
+        btnSearch.setBounds(419, 103, 140, 30);
 
         tblProductList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,13 +121,16 @@ public class DoctorTransactionHome extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblProductList);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(130, 160, 596, 192);
+        jScrollPane2.setBounds(210, 150, 840, 230);
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel2.setText("Order List");
         add(jLabel2);
-        jLabel2.setBounds(350, 363, 86, 22);
+        jLabel2.setBounds(210, 460, 97, 24);
 
+        btnRemove.setBackground(new java.awt.Color(102, 0, 102));
+        btnRemove.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRemove.setForeground(new java.awt.Color(255, 255, 255));
         btnRemove.setText("Remove");
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,8 +138,11 @@ public class DoctorTransactionHome extends javax.swing.JPanel {
             }
         });
         add(btnRemove);
-        btnRemove.setBounds(749, 485, 76, 24);
+        btnRemove.setBounds(950, 390, 100, 40);
 
+        btnAdd.setBackground(new java.awt.Color(102, 0, 102));
+        btnAdd.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,8 +150,11 @@ public class DoctorTransactionHome extends javax.swing.JPanel {
             }
         });
         add(btnAdd);
-        btnAdd.setBounds(760, 220, 93, 24);
+        btnAdd.setBounds(850, 390, 93, 40);
 
+        btnBack.setBackground(new java.awt.Color(0, 102, 204));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,8 +162,11 @@ public class DoctorTransactionHome extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(18, 23, 76, 24);
+        btnBack.setBounds(18, 23, 90, 40);
 
+        jButton1.setBackground(new java.awt.Color(0, 153, 0));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Payment Page");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,8 +174,11 @@ public class DoctorTransactionHome extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(388, 607, 107, 24);
+        jButton1.setBounds(544, 773, 190, 50);
 
+        btnRefresh.setBackground(new java.awt.Color(0, 102, 204));
+        btnRefresh.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,11 +186,7 @@ public class DoctorTransactionHome extends javax.swing.JPanel {
             }
         });
         add(btnRefresh);
-        btnRefresh.setBounds(730, 20, 75, 24);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/supermarket.jpeg"))); // NOI18N
-        add(jLabel3);
-        jLabel3.setBounds(0, 50, 1110, 590);
+        btnRefresh.setBounds(935, 103, 110, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -271,7 +285,6 @@ public class DoctorTransactionHome extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblOrderProductList;
