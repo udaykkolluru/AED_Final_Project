@@ -161,7 +161,6 @@ public class ManagePatientRequests extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
-        // TODO add your handling code here:
         int selectedRow = tblRequest.getSelectedRow();
         if (selectedRow < 0){
             JOptionPane.showMessageDialog(this, "Please select an item");
@@ -183,7 +182,6 @@ public class ManagePatientRequests extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRejectActionPerformed
 
     private void btnOrderDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderDetailsActionPerformed
-        // TODO add your handling code here:
         int selectedRow = tblRequest.getSelectedRow();
         if (selectedRow < 0){
             JOptionPane.showMessageDialog(this, "Please select an item");
@@ -203,7 +201,6 @@ public class ManagePatientRequests extends javax.swing.JPanel {
     }//GEN-LAST:event_btnOrderDetailsActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         userProcessConatiner.remove(this);
         CardLayout layout = (CardLayout) userProcessConatiner.getLayout();
         layout.previous(userProcessConatiner);
