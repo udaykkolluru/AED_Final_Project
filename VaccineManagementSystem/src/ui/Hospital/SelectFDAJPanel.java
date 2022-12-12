@@ -63,7 +63,7 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
         jLabel1.setBounds(530, 122, 290, 70);
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jLabel2.setText("Supplier");
+        jLabel2.setText("Name");
         add(jLabel2);
         jLabel2.setBounds(410, 350, 71, 18);
 
@@ -105,7 +105,7 @@ public class SelectFDAJPanel extends javax.swing.JPanel {
         btnRequest.setBackground(new java.awt.Color(102, 0, 102));
         btnRequest.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnRequest.setForeground(new java.awt.Color(255, 255, 255));
-        btnRequest.setText("Select Distributor");
+        btnRequest.setText("Go");
         btnRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRequestActionPerformed(evt);
